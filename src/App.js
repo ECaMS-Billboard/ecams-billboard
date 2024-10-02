@@ -9,7 +9,7 @@ import Credits from './pages/Credits';
 function App() {
   const links = [
     { title: 'Submit a Poster', path: '/submit' },
-    { title: 'Contact', path: '/contact' },
+    //{ title: 'Contact', path: '/contact' },
     //{ title: 'About', path: '/about' },
     //{ title: 'Credits', path: '/credits' },
   ]

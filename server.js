@@ -1,3 +1,6 @@
+// Used only by the production build script (`npm run build`) and the Azure static hosting.
+// We probably don't need to touch this
+
 const express = require('express');
 const path = require('path');
 const app = express();

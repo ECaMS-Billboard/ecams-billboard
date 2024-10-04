@@ -1,4 +1,4 @@
-function Submit() {
+function Upload() {
   return (
     <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
@@ -14,4 +14,4 @@ function Submit() {
   );
 }
 
-export default Submit;
+export default Upload;

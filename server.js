@@ -1,5 +1,6 @@
-// Used only by the production build script (`npm run build`) and the Azure static hosting.
-// We probably don't need to touch this
+// We probably don't need to touch this.
+// Page routing is being handled with react-router-dom in `src/App.js`.
+// This script is only used for the production build / Azure hosting.
 
 const express = require('express');
 const path = require('path');

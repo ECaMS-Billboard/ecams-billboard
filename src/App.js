@@ -21,14 +21,14 @@ function App() {
   // Defines page routing scheme.
   // For example, going to `<URL>/about` will return `./pages/About.js`.
   return (
-    <Router>
-      <Routes basename={process.env.PUBLIC_URL}>
-        <Route path="/" element={<Home links={links} />} />
-        <Route path="/upload" element={<Upload />} />
-        <Route path="/slides" element={<Slides />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/credits" element={<Credits />} />
+    <Router basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path="/" element={<Home links={links}/>}/>
+        <Route path="/upload" element={<Upload/>}/>
+        <Route path="/slides" element={<Slides/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/credits" element={<Credits/>}/>
       </Routes>
     </Router>
   );

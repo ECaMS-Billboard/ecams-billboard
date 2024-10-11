@@ -22,7 +22,7 @@ function App() {
   // For example, going to `<URL>/about` will return `./pages/About.js`.
   return (
     <Router>
-      <Routes>
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route path="/" element={<Home links={links} />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/slides" element={<Slides />} />

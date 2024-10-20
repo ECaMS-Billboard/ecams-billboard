@@ -44,7 +44,7 @@ function Slides() {
   }, [nextSlide]);
 
   return (
-    <main className="h-screen w-screen bg-neutral-900 flex items-center justify-center ">
+    <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-neutral-900 flex items-center justify-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
         {/* Professor Carousel container */}
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
@@ -56,7 +56,7 @@ function Slides() {
               key={index} 
               className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300"
               >
-                  <h2 className="text-2xl font-bold mb-2">
+                  <h2 className="font-bold mb-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
                     {slide.First} {slide.Last} | Email: {slide.Email} |
                   </h2>
               </div>

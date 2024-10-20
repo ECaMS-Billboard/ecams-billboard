@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import professorInfo from '../professorInfo.json'
 
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,8 +44,26 @@ function Slides() {
   }, [nextSlide]);
 
   return (
-    <main className="h-screen bg-neutral-900 flex items-center justify-center">
-      <div className="relative overflow-hidden w-full max-w-6xl bg-neutral-900 rounded-lg shadow-lg">
+    <main className="h-screen w-screen bg-neutral-900 flex items-center justify-center ">
+      <div className="relative overflow-hidden rounded-lg shadow-lg">
+        {/* Professor Carousel container */}
+        <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
+        <div className="overflow-hidden h-56">
+          {/* Apply CSS animation for vertical scrolling */}
+          <div className="vertical-scroll-animation">
+            {professorInfo.map((slide, index) => (
+              <div 
+              key={index} 
+              className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300"
+              >
+                  <h2 className="text-2xl font-bold mb-2">
+                    {slide.First} {slide.Last} | Email: {slide.Email} |
+                  </h2>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Carousel container */}
         <div
           className="carousel flex transition-transform ease-in-out duration-700"

@@ -28,15 +28,15 @@ const resourcesData = [
   
   function Resources() {
     return (
-      <div style={{ padding: '20px' }}>
-        <h1>Resources</h1>
+      <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-red-700 text-3xl font-bold mb-4">Resources</h1>
         {resourcesData.map((resource, index) => (
           <div key={index} style={{ marginBottom: '20px' }}>
-            <h2>{resource.title}</h2>
-            <p>
+            <h2 className="text-gray-300">{resource.title}</h2>
+            <p className="underline text-blue-500">
               Phone: <a href={`tel:${resource.phone}`}>{resource.phone}</a>
             </p>
-            <p>
+            <p className="underline text-blue-500">
               Email: <a href={`mailto:${resource.email}`}>{resource.email}</a>
             </p>
           </div>

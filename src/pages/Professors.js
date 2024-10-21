@@ -1,3 +1,4 @@
+import {usestate} from 'react'
 const professorsData = `
 Abeh, Humphrey Aviation AbehHu@lewisu.edu;  
 Abumoar, Dr. Sam ECAMS oabuomar@lewisu.edu SU 113;  

@@ -39,3 +39,25 @@ As of 10/17/24, the below Microsoft Azure instances are maintained by [michaelds
 <br/><br/>
 
 A list of past and present developers can be found in [wiki/credits.md](wiki/credits.md)
+
+## Adding New Members
+
+### GitHub
+1. Collect the usernames of each new member
+2. Go to organization home page and click "People"
+3. Click "Invite Member" and enter the usernames of the members
+4. Send Invite
+5. Once everything is ready to be transferred, you can give ownership to the new members
+
+### ACP
+*We are currently working on a new ACP so this may change*
+1. Go to https://ecams-billboard-acp.azurewebsites.net and log in
+2. Go to "User Management" and click "New User"
+3. Input new user's name and school email
+4. Click Save
+
+### Mongo DB
+1. Give the email and password
+
+### GMail
+1. Give the email and password

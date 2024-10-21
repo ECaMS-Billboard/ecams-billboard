@@ -6,6 +6,7 @@ import Slides from './pages/Slides';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Credits from './pages/Credits';
+import Resources from './pages/Resources';
 
 
 function App() {
@@ -13,9 +14,10 @@ function App() {
   const links = [
     { title: 'Upload a Poster', path: '/upload' },
     { title: 'View Flyer Slideshow', path: '/slides' },
-    //{ title: 'Contact', path: '/contact' },
+    { title: 'Contact', path: '/contact' },
     //{ title: 'About', path: '/about' },
     //{ title: 'Credits', path: '/credits' },
+    { title: 'Resources', path '/resources'},
   ]
  
   // Defines page routing scheme.
@@ -29,6 +31,7 @@ function App() {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/credits" element={<Credits/>}/>
+        <Route path="/resources" element={<Resources/>}/>
       </Routes>
     </BrowserRouter>
   );

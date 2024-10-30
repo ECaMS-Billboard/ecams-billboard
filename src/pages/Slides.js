@@ -48,7 +48,7 @@ function Slides() {
       <div className="relative overflow-hidden rounded-lg shadow-lg">
         {/* Professor Carousel container */}
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
-        <div className="overflow-hidden h-56">
+        <div className="overflow-hidden h-64">
           {/* Apply CSS animation for vertical scrolling */}
           <div className="vertical-scroll-animation">
             {professorInfo.map((slide, index) => (
@@ -57,7 +57,7 @@ function Slides() {
               className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300"
               >
                   <h2 className="font-bold mb-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                    {slide.First} {slide.Last} | Email: {slide.Email} |
+                    {slide.First} {slide.Last} | Office: {slide.Office} |
                   </h2>
               </div>
             ))}

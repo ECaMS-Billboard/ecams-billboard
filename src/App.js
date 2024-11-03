@@ -8,6 +8,7 @@ import About from './pages/About';
 import Credits from './pages/Credits';
 import Professors from './pages/Professors';
 import Resources from './pages/Resources';
+import Kiosk from './pages/Kiosk';
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.
@@ -34,6 +35,7 @@ function App() {
         <Route path="/credits" element={<Credits/>}/>
         <Route path="/professors" element={<Professors/>}/>
         <Route path="/resources" element={<Resources/>}/>
+        <Route path="/kiosk" element={<Kiosk/>}/>
       </Routes>
     </BrowserRouter>
   );

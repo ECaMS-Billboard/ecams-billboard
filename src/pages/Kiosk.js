@@ -1,7 +1,7 @@
-// This page is accessed through the mobile portal (Home.js). Loops the poster slideshow.
+// This page is displayed on the kiosk. Loops the poster slideshow.
 
 import React, { useState, useEffect, useCallback } from 'react';
-//import professorInfo from '../professorInfo.json'
+import professorInfo from '../professorInfo.json';
 
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -31,10 +31,10 @@ function Slides() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   }, [items.length]);
 
-  // Show previous slide
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
-  }, [items.length]);
+  // Show previous slide (unused in /kiosk)
+  // const prevSlide = useCallback(() => {
+  //   setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
+  // }, [items.length]);
 
   // Auto-slide
   useEffect(() => {
@@ -46,13 +46,14 @@ function Slides() {
   }, [nextSlide]);
 
   return (
-
     <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-neutral-900 flex items-center justify-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
-        {/* Professor Carousel container*/}
+
+        {/* Professor Carousel container */}
+
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
-        {/*}
         <div className="overflow-hidden h-56">
+
           <div className="vertical-scroll-animation">
             {professorInfo.map((slide, index) => (
               <div 
@@ -66,6 +67,7 @@ function Slides() {
             ))}
           </div>
         </div>
+
 
         {/* Carousel container */}
         <div
@@ -82,20 +84,6 @@ function Slides() {
             </div>
           ))}
         </div>
-
-        {/* Navigation buttons */}
-        <button
-          onClick={prevSlide}
-          className="control-button absolute top-1/2 left-2 transform -translate-y-1/2 p-2 rounded-full bg-neutral-700 text-white shadow-md hover:bg-neutral-600"
-        >
-          ❮
-        </button>
-        <button
-          onClick={nextSlide}
-          className="control-button absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-neutral-700 text-white shadow-md hover:bg-neutral-600"
-        >
-          ❯
-        </button>
       </div>
     </main>
   );

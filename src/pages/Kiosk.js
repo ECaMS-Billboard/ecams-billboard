@@ -61,7 +61,7 @@ function Slides() {
               className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300"
               >
                   <h2 className="font-bold mb-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                    {slide.First} {slide.Last} | Email: {slide.Email} |
+                    {slide.First} {slide.Last} | Office: {slide.Office} |
                   </h2>
               </div>
             ))}

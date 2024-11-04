@@ -4,7 +4,7 @@
 
 ### Install project dependencies
 ```bash
-npm i -D react react-router-dom tailwindcss express
+npm i -D react react-scripts react-router-dom tailwindcss express
 ```
 
 </br>

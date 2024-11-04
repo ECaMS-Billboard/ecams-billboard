@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function About() {
   return (
     <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
@@ -7,7 +9,9 @@ function About() {
         <p className="text-gray-300">
           ECaMS Billboard is a project maintained by students in the Software Systems Capstone
           (CPSC-49200) course. It serves as an advertising and informational platform for students
-          to learn more about campus events and organizations
+          to learn more about campus events and organizations. To upload a poster, click {' '}
+          <Link to={"/upload"} className="underline text-blue-400">here</Link>.
+
           <br/><br/>
           And while "ECaMS" is in the project name, and our only kiosk is located in the AS
           building, poster submissions are not necessarily restricted to this department. 

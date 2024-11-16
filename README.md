@@ -1,9 +1,9 @@
 # ECaMS Billboard
-ECaMS Billboard is a full-stack web application based on MERN (MongoDB, Express, React, Node.js) and Tailwind CSS. The project is under very active development by Lewis University students in the Software Systems Capstone (CPSC-49200) course.
+ECaMS Billboard is a full-stack web application based on MERN (MongoDB, Express, React, Node.js) and Tailwind CSS. It is under very active development by Lewis University students in the Software Systems Capstone (CPSC-49200) course.
 
 It serves as a general informational platform for students, with the central feature of enabling campus organizations to advertise about upcoming events.
 
-Presently, the project maintains one kiosk in the AS building (S hallway), but will potentially be expanded to include multiple devices across different locations.
+Presently, the project maintains one kiosk in the AS building (S hallway), but will tentatively be expanded to include multiple devices across different locations.
 
 <br/>
 

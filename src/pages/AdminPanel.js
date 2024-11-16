@@ -1,32 +1,49 @@
-// Consider this a proof of concept
-// Will need to be secured properly later 
+/*
+  This is COMEDICALLY insecure, but it works as a placeholder for now.
+  I don't really anticipate this project being targeted by bad actors
+  anyway. That being said, this still needs to be re-implemented later 
+  with something respectable, most likely Google OAuth.
+*/
 
 import { useState } from 'react';
 
-const PASSWORD = 'password'
 
 function AdminPanel() {
   const [password, setPassword] = useState('');
   var [isAdmin, setIsAdmin] = useState(false);
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (password === PASSWORD) {
-        setIsAdmin(true)
-      } else {
-        alert('Incorrect password')
-      }
-    }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('https://ecamsbb-api.azurewebsites.net/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsAdmin(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
     if (isAdmin) {
       return (
-        <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-md mx-auto">
-            <h1 className="text-red-700 text-3xl font-bold mb-4">Admin Panel</h1>
-            <p className="text-white">woahh 1337 h4xor you got in!!</p>
+        <main className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
+          <div className="flex center items-center">
+            <h1 className="text-red-500 text-3xl font-bold mb-4">Admin Panel</h1>
           </div>
-        </div>
+          <p className='text-white'>Login Successful!</p>
+          {/* TODO additional logic for admin tools (file approval) */}
+        </main>
       );
     }
 
@@ -56,5 +73,6 @@ function AdminPanel() {
     </main>
       )
     }
+
 
 export default AdminPanel;

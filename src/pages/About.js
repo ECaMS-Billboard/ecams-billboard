@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 
 function About() {
   return (
-    <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto">
-        <h1 className="text-red-700 text-3xl font-bold mb-4">About</h1>
-
+    <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
+      <div className="max-w-xl mx-auto">
+        <div className='text-center'>
+          <h1 className="text-red-500 text-3xl font-bold mb-4">About</h1>
+        </div>
         <p className="text-gray-300">
           ECaMS Billboard is a project maintained by students in the Software Systems Capstone
           (CPSC-49200) course. It serves as an advertising and informational platform for students
@@ -26,7 +27,7 @@ function About() {
           if you have any questions.
         </p>
       </div>
-    </div>
+    </body>
   );
 }
 

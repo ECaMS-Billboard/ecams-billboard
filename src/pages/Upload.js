@@ -54,10 +54,10 @@ function Upload() {
   return (
     <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
-        <h1 className="text-red-700 text-3xl font-bold mb-4">Poster Submission Portal</h1>
+        <h1 className="text-red-500 text-3xl font-bold mb-4">Poster Submission Portal</h1>
         <div className="w-full max-w-md flex flex-col gap-4">
 
-          <p className="text-red-400">
+          <p className="text-red-600 bold">
             Sorry, file upload is currently disabled due to
             server maintenance. 
           </p>

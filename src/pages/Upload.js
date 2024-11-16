@@ -31,8 +31,7 @@ function Upload() {
 
 
     try {
-      // TODO: change this URL to the API once it is hosted
-      const response = await fetch('http://localhost:5000/upload', {
+      const response = await fetch('https://ecamsbb-api.azurewebsites.net/upload', {
         method: 'POST',
         body: formData,
       });

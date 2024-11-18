@@ -27,6 +27,9 @@ const LewisMap = () => {
     // Handle double-tap for mobile
     let lastTap = 0;
     const handleDoubleTap = (event) => {
+      // Check if it's a single touch point
+      if (event.touches && event.touches.length > 0) return; // Ignore multi-touch events
+
       const currentTime = new Date().getTime();
       const tapGap = currentTime - lastTap;
 

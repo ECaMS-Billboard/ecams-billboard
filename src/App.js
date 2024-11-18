@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useParams, useSearchParams} from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import { AdminPanel, About, Credits, Home, Kiosk, LewisMap, ProfessorList, ProfessorProfile,
          Resources, Slides, Upload } from './pages';

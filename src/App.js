@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import AdminPanel from './pages/AdminPanel';
 import About from './pages/About';
@@ -9,14 +9,14 @@ import Professors from './pages/Professors';
 import Resources from './pages/Resources';
 import Slides from './pages/Slides';
 import Upload from './pages/Upload';
-import EverydayApp from './pages/EverydayApp';
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.
   const links = [
     { title: 'View Poster Slideshow', path: '/slides' },
     { title: 'Upload a Poster', path: '/upload' },
-    //{ title: 'Professor Info', path: '/professors' },
+    { title: 'View Map of Lewis', path: '/lewis-map' },
+    { title: 'Professor Info', path: '/professor-list' },
     { title: 'About & Contact', path: '/about' },
     { title: 'Other Campus Resources', path: '/resources' },
     //{ title: 'Credits', path: '/credits' },
@@ -33,7 +33,9 @@ function App() {
         <Route path="/acp/" element={<AdminPanel/>}/>
         <Route path="/credits" element={<Credits/>}/>
         <Route path="/kiosk" element={<Kiosk/>}/>
-        <Route path="/professors" element={<Professors/>}/>
+        <Route path="/lewis-map" element={<LewisMap/>}/>
+        <Route path="/professor-list" element={<ProfessorList/>}/>
+        <Route path="/prof/:id" element={<ProfessorProfile/>}/>
         <Route path="/resources" element={<Resources/>}/>
         <Route path="/slides" element={<Slides/>}/>
         <Route path="/upload" element={<Upload/>}/>

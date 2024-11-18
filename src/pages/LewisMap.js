@@ -18,17 +18,33 @@ const LewisMap = () => {
     // Enable mouse wheel zoom
     mapContainer.addEventListener('wheel', panzoom.zoomWithWheel);
 
-    // Handle double click/tap to zoom out
+    // Double-click event for desktop
     const handleDoubleClick = () => {
       panzoom.zoom(1, { animate: true }); // Zoom back out to scale 1
     };
-
     mapContainer.addEventListener('dblclick', handleDoubleClick);
+
+    // Handle double-tap for mobile
+    let lastTap = 0;
+    const handleDoubleTap = (event) => {
+      const currentTime = new Date().getTime();
+      const tapGap = currentTime - lastTap;
+
+      if (tapGap < 300 && tapGap > 0) {
+        // If the second tap happens within 300ms, treat it as a double-tap
+        panzoom.zoom(1, { animate: true }); // Zoom back out to scale 1
+        event.preventDefault();
+      }
+
+      lastTap = currentTime;
+    };
+    mapContainer.addEventListener('touchend', handleDoubleTap);
 
     // Cleanup function
     return () => {
-      mapContainer.removeEventListener('wheel', panzoom.zoomWithWheel); // Use the local variable
-      mapContainer.removeEventListener('dblclick', handleDoubleClick); // Cleanup double click
+      mapContainer.removeEventListener('wheel', panzoom.zoomWithWheel);
+      mapContainer.removeEventListener('dblclick', handleDoubleClick);
+      mapContainer.removeEventListener('touchend', handleDoubleTap);
       panzoom.destroy();
     };
   }, []);

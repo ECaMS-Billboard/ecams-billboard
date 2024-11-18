@@ -18,9 +18,17 @@ const LewisMap = () => {
     // Enable mouse wheel zoom
     mapContainer.addEventListener('wheel', panzoom.zoomWithWheel);
 
+    // Handle double click/tap to zoom out
+    const handleDoubleClick = () => {
+      panzoom.zoom(1, { animate: true }); // Zoom back out to scale 1
+    };
+
+    mapContainer.addEventListener('dblclick', handleDoubleClick);
+
     // Cleanup function
     return () => {
       mapContainer.removeEventListener('wheel', panzoom.zoomWithWheel); // Use the local variable
+      mapContainer.removeEventListener('dblclick', handleDoubleClick); // Cleanup double click
       panzoom.destroy();
     };
   }, []);

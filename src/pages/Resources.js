@@ -1,3 +1,5 @@
+import Navigationbar from '../components/Navigationbar';
+
 const resourcesData = [
     {
       title: 'IT Support',
@@ -29,7 +31,8 @@ const resourcesData = [
   function Resources() {
     return (
       <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
-        <h1 className="text-red-500 text-3xl font-bold mb-4">Resources</h1>
+        <Navigationbar/>
+        <h1 className="text-red-500 text-3xl font-bold mb-4 mt-10">Resources</h1>
         <div>
           {resourcesData.map((resource, index) => (
             <div key={index} style={{ marginBottom: '20px' }}>

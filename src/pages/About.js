@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import Navigationbar from '../components/Navigationbar';
 
 function About() {
   return (
     <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
-      <div className="max-w-xl mx-auto">
+      <Navigationbar/>
+      <div className="max-w-xl mx-auto mt-10">
         <div className='text-center'>
           <h1 className="text-red-500 text-3xl font-bold mb-4">About</h1>
         </div>

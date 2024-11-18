@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import { AdminPanel, About, Credits, Home, Kiosk, LewisMap, ProfessorList, ProfessorProfile,
-         Resources, Slides, Upload } from './pages';
+import { AdminPanel, About, Credits, EverydayApp, Home, Kiosk, LewisMap, ProfessorList, ProfessorProfile, Resources, Slides, Upload } from './pages';
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.

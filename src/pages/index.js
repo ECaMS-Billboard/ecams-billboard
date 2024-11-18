@@ -13,4 +13,3 @@ export { default as ProfessorProfile } from './professor-info/ProfessorProfile';
 export { default as Resources } from './Resources';
 export { default as Slides } from './Slides';
 export { default as Upload } from './Upload';
-export { default as EverydayApp } from './EverydayApp';

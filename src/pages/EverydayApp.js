@@ -1,4 +1,4 @@
-const AppLink = () => {
+const EverydayApp = () => {
     const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.dynamify.sodexo';
     const appleStoreLink = 'https://apps.apple.com/gb/app/everyday/id1338702323';
   
@@ -28,4 +28,4 @@ const AppLink = () => {
     );
   };
   
-  export default AppLink;
+  export default EverydayApp;

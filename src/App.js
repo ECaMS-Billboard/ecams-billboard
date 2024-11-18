@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import { AdminPanel, About, Credits, Home, Kiosk, LewisMap, ProfessorList, ProfessorProfile,
-         Resources, Slides, Upload } from './pages';
+import { AdminPanel, About, Credits, Home, Kiosk, LewisMap, ProfessorList, ProfessorProfile, Resources, Slides, Upload, EverydayApp } from './pages';
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.
@@ -13,7 +12,7 @@ function App() {
     { title: 'About & Contact', path: '/about' },
     { title: 'Other Campus Resources', path: '/resources' },
     //{ title: 'Credits', path: '/credits' },
-    { title: 'Everyday App', path: '/EverydayApp' },
+    { title: 'Everyday App', path: '/everydayapp' }
   ]
  
   // Defines page routing scheme.

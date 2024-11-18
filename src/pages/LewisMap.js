@@ -5,18 +5,22 @@ const LewisMap = () => {
   const mapContainerRef = useRef(null);
 
   useEffect(() => {
-    const panzoom = Panzoom(mapContainerRef.current, {
+    const mapContainer = mapContainerRef.current; // Store ref value locally
+
+    if (!mapContainer) return;
+
+    const panzoom = Panzoom(mapContainer, {
       maxScale: 5, // Maximum zoom
       minScale: 1, // Minimum zoom
       contain: 'outside', // Allow panning
     });
 
     // Enable mouse wheel zoom
-    mapContainerRef.current.addEventListener('wheel', panzoom.zoomWithWheel);
+    mapContainer.addEventListener('wheel', panzoom.zoomWithWheel);
 
-    // Close event listeners
+    // Cleanup function
     return () => {
-      mapContainerRef.current.removeEventListener('wheel', panzoom.zoomWithWheel);
+      mapContainer.removeEventListener('wheel', panzoom.zoomWithWheel); // Use the local variable
       panzoom.destroy();
     };
   }, []);

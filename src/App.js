@@ -9,6 +9,7 @@ import Professors from './pages/Professors';
 import Resources from './pages/Resources';
 import Slides from './pages/Slides';
 import Upload from './pages/Upload';
+import EverydayApp from './pages/EverydayApp';
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.
@@ -19,6 +20,7 @@ function App() {
     { title: 'About & Contact', path: '/about' },
     { title: 'Other Campus Resources', path: '/resources' },
     //{ title: 'Credits', path: '/credits' },
+    { title: 'Everyday App', path: '/EverydayApp' },
   ]
  
   // Defines page routing scheme.
@@ -35,6 +37,7 @@ function App() {
         <Route path="/resources" element={<Resources/>}/>
         <Route path="/slides" element={<Slides/>}/>
         <Route path="/upload" element={<Upload/>}/>
+        <Route path="/everydayapp" element={<EverydayApp/>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -8,6 +8,7 @@ import Credits from './pages/Credits';
 import Professors from './pages/Professors';
 import Resources from './pages/Resources';
 import Kiosk from './pages/Kiosk';
+import Navigationbar from './components/Navigationbar';
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.
@@ -26,12 +27,12 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home links={links}/>}/>
-        <Route path="/upload" element={<Upload/>}/>
+        <Route path="/upload" element={<><Navigationbar/><Upload/></>}/>
         <Route path="/slides" element={<Slides/>}/>
-        <Route path="/about" element={<About/>}/>
+        <Route path="/about" element={<><Navigationbar/><About/></>}/>
         <Route path="/credits" element={<Credits/>}/>
-        <Route path="/professors" element={<Professors/>}/>
-        <Route path="/resources" element={<Resources/>}/>
+        <Route path="/professors" element={<><Navigationbar/><Professors/></>}/>
+        <Route path="/resources" element={<><Navigationbar/><Resources/></>}/>
         <Route path="/kiosk" element={<Kiosk/>}/>
       </Routes>
     </BrowserRouter>

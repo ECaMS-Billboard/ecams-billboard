@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navigationbar from '../components/Navigationbar';
 
 
 function Upload() {
@@ -52,7 +53,8 @@ function Upload() {
 
   return (
     <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto">
+      <Navigationbar/>
+      <div className="max-w-md mx-auto mt-10">
         <h1 className="text-red-500 text-3xl font-bold mb-4">Poster Submission Portal</h1>
         <div className="w-full max-w-md flex flex-col gap-4">
 

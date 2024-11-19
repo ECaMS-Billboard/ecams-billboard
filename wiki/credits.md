@@ -6,6 +6,10 @@
 - [Justin Cordero](mailto:justinccordero@lewisu.edu)
 - [Ryan Hinkle](mailto:ryanehinkle@lewisu.edu)
 - [Michael Szostak](mailto:michaeldszostak@lewisu.edu)
+- [Samuel Swedo](mailto:samueljswedo@lewisu.edu)
+- [Noah Van Gorp](mailto:noahavangorp@lewisu.edu)
+- [Johan Olmos Zavala](mailto:johanolmoszavala@lewisu.edu)
+- [Anthony Missana](mailto:anthonypmissana@lewisu.edu)
 
 
 ## Past Developers

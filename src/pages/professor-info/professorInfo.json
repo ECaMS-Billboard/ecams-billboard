@@ -1,491 +1,573 @@
 [
   {
+      "id": "",
       "First": "Fuad",
       "Last": "Abu Zahra",
       "Email": "fabuzahra@lewisu.edu",
       "Office": "ALB-110"
   },
   {
+      "id": "",
       "First": "Osama \"Sam\"",
       "Last": "Abuomar",
       "Email": "oabuomar@lewisu.edu",
       "Office": "SU-113"
   },
   {
+      "id": "",
       "First": "Jude",
       "Last": "Adeniji",
       "Email": "jadeniji@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Imad",
       "Last": "Al Saeed",
       "Email": "ialsaeed@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Ziad",
       "Last": "Al Sharif",
       "Email": "zalsharif@lewisu.edu",
       "Office": "AS-112-A"
   },
   {
+      "id": "",
       "First": "Mahmood",
       "Last": "Al-khassaweneh",
       "Email": "malkhassaweneh@lewisu.edu",
       "Office": "AS-116-A"
   },
   {
+      "id": "",
       "First": "Khaled",
       "Last": "Alrfou",
       "Email": "kalrfou@lewisu.edu",
       "Office": "ALB-112"
   },
   {
+      "id": "",
       "First": "Abdullah",
       "Last": "Alshboul",
       "Email": "aalshboul@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Yazan",
       "Last": "Alsmadi",
       "Email": "yalsmadi@lewisu.edu",
       "Office": "AS-114-A"
   },
   {
+      "id": "",
       "First": "Khaled",
       "Last": "Alzoubi",
       "Email": "alzoubkh@lewisu.edu",
       "Office": "AS-118-A"
   },
   {
+      "id": "",
       "First": "Ahmad",
       "Last": "Awwad",
       "Email": "aawwad1@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Moussa",
       "Last": "Ayyash",
       "Email": "mayyash@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Manoj",
       "Last": "Bhat",
       "Email": "bhatma@lewisu.edu",
       "Office": "SU-110"
   },
   {
+      "id": "",
       "First": "Vadim",
       "Last": "Biryukov",
       "Email": "vbiryukov@lewisu.edu",
       "Office": "SU-108"
   },
   {
+      "id": "",
       "First": "Kelly",
       "Last": "Blaszczyk",
       "Email": "kblaszczyk@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Jaeik",
       "Last": "Cho",
       "Email": "jcho1@lewisu.edu",
       "Office": "SU-109"
   },
   {
+      "id": "",
       "First": "Eric",
       "Last": "Chou",
       "Email": "echou@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Matthew",
       "Last": "Clavelli",
       "Email": "mclavelli@lewisu.edu",
       "Office": "SU-105"
   },
   {
+      "id": "",
       "First": "Yahya",
       "Last": "Daoud",
       "Email": "ydaoud@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Dana",
       "Last": "Dominiak",
       "Email": "dominida@lewisu.edu",
       "Office": "AS-053-S"
   },
   {
+      "id": "",
       "First": "Thomas",
       "Last": "Dupre",
       "Email": "dupreth@lewisu.edu",
       "Office": "AS-128-A"
   },
   {
+      "id": "",
       "First": "Melissa",
       "Last": "Eichelberger",
       "Email": "eichelme@lewisu.edu",
       "Office": "LR-344B"
   },
   {
+      "id": "",
       "First": "Jason",
       "Last": "Elsinger",
       "Email": "jelsinger@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Dan",
       "Last": "Ezenekwe",
       "Email": "dezenekwe@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Natalija",
       "Last": "Glisovic",
       "Email": "nglisovic@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Amanda Harsy",
       "Last": "Ramsay",
       "Email": "harsyram@lewisu.edu",
       "Office": "SU-124"
   },
   {
+      "id": "",
       "First": "Mark",
       "Last": "Hatchel",
       "Email": "mhatchel@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Shurouq",
       "Last": "Hmoud",
       "Email": "shmoud@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Cynthia",
       "Last": "Howard",
       "Email": "howardcy@lewisu.edu",
       "Office": "AS-131-L"
   },
   {
+      "id": "",
       "First": "En Hsin",
       "Last": "Huang",
       "Email": "ehuang@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Margaret",
       "Last": "Juraco",
       "Email": "juracoma@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Firas",
       "Last": "Khasawneh",
       "Email": "khasawfi@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Rami",
       "Last": "Khasawneh",
       "Email": "khasawra@lewisu.edu",
       "Office": "AS-059-S"
   },
   {
+      "id": "",
       "First": "Victoria",
       "Last": "Heekyung Kim",
       "Email": "hkim3@lewisu.edu",
       "Office": "AS-111-A"
   },
   {
+      "id": "",
       "First": "John",
       "Last": "Kim",
       "Email": "jkim3@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Paul",
       "Last": "Young J. Kim",
       "Email": "kimyo@lewisu.edu",
       "Office": "AS-110-A"
   },
   {
+      "id": "",
       "First": "Sung",
       "Last": "Kim",
       "Email": "skim2@lewisu.edu",
       "Office": "AS-126-A"
   },
   {
+      "id": "",
       "First": "Ray",
       "Last": "Klump",
       "Email": "klumpra@lewisu.edu",
       "Office": "SU-105"
   },
   {
+      "id": "",
       "First": "Matthew",
       "Last": "Kwiatkowski",
       "Email": "kwiatkma@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Michael J.",
       "Last": "Lewis",
       "Email": "mlewis8@lewisu.edu",
       "Office": "AS-110A-A"
   },
   {
+      "id": "",
       "First": "Alison",
       "Last": "Major",
       "Email": "amajor@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Gina",
       "Last": "Martinez",
       "Email": "martingi@lewisu.edu",
       "Office": "AS-130-L"
   },
   {
+      "id": "",
       "First": "Yacine",
       "Last": "Merdjemak",
       "Email": "ymerdjemak@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Marie",
       "Last": "Meyer",
       "Email": "mmeyer2@lewisu.edu",
       "Office": "SU-128"
   },
   {
+      "id": "",
       "First": "John",
       "Last": "Mikos",
       "Email": "jmikos@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Daiva",
       "Last": "Mikunas",
       "Email": "mikunada@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Dennis",
       "Last": "Monbrod",
       "Email": "dmonbrod1@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Leanora",
       "Last": "Moore",
       "Email": "lmoore12@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Diane",
       "Last": "Nead",
       "Email": "dnead@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Yousef",
       "Last": "Nijim",
       "Email": "ynijim@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "David",
       "Last": "Nowak",
       "Email": "dnowak2@lewisu.edu",
       "Office": "AS-026-L"
   },
   {
+      "id": "",
       "First": "Michael",
       "Last": "Nowak",
       "Email": "nowakmi@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Samer",
       "Last": "Odeh",
       "Email": "sodeh1@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Safwan",
       "Last": "Omari",
       "Email": "omarisa@lewisu.edu",
       "Office": "AS-129-L"
   },
   {
+      "id": "",
       "First": "Laura",
       "Last": "Paramo",
       "Email": "lparamo1@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Jason",
       "Last": "Perry",
       "Email": "perryjn@lewisu.edu",
       "Office": "AS-127-L"
   },
   {
+      "id": "",
       "First": "Mathias",
       "Last": "Plass",
       "Email": "plassma@lewisu.edu",
       "Office": "AS-125-L"
   },
   {
+      "id": "",
       "First": "Eric",
       "Last": "Pogue",
       "Email": "epogue@lewisu.edu",
       "Office": "AS-124-A"
   },
   {
+      "id": "",
       "First": "Eric",
       "Last": "Reynoso",
       "Email": "ereynoso@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "John",
       "Last": "Rinderer",
       "Email": "jrinderer@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Alejandro",
       "Last": "Rodriguez",
       "Email": "arodriguez47@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Michael",
       "Last": "Roppo",
       "Email": "mroppo@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Brandon",
       "Last": "Schabell",
       "Email": "brandonmschabell@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Adam",
       "Last": "Schultze",
       "Email": "aschultze@lewisu.edu",
       "Office": "SU-130"
   },
   {
+      "id": "",
       "First": "Sheikh",
       "Last": "Shamsuddin",
       "Email": "shamsush@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Michael",
       "Last": "Smith",
       "Email": "msmith42@lewisu.edu",
       "Office": "SU-122"
   },
   {
+      "id": "",
       "First": "Suzan",
       "Last": "Sollie",
       "Email": "solliesu@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Eric",
       "Last": "Spangler",
       "Email": "spangler@lewisu.edu",
       "Office": "AS-120-A"
   },
   {
+      "id": "",
       "First": "Jayme M.",
       "Last": "Speva",
       "Email": "spevaja@lewisu.edu",
       "Office": "AS-032-L"
   },
   {
+      "id": "",
       "First": "Brittany",
       "Last": "Stephenson",
       "Email": "bstephenson@lewisu.edu",
       "Office": "SU-126"
   },
   {
+      "id": "",
       "First": "Kayla",
       "Last": "Stephenson",
       "Email": "kstephenson3@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Quinn",
       "Last": "Stratton",
       "Email": "qstratton@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Amila Sudu",
       "Last": "Ambegedara",
       "Email": "asuduambegedara@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Sean",
       "Last": "Sullivan",
       "Email": "ssullivan7@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Cara",
       "Last": "Sulyok",
       "Email": "csulyok@lewisu.edu",
       "Office": "SU-125"
   },
   {
+      "id": "",
       "First": "Piotr",
       "Last": "Szczurek",
       "Email": "szczurpi@lewisu.edu",
       "Office": "SU-111"
   },
   {
+      "id": "",
       "First": "Indika",
       "Last": "Udagedara",
       "Email": "iudagedara@lewisu.edu",
       "Office": "SU-116"
   },
   {
+      "id": "",
       "First": "Fadi",
       "Last": "Wedyan",
       "Email": "fwedyan@lewisu.edu",
       "Office": "AS-122-A"
   },
   {
+      "id": "",
       "First": "Stephen",
       "Last": "Welsch",
       "Email": "welschst@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Brandon",
       "Last": "White",
       "Email": "bwhite5@lewisu.edu",
       "Office": "Adjunct"
   },
   {
+      "id": "",
       "First": "Bo",
       "Last": "Xu",
       "Email": "xubo@lewisu.edu",
       "Office": "SU-105"
   },
   {
+      "id": "",
       "First": "Wanyu",
       "Last": "Zang",
       "Email": "",

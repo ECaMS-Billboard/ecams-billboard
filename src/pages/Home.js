@@ -5,7 +5,7 @@ function Home({ links }) {
     <main className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
 
       <div className="flex center items-center">
-        <h1 className="text-red-700 text-3xl font-extrabold mb-8 -translate-x-2">ECaMS Billboard</h1>
+        <h1 className="text-red-500 text-3xl font-extrabold mb-8 -translate-x-2">ECaMS Billboard</h1>
         <img className="w-12 -translate-y-4" src="lewis_logo.png" alt="Lewis Logo"/>
       </div>
 

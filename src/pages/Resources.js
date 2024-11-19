@@ -9,21 +9,26 @@ const resourcesData = [
     {
       title: 'Financial Aid',
       phone: '(815) 836-5263',
-      email: '',
+      email: 'finaid@lewisu.edu',
     },
     {
       title: "Registrar's Office",
       phone: '(815) 836-5133',
-      email: '',
+      email: 'registrar',
     },
     {
       title: 'Admissions',
       phone: '(815) 836-5250',
+      email: 'admissions@lewisu.edu',
+    },
+    {
+      title: 'LUPD Non-Emergency',
+      phone: '(815) 836-5222',
       email: '',
     },
     {
-      title: 'LUPD',
-      phone: '(815) 836-5222',
+      title: 'LUPD Emergency',
+      phone: '(815) 836-5911',
       email: '',
     },
   ];

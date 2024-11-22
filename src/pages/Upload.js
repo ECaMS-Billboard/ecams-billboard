@@ -58,12 +58,7 @@ function Upload() {
         <h1 className="text-red-500 text-3xl font-bold mb-4">Poster Submission Portal</h1>
         <div className="w-full max-w-md flex flex-col gap-4">
 
-          <p className="text-red-600 bold">
-            Sorry, file upload is currently disabled due to
-            server maintenance. 
-          </p>
-          {/* TODO: Re-enable upload once the API is hosted */}
-          <button disabled
+        <button 
             onClick={() => document.getElementById('fileInput').click()}
             className="block text-white bg-neutral-700 hover:bg-neutral-600 py-3 px-4
                        rounded-lg shadow text-center transition hover:-translate-y-1"

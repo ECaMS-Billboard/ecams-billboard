@@ -9,11 +9,21 @@ const getColorFromRmpScore = (score)  => {
 
 function ProfessorProfile() {
     const { id } = useParams();
+    const rmpScore = 5.0  // TODO get this from API route /prof-info/id
 
     return (
-      <div style={{color: getColorFromRmpScore(5.0)}}>
-        {id}
-      </div>
+      <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
+        <div className="max-w-xl mx-auto mt-10">
+          <div className='text-center'>
+            <h1 className="text-red-500 text-3xl font-bold mb-4">About</h1>
+          </div>
+
+          <div style={{color: getColorFromRmpScore(rmpScore)}}>
+            Professor ID: {id}, RateMyProfessors Score: {rmpScore}
+          </div>
+
+        </div>
+      </body>
     );
   }
 

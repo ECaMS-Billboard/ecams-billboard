@@ -10,12 +10,14 @@ function App() {
     { title: 'View Poster Slideshow', path: '/slides' },
     { title: 'Upload a Poster', path: '/upload' },
     { title: 'View Map of Lewis', path: '/lewis-map' },
-    { title: 'Professor Info', path: '/professor-list' },
-    { title: 'About & Contact', path: '/about' },
-    { title: 'Other Campus Resources', path: '/resources' },
-    //{ title: 'Credits', path: '/credits' },
+    { title: 'Professor Information', path: '/professor-list' },
     { title: 'Everyday App', path: '/everydayapp' },
-    { title: 'Capstone Products', path: '/capstoneproducts' }
+    { title: 'Capstone Products', path: '/capstoneproducts' },
+
+    // Keep Resources and the About pages on the bottom of the list
+    //{ title: 'Credits', path: '/credits' },
+    { title: 'Resources', path: '/resources' },
+    { title: 'About & Contact', path: '/about' }
   ]
  
   // Defines page routing scheme.

@@ -6,6 +6,7 @@ import professorInfo from './professor-info/professorInfo.json';
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [items, setItems] = useState([]);
+  const [professors, setProfessors] = useState([]);
 
   // Fetch banner data
   useEffect(() => {
@@ -24,9 +25,25 @@ function Slides() {
       }
     }
     fetchBannerData();
+
+    async function fetchProfessorData() {
+      try {
+        const response = await fetch('https://ecamsbb-api.azurewebsites.net/prof-list');
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+          setProfessors(data);
+        } else {
+          console.error('Unexpected data format:', data);
+        }
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    }
+    fetchProfessorData();
   }, []);
 
-  // Show next slide
+ // Show next slide
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   }, [items.length]);
@@ -54,16 +71,17 @@ function Slides() {
         <div className="overflow-hidden h-96">
 
           <div className="vertical-scroll-animation">
-            {professorInfo.map((slide, index) => (
-              <div 
-              key={index} 
-              className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300"
-              >
+          {professors.length > 0 ? (
+              professors.map((professor, index) => (
+                <div key={index} className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300">
                   <h2 className="font-bold mb-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                    {slide.First} {slide.Last} | Office: {slide.Office} |
+                    {professor.fname} {professor.lname} | Office: {/*professor.office*/} |
                   </h2>
-              </div>
-            ))}
+                </div>
+              ))
+            ) : (
+              <p>Loading professor information...</p> // Show loading message until data is fetched
+            )}
           </div>
         </div>
 

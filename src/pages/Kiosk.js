@@ -1,7 +1,7 @@
 // This page is displayed on the kiosk. Loops the poster slideshow.
 
 import React, { useState, useEffect, useCallback } from 'react';
-import professorInfo from './professor-info/professorInfo.json';
+// import professorInfo from './professor-info/professorInfo.json';
 
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);

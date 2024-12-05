@@ -46,13 +46,12 @@ function Slides() {
   }, [nextSlide]);
 
   return (
-    <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-neutral-900 flex items-center justify-center ">
+    <main className="overflow-x-hidden overflow-y-hidden box-border h-screen bg-neutral-900 items-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
 
         {/* Professor Carousel container */}
-
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
-        <div className="overflow-hidden h-56">
+        <div className="overflow-hidden h-96">
 
           <div className="vertical-scroll-animation">
             {professorInfo.map((slide, index) => (
@@ -68,14 +67,13 @@ function Slides() {
           </div>
         </div>
 
-
         {/* Carousel container */}
         <div
           className="carousel flex transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {items.map((item, index) => (
-            <div key={index} className="carousel-item w-full flex-shrink-0">
+            <div key={index} className="carousel-item w-full h-full flex-shrink-0">
               <img
                 src={`https://ecams-billboard--api.azurewebsites.net/uploads/${item.image_name}`}
                 alt={item.name || `Slide ${index + 1}`}
@@ -84,7 +82,10 @@ function Slides() {
             </div>
           ))}
         </div>
+        <footer className="text-slate-100 text-center shadow-lg font-bold text-8xl">Access The ECaMS Hub!</footer>
+        <footer className="text-red-500 text-center shadow-lg font-bold text-8xl">⇓SCAN ME⇓</footer>
       </div>
+      
     </main>
   );
 }

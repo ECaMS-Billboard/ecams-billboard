@@ -1,7 +1,6 @@
 // This page is displayed on the kiosk. Loops the poster slideshow.
 
 import React, { useState, useEffect, useCallback } from 'react';
-// import professorInfo from './professor-info/professorInfo.json';
 
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,7 +74,7 @@ function Slides() {
               professors.map((professor, index) => (
                 <div key={index} className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300">
                   <h2 className="font-bold mb-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                    {professor.fname} {professor.lname} | Office: {/*professor.office*/} |
+                    {professor.fname} {professor.lname} | Office: {professor.office} |
                   </h2>
                 </div>
               ))

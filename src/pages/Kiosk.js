@@ -1,11 +1,11 @@
 // This page is displayed on the kiosk. Loops the poster slideshow.
 
 import React, { useState, useEffect, useCallback } from 'react';
-import professorInfo from './professor-info/professorInfo.json';
 
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [items, setItems] = useState([]);
+  const [professors, setProfessors] = useState([]);
 
   // Fetch banner data
   useEffect(() => {
@@ -24,9 +24,25 @@ function Slides() {
       }
     }
     fetchBannerData();
+
+    async function fetchProfessorData() {
+      try {
+        const response = await fetch('https://ecamsbb-api.azurewebsites.net/prof-list');
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+          setProfessors(data);
+        } else {
+          console.error('Unexpected data format:', data);
+        }
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    }
+    fetchProfessorData();
   }, []);
 
-  // Show next slide
+ // Show next slide
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   }, [items.length]);
@@ -46,28 +62,27 @@ function Slides() {
   }, [nextSlide]);
 
   return (
-    <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-neutral-900 flex items-center justify-center ">
+    <main className="overflow-x-hidden overflow-y-hidden box-border h-screen bg-neutral-900 items-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
 
         {/* Professor Carousel container */}
-
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
-        <div className="overflow-hidden h-56">
+        <div className="overflow-hidden h-96">
 
           <div className="vertical-scroll-animation">
-            {professorInfo.map((slide, index) => (
-              <div 
-              key={index} 
-              className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300"
-              >
+          {professors.length > 0 ? (
+              professors.map((professor, index) => (
+                <div key={index} className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300">
                   <h2 className="font-bold mb-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                    {slide.First} {slide.Last} | Office: {slide.Office} |
+                    {professor.fname} {professor.lname} | Office: {professor.office} |
                   </h2>
-              </div>
-            ))}
+                </div>
+              ))
+            ) : (
+              <p>Loading professor information...</p> // Show loading message until data is fetched
+            )}
           </div>
         </div>
-
 
         {/* Carousel container */}
         <div
@@ -75,7 +90,7 @@ function Slides() {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {items.map((item, index) => (
-            <div key={index} className="carousel-item w-full flex-shrink-0">
+            <div key={index} className="carousel-item w-full h-full flex-shrink-0">
               <img
                 src={`https://ecams-billboard--api.azurewebsites.net/uploads/${item.image_name}`}
                 alt={item.name || `Slide ${index + 1}`}
@@ -84,7 +99,10 @@ function Slides() {
             </div>
           ))}
         </div>
+        <footer className="text-slate-100 text-center shadow-lg font-bold text-8xl">Access The ECaMS Hub!</footer>
+        <footer className="text-red-500 text-center shadow-lg font-bold text-8xl">⇓SCAN ME⇓</footer>
       </div>
+      
     </main>
   );
 }

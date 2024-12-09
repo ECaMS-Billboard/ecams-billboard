@@ -14,7 +14,7 @@ function ProfessorProfile() {
   // normalizes score and returns color category
   const getColorFromRmpScore = (score) => {
     const colors = ['#f55c5c', '#f06f44', '#e5832c', '#d49614', '#bea801', '#a3b816', '#82c636', '#55d259'];
-    return score == 0 ? '#d1d5db' : colors[Math.min(Math.floor((score-1) / (5-1) * (colors.length -1)), colors.length -1)];
+    return score === 0 ? '#d1d5db' : colors[Math.min(Math.floor((score-1) / (5-1) * (colors.length -1)), colors.length -1)];
   }
 
 
@@ -52,7 +52,7 @@ function ProfessorProfile() {
 
           Email: <a className='text-blue-500' href={`mailto:${prof.email}`}>{prof.email}</a> <br/>
 
-          { prof.office == 'Adjunct' ? null : <>Office Location: {prof.office}<br/></> }
+          { prof.office === 'Adjunct' ? null : <>Office Location: {prof.office}<br/></> }
 
           { prof.overall_rating === 0 ? null :
            <>RateMyProfessors score* from { prof.num_ratings } { prof.num_ratings === 1 ? 'rating' : 'ratings' }:{' '}

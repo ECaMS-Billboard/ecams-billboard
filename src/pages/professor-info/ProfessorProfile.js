@@ -25,7 +25,12 @@ function ProfessorProfile() {
       const data = await response.json();
 
       if (data) {
-        setProf(data);
+        setProf({ 
+          ...data,
+          // ensure int/float properties are not parsed as strings
+          overall_rating: Number(data.overall_rating),
+          num_ratings: Number(data.num_ratings)
+        })
       }
     } catch (error) {
       console.error('Fetch error:', error);
@@ -38,19 +43,19 @@ function ProfessorProfile() {
   }, [id]);
 
   return (
-    <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
-      <div className="max-w-xl mx-auto mt-10">
+    <body className='min-h-screen bg-neutral-900 p-8 flex flex-col items-center'>
+      <div className='max-w-xl mx-auto mt-10'>
         <div className='text-center text-gray-300 leading-10'>
-          <h1 className="text-red-500 text-3xl font-bold mb-4">{prof.fname} {prof.lname}</h1>
+          <h1 className='text-red-500 text-3xl font-bold mb-4'>{prof.fname} {prof.lname}</h1>
 
-          { prof.dept == "N/A" ? null : <>{prof.dept}<br/></> }
+          { prof.dept === 'N/A' ? null : <>{prof.dept}<br/></> }
 
           Email: <a className='text-blue-500' href={`mailto:${prof.email}`}>{prof.email}</a> <br/>
 
-          { prof.office == "Adjunct" ? null : <>Office Location: {prof.office}<br/></> }
+          { prof.office == 'Adjunct' ? null : <>Office Location: {prof.office}<br/></> }
 
-          { prof.overall_rating == 0 ? null :
-           <>RateMyProfessors score* from { prof.num_ratings } { prof.num_ratings == 1 ? 'rating' : 'ratings' }:{' '}
+          { prof.overall_rating === 0 ? null :
+           <>RateMyProfessors score* from { prof.num_ratings } { prof.num_ratings === 1 ? 'rating' : 'ratings' }:{' '}
             <span style={{backgroundColor: getColorFromRmpScore(prof.overall_rating), borderRadius: 4, color: 'black',
               padding:2, paddingLeft:3, paddingRight: 3
             }}>
@@ -61,8 +66,8 @@ function ProfessorProfile() {
         </div>
 
         {/* disclaimer footnote for rating data */}
-        { prof.overall_rating == 0 ? null :
-          <div className="text-sm text-gray-400 fixed bottom-0 left-0 right-0 p-4 text-center">
+        { prof.overall_rating === 0 ? null :
+          <div className='text-sm text-gray-400 fixed bottom-0 left-0 right-0 p-4 text-center'>
             *RateMyProfessors data last updated: 11/19/2024
           </div>
         }

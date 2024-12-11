@@ -23,8 +23,8 @@ function Professors() {
   //Sort the Professors
   const sortProfessors = (professors) => {
     return professors.sort((a, b) => {
-      const nameA = `${a.First} ${a.Last}`.toLowerCase();
-      const nameB = `${b.First} ${b.Last}`.toLowerCase();
+      const nameA = `${a.fname} ${a.lname}`.toLowerCase();
+      const nameB = `${b.fname} ${b.lname}`.toLowerCase();
       if (isReverse) {
         return nameB.localeCompare(nameA);
       } else {
@@ -55,11 +55,11 @@ function Professors() {
 
         {sortedList.map((info, index) => (
           <p key={index} className="text-gray-300">
-            {info.First} {info.Last}{' '}
+            {info.fname} {info.lname}{' '}
             <a className="underline text-blue-500" href={`mailto:${info.Email}`}>
-              {info.Email}
+              {info.email}
             </a>{' '}
-            {info.Office}
+            {info.office}
           </p>
         ))}
       </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 function Professors() {
   const [sortedProfessors, setSortedProfessors] = useState([]);
   const [isReverse, setIsReverse] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   //Fetch data from API
   useEffect(() => {
@@ -33,18 +34,28 @@ function Professors() {
     });
   };
 
+  // Creates search for professors
+  const filterProfessors = (professors) => {
+    return professors.filter((prof) =>
+      `${prof.First} ${prof.Last}`.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  };
+
   //Creats the function for the button
   const toggleSortOrder = () => {
     setIsReverse(!isReverse);
   };
 
   const sortedList = sortProfessors([...sortedProfessors]);
+  const filteredList = filterProfessors(sortedList);
 
   //Create display
   return (
     <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
         <h1 className="text-red-700 text-3xl font-bold mb-4">Professor Information</h1>
+
+        <input type="text" placeholder="Search Professors..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="p-2 mb-4 rounded border border-gray-300"/><br/>
         
         <button
           onClick={toggleSortOrder}
@@ -53,7 +64,8 @@ function Professors() {
           Sort {isReverse ? 'Alphabetically (Z-A)' : 'Alphabetically (A-Z)'}
         </button>
 
-        {sortedList.map((info, index) => (
+        {/* This uses filteredList (search), switch to sortedList for the a-z, fix to work both in future */}
+        {filteredList.map((info, index) => (
           <p key={index} className="text-gray-300">
             {info.First} {info.Last}{' '}
             <a className="underline text-blue-500" href={`mailto:${info.Email}`}>

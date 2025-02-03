@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import { AdminPanel, About, Credits, Home, Kiosk, LewisMap, ProfessorList, ProfessorProfile,
-         Resources, Slides, Upload, EverydayApp, 
+import { AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
+         Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
          CapstoneProducts} from './pages';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   const links = [
     { title: 'View Poster Slideshow', path: '/slides' },
     { title: 'Upload a Poster', path: '/upload' },
-    { title: 'View Map of Lewis', path: '/lewis-map' },
+    /*{ title: 'View Map of Lewis', path: '/lewis-map' },*/
     { title: 'Professor Information', path: '/professor-list' },
     { title: 'Everyday App', path: '/everydayapp' },
     { title: 'Capstone Products', path: '/capstoneproducts' },
@@ -30,7 +30,7 @@ function App() {
         <Route path="/acp/" element={<AdminPanel/>}/>
         <Route path="/credits" element={<Credits/>}/>
         <Route path="/kiosk" element={<Kiosk/>}/>
-        <Route path="/lewis-map" element={<LewisMap/>}/>
+        {/*<Route path="/lewis-map" element={<LewisMap/>}/>*/}
         <Route path="/professor-list" element={<ProfessorList/>}/>
         <Route path="/prof/:id" element={<ProfessorProfile/>}/>
         <Route path="/resources" element={<Resources/>}/>

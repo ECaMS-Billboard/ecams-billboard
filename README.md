@@ -67,4 +67,5 @@ A list of past and present developers can be found in [wiki/credits.md](wiki/cre
 
 ### Documentation
 For the Team document, go to /wiki/TEAM.md
+
 For the PROCESS document, go to /wiki/PROCESS.md

@@ -3,7 +3,7 @@
 ## Members
 Samuel Swedo - Scrum Master
 
-Noah Van Gorp
+Noah Van Gorp - Product Owner
 
 Anthony Missana
 

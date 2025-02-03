@@ -61,11 +61,12 @@ function Slides() {
     return () => clearInterval(autoSlide);
   }, [nextSlide]);
 
-  return (
+  /*
+ return (
     <main className="overflow-x-hidden overflow-y-hidden box-border h-screen bg-neutral-900 items-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
 
-        {/* Professor Carousel container */}
+        
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
         <div className="overflow-hidden h-96">
 
@@ -84,7 +85,7 @@ function Slides() {
           </div>
         </div>
 
-        {/* Carousel container */}
+
         <div
           className="carousel flex transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -105,6 +106,10 @@ function Slides() {
       
     </main>
   );
+  */
 }
+
+/*
+*/
 
 export default Slides;

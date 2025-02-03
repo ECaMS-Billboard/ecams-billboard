@@ -65,3 +65,7 @@ An existing admin needs to provide access to each new user:
 ## Credits
 A list of past and present developers can be found in [wiki/credits.md](wiki/credits.md)
 
+### Documentation
+For the Team document, go to /wiki/TEAM.md
+
+For the PROCESS document, go to /wiki/PROCESS.md

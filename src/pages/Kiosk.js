@@ -5,7 +5,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [items, setItems] = useState([]);
-  const [professors, setProfessors] = useState([]);
+  // const [professors, setProfessors] = useState([]);
 
   // Fetch banner data
   useEffect(() => {
@@ -63,7 +63,6 @@ function Slides() {
     return () => clearInterval(autoSlide);
   }, [nextSlide]);
 
-  /*
  return (
     <main className="overflow-x-hidden overflow-y-hidden box-border h-screen bg-neutral-900 items-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
@@ -71,7 +70,7 @@ function Slides() {
         
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
         <div className="overflow-hidden h-96">
-
+/*
           <div className="vertical-scroll-animation">
           {professors.length > 0 ? (
               professors.map((professor, index) => (
@@ -86,7 +85,7 @@ function Slides() {
             )}
           </div>
         </div>
-
+*/
 
         <div
           className="carousel flex transition-transform ease-in-out duration-700"
@@ -108,7 +107,6 @@ function Slides() {
       
     </main>
   );
-  */
 }
 
 /*

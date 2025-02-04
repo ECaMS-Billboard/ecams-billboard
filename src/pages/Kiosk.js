@@ -85,8 +85,9 @@ function Slides() {
               <p>Loading professor information...</p> // Show loading message until data is fetched
             )}
           </div>
+
+    */}
         </div>
-*/}
 
         <div
           className="carousel flex transition-transform ease-in-out duration-700"

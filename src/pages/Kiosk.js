@@ -70,7 +70,8 @@ function Slides() {
         
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
         <div className="overflow-hidden h-96">
-/*
+
+   {/*
           <div className="vertical-scroll-animation">
           {professors.length > 0 ? (
               professors.map((professor, index) => (
@@ -85,7 +86,7 @@ function Slides() {
             )}
           </div>
         </div>
-*/
+*/}
 
         <div
           className="carousel flex transition-transform ease-in-out duration-700"

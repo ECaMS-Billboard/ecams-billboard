@@ -25,6 +25,7 @@ function Slides() {
     }
     fetchBannerData();
 
+    /*
     async function fetchProfessorData() {
       try {
         const response = await fetch('https://ecamsbb-api.azurewebsites.net/prof-list');
@@ -40,6 +41,7 @@ function Slides() {
       }
     }
     fetchProfessorData();
+    */
   }, []);
 
  // Show next slide

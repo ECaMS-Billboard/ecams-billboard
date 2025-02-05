@@ -6,7 +6,7 @@ function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [items, setItems] = useState([]);
   //For the old carousel
-  const [professors, setProfessors] = useState([]);
+  //const [professors, setProfessors] = useState([]);
 
   // Fetch banner data
   useEffect(() => {
@@ -26,13 +26,13 @@ function Slides() {
     }
     fetchBannerData();
 
-    async function fetchProfessorData() {
+   /* async function fetchProfessorData() {
       try {
         const response = await fetch('https://ecamsbb-api.azurewebsites.net/prof-list');
         const data = await response.json();
 
         if (Array.isArray(data)) {
-          setProfessors(data);
+          //setProfessors(data);
         } else {
           console.error('Unexpected data format:', data);
         }
@@ -40,7 +40,7 @@ function Slides() {
         console.error('Fetch error:', error);
       }
     }
-    fetchProfessorData();
+    fetchProfessorData(); */
   }, []);
 
  // Show next slide

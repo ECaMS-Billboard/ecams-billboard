@@ -5,7 +5,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [items, setItems] = useState([]);
-  const [professors, setProfessors] = useState([]);
+  //For the old carousel
+  //const [professors, setProfessors] = useState([]);
 
   // Fetch banner data
   useEffect(() => {
@@ -25,13 +26,13 @@ function Slides() {
     }
     fetchBannerData();
 
-    async function fetchProfessorData() {
+   /* async function fetchProfessorData() {
       try {
         const response = await fetch('https://ecamsbb-api.azurewebsites.net/prof-list');
         const data = await response.json();
 
         if (Array.isArray(data)) {
-          setProfessors(data);
+          //setProfessors(data);
         } else {
           console.error('Unexpected data format:', data);
         }
@@ -39,7 +40,7 @@ function Slides() {
         console.error('Fetch error:', error);
       }
     }
-    fetchProfessorData();
+    fetchProfessorData(); */
   }, []);
 
  // Show next slide
@@ -65,9 +66,9 @@ function Slides() {
     <main className="overflow-x-hidden overflow-y-hidden box-border h-screen bg-neutral-900 items-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
 
-        {/* Professor Carousel container */}
         <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
-        <div className="overflow-hidden h-96">
+                {/* The Old Professor Carousel container */}
+ {/*       <div className="overflow-hidden h-96">
 
           <div className="vertical-scroll-animation">
           {professors.length > 0 ? (
@@ -83,7 +84,7 @@ function Slides() {
             )}
           </div>
         </div>
-
+*/}
         {/* Carousel container */}
         <div
           className="carousel flex transition-transform ease-in-out duration-700"

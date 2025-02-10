@@ -43,8 +43,8 @@ As of 11/16/24, the below Microsoft Azure instances are available:
 
 | Service                | URL                                                 | Maintainer                                           |
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------------- |
-| Production environment | https://proud-moss-0996b0910.5.azurestaticapps.net/ | [Michael Szostak](mailto:michaeldszostak@lewisu.edu) |
-| Testing environment    | https://kind-plant-03c1f4a10.5.azurestaticapps.net/ | [Michael Szostak](mailto:michaeldszostak@lewisu.edu) |
+| Production environment | https://salmon-dune-0ef6bb910.4.azurestaticapps.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu) |
+| Testing environment    | https://ambitious-stone-0a96c9010.4.azurestaticapps.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu) |
 | API endpoint           | https://ecamsbb-api.azurewebsites.net/              | [Ryan Hinkle](mailto:ryanehinkle@lewisu.edu)         |
 
 <br/>

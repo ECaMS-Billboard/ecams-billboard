@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
+import Carousel from './pages/Carousel';
+
 import { AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
          Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
          CapstoneProducts} from './pages';
@@ -30,6 +32,7 @@ function App() {
         <Route path="/acp/" element={<AdminPanel/>}/>
         <Route path="/credits" element={<Credits/>}/>
         <Route path="/kiosk" element={<Kiosk/>}/>
+        <Route path="/carousel" element={<Carousel/>}/>
         {/*<Route path="/lewis-map" element={<LewisMap/>}/>*/}
         <Route path="/professor-list" element={<ProfessorList/>}/>
         <Route path="/prof/:id" element={<ProfessorProfile/>}/>

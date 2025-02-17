@@ -29,7 +29,7 @@ const professorData = [
   { name: "Dr. Amanda Harsy Ramsay", email: "harsyram@lewisu.edu", office: "Office: SU-124", image: "/ProfImages/Dr. Amanda Harsy Ramsay.PNG" },
   { name: "Mark Hatchel", email: "mhatchel@lewisu.edu", office: "Office: Adjunct", image: null },
   { name: "Shurouq Hmoud", email: "shmoud@lewisu.edu", office: "Office: Adjunct", image: null },
-  { name: "Dr. Cynthia Howard", email: "howardcy@lewisu.edu", office: "Office: AS-131-L", image: "/ProfImages/Dr. Cynthia Howard.PNG" },
+  { name: "Dr. Cynthia Howard", title: "ECaMS Chairman", email: "howardcy@lewisu.edu", office: "Office: AS-131-L", image: "/ProfImages/Dr. Cynthia Howard.PNG" },
   { name: "En Hsin Huang", email: "ehuang@lewisu.edu", office: "Office: Adjunct", image: null },
   { name: "Margaret Juraco", email: "juracoma@lewisu.edu", office: "Office: Adjunct", image: null },
   { name: "Firas Khasawneh", email: "khasawfi@lewisu.edu", office: "Office: Adjunct", image: "/ProfImages/Dr. Rami Khasawneh.PNG" },
@@ -170,7 +170,8 @@ const ProfessorCarousel = () => {
                 alt={prof.name}
                 className="w-32 h-32 object-cover mx-auto"
               />
-              <p className="text-white text-sm mt-2">{prof.name}</p>
+              <p className="text-white text-sm mt-2">{prof.name}</p> 
+              <p className="text-white text-sm">{prof.title}</p>
               <p className="text-white text-xs">{prof.email}</p>
               <p className="text-white text-xs">{prof.office}</p>
             </div>

@@ -95,33 +95,31 @@ const ProfessorCarousel = () => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
-    let scrollAmount = 2; // Amount to scroll each interval
-    let isScrolling = false; // Track if scrolling is in progress
+    const scrollSpeed = 2; // Adjust speed if necessary
+    const intervalTime = 50; // Controls how often the scroll updates
+    let scrolling = true;
 
-    // The scroll function
     const scroll = () => {
-      const scrollHeight = carousel.scrollHeight;
-      const containerHeight = carousel.clientHeight;
+      if (!carousel) return;
 
-      if (carousel.scrollTop + containerHeight >= scrollHeight - 1 && !isScrolling) {
-        isScrolling = true;
-        carousel.scrollTo({ top: 0, behavior: "smooth" });
+      const totalHeight = carousel.scrollHeight;
+      const visibleHeight = carousel.clientHeight;
+
+      // If it reaches the bottom, reset to top
+      if (carousel.scrollTop + visibleHeight >= totalHeight - 1) {
+        scrolling = false;
         setTimeout(() => {
-          isScrolling = false; // Allow scrolling again
-        }, 200); // Short delay before resetting
-      } else {
-        carousel.scrollTop += scrollAmount; // Continue scrolling down
+          carousel.scrollTo({ top: 0, behavior: "instant" });
+          scrolling = true;
+        }, 1000); // Pause before reset
+      } else if (scrolling) {
+        carousel.scrollBy({ top: scrollSpeed, behavior: "smooth" });
       }
-
-      // Request the next animation frame
-      requestAnimationFrame(scroll);
     };
 
-    // Start the scrolling loop
-    scroll();
+    const interval = setInterval(scroll, intervalTime);
 
-    // Clean up by removing any interval or requestAnimationFrame when component unmounts
-    return () => cancelAnimationFrame(scroll);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -130,7 +128,7 @@ const ProfessorCarousel = () => {
         ref={carouselRef}
         className="carousel flex flex-wrap justify-start overflow-y-auto"
         style={{
-          height: "80vh", // Height for scrolling
+          height: "80vh",
           scrollBehavior: "smooth",
           paddingRight: "20px",
         }}
@@ -140,9 +138,9 @@ const ProfessorCarousel = () => {
             key={index}
             className="bg-red-900 p-4 rounded-lg text-center min-w-[150px] flex-shrink-0"
             style={{
-              flexBasis: "calc(20% - 16px)", // Adjust for 5 items per row
-              marginBottom: "10px", // Vertical spacing
-              marginRight: "16px", // Horizontal spacing
+              flexBasis: "calc(20% - 16px)",
+              marginBottom: "10px",
+              marginRight: "16px",
             }}
           >
             <img

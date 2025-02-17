@@ -98,6 +98,7 @@ const ProfessorCarousel = () => {
     const scrollSpeed = 2; // Adjust speed if necessary
     const intervalTime = 50; // Controls how often the scroll updates
     let scrolling = true;
+    let isAtTop = true; // Start with a pause at the top
 
     const scroll = () => {
       if (!carousel) return;
@@ -105,14 +106,27 @@ const ProfessorCarousel = () => {
       const totalHeight = carousel.scrollHeight;
       const visibleHeight = carousel.clientHeight;
 
-      // If it reaches the bottom, reset to top
+      // If it reaches the bottom, pause then reset
       if (carousel.scrollTop + visibleHeight >= totalHeight - 1) {
         scrolling = false;
         setTimeout(() => {
           carousel.scrollTo({ top: 0, behavior: "instant" });
+          isAtTop = true; // Mark that we're back at the top
+          setTimeout(() => {
+            scrolling = true;
+          }, 1000); // Pause at the top before restarting
+        }, 1000); // Pause before resetting
+      } 
+      // If it reaches the top, pause before restarting scroll
+      else if (carousel.scrollTop === 0 && isAtTop) {
+        scrolling = false;
+        isAtTop = false; // Prevent multiple triggers
+        setTimeout(() => {
           scrolling = true;
-        }, 1000); // Pause before reset
-      } else if (scrolling) {
+        }, 1000); // Adjust pause time as needed
+      } 
+      // Keep scrolling if allowed
+      else if (scrolling) {
         carousel.scrollBy({ top: scrollSpeed, behavior: "smooth" });
       }
     };

@@ -86,7 +86,7 @@ const professorData = [
   // if image is null then it will use static professor image
 ];
 
-const placeholderImage = "/Profimages/StaticProfessor.png"; // static professor image
+const placeholderImage = "/StaticProfessor.png"; // static professor image
 
 const ProfessorCarousel = () => {
   const carouselRef = useRef(null);

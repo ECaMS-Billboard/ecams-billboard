@@ -142,31 +142,39 @@ const ProfessorCarousel = () => {
         ref={carouselRef}
         className="carousel flex flex-wrap justify-start overflow-y-auto"
         style={{
-          height: "80vh",
+          height: "92vh",
           scrollBehavior: "smooth",
           paddingRight: "20px",
         }}
       >
-        {professorData.map((prof, index) => (
-          <div
-            key={index}
-            className="bg-red-900 p-4 rounded-lg text-center min-w-[150px] flex-shrink-0"
-            style={{
-              flexBasis: "calc(20% - 16px)",
-              marginBottom: "10px",
-              marginRight: "16px",
-            }}
-          >
-            <img
-              src={prof.image || placeholderImage}
-              alt={prof.name}
-              className="w-32 h-32 object-cover mx-auto"
-            />
-            <p className="text-white text-sm mt-2">{prof.name}</p>
-            <p className="text-white text-xs">{prof.email}</p>
-            <p className="text-white text-xs">{prof.office}</p>
-          </div>
-        ))}
+        {/* Sorting the professorData alphabetically by last name */}
+        {[...professorData]
+          .sort((a, b) => {
+            // Extract last name from the full name
+            const lastNameA = a.name.split(" ").pop().toLowerCase();
+            const lastNameB = b.name.split(" ").pop().toLowerCase();
+            return lastNameA.localeCompare(lastNameB);
+          })
+          .map((prof, index) => (
+            <div
+              key={index}
+              className="bg-red-900 p-4 rounded-lg text-center min-w-[150px] flex-shrink-0"
+              style={{
+                flexBasis: "calc(20% - 16px)",
+                marginBottom: "10px",
+                marginRight: "16px",
+              }}
+            >
+              <img
+                src={prof.image || placeholderImage}
+                alt={prof.name}
+                className="w-32 h-32 object-cover mx-auto"
+              />
+              <p className="text-white text-sm mt-2">{prof.name}</p>
+              <p className="text-white text-xs">{prof.email}</p>
+              <p className="text-white text-xs">{prof.office}</p>
+            </div>
+          ))}
       </div>
     </div>
   );

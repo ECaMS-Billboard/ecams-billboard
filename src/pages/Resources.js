@@ -7,24 +7,28 @@ const resourcesData = [
       phone: '(815) 836-5950',
       email: 'servicedesk@lewisu.edu',
       description: 'Provides assistance with technical issues including account access, software, and hardware problems',
+      hours: 'Monday-Thursday: 7:30am-10pm Friday: 7:30am-5pm Saturday:9am-5pm Sunday:1:30pm-10pm.',
     },
     {
       title: 'Financial Aid',
       phone: '(815) 836-5263',
       email: 'finaid@lewisu.edu',
       description: 'Helps students understand and manage their financial aid packages, scholarships, and loans',
+      hours: 'Monday-Friday: 8:30am-5:00pm.',
     },
     {
       title: "Registrar's Office",
       phone: '(815) 836-5133',
       email: 'registrar',
       description: 'Manages student records, course registration, and academic transcripts',
+      hours: 'Monday-Friday: 8:30am-5:00pm.',
     },
     {
       title: 'Admissions',
       phone: '(815) 836-5250',
       email: 'admissions@lewisu.edu',
       description: 'Handles applications, campus visits, and enrollment processes for prospective students',
+      hours: 'Monday-Friday: 8:30am to 5:00pm.',
     },
     {
       title: 'LUPD Non-Emergency',
@@ -42,7 +46,8 @@ const resourcesData = [
       title: 'Student Wellness Center',
       phone: '(815) 836-5455',
       email: '',
-      description: 'Offers health and counseling services to support student well-being and mental health. Hours are as follows: Fall and Spring, Monday-Friday, 8:30am - 5pm, and Summer Tuesday-Wenesday, 8:30am - 5pm',
+      description: 'Offers health and counseling services to support student well-being and mental health.',
+      hours: 'Hours are as follows: Fall and Spring, Monday-Friday, 8:30am-5pm, and Summer Tuesday-Wenesday, 8:30am-5pm.',
     },
   ];
   //Display everything

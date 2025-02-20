@@ -42,7 +42,7 @@ const resourcesData = [
       title: 'Student Wellness Center',
       phone: '(815) 836-5455',
       email: '',
-      description: 'Offers health and counseling services to support student well-being and mental health. Hours are as follows: Fall and Spring, Monday-Friday, 8:30am - 5pm, and Summer Tuesday-Wenesday, 8:30am - 5pm',
+      description: 'Offers health and counseling services to support student well-being and mental health. Hours are as follows: Fall and Spring, Monday-Friday, 8:30am - 5pm, and Summer Tuesday-Wenesday, 8:30am - 5pm.',
     },
   ];
   //Display everything

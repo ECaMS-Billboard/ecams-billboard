@@ -69,6 +69,11 @@ const resourcesData = [
               <p className="text-gray-300">
                 Description: {resource.description}
               </p>
+              {resource.hours && (
+                <p className="text-gray-300 hours-class">
+                  Hours: {resource.hours}
+                </p>
+              )}
             </div>
           ))}
         </div>

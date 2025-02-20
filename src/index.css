@@ -1,34 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @keyframes verticalScroll {
-  0% {
-    transform: translateY(0);
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
   }
-  100% {
-    transform: translateY(-100%);
+  
+  /* Apply animation to the carousel container */
+  .vertical-scroll-animation {
+    animation: verticalScroll 140s linear infinite;
   }
-}
-
-/* Apply animation to the carousel container */
-.vertical-scroll-animation {
-  animation: verticalScroll 140s linear infinite;
-}
-
-/* This code below is for the new Professorcarousel */
-/* Hide scrollbar for webkit browsers (Chrome, Safari) */
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for Firefox */
-.carousel {
-  scrollbar-width: none;
-}
-
-/* Ensure smooth scrolling for the carousel */
-.carousel {
-  overflow-y: auto;
-  scroll-behavior: smooth;
-}

@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import Carousel from './pages/Carousel';
-
 import { AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
          Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
-         CapstoneProducts} from './pages';
+         CapstoneProducts, Carousel,} from './pages';
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.

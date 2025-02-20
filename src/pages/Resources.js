@@ -6,8 +6,8 @@ const resourcesData = [
       title: 'IT Support',
       phone: '(815) 836-5950',
       email: 'servicedesk@lewisu.edu',
-      description: 'Provides assistance with technical issues including account access, software, and hardware problems',
-      hours: 'Monday-Thursday: 7:30am-10pm Friday: 7:30am-5pm Saturday:9am-5pm Sunday:1:30pm-10pm.',
+      description: 'Provides assistance with technical issues',
+      hours: 'Monday-Thursday: 7:30am-10pm Friday: 7:30am-5pm Saturday: 9am-5pm Sunday: 1:30pm-10pm.',
     },
     {
       title: 'Financial Aid',

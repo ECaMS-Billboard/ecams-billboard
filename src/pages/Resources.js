@@ -13,7 +13,7 @@ const resourcesData = [
       title: 'Financial Aid',
       phone: '(815) 836-5263',
       email: 'finaid@lewisu.edu',
-      description: 'Helps students understand and manage their financial aid packages, scholarships, and loans',
+      description: 'Helps students understand and manage their financial aid packages, scholarships, and loans.',
       hours: 'Monday-Friday: 8:30am-5:00pm.',
     },
     {

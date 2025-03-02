@@ -33,19 +33,16 @@ const resourcesData = [
     {
       title: 'LUPD Non-Emergency',
       phone: '(815) 836-5222',
-      email: '',
-      description: '24 hours a day, 7 days a week, year round',
+      hours: '24 hours a day, 7 days a week, year round',
     },
     {
       title: 'LUPD Emergency',
       phone: '(815) 836-5911',
-      email: '',
-      description: '24 hours a day, 7 days a week, year round',
+      hours: '24 hours a day, 7 days a week, year round',
     },
     {
       title: 'Student Wellness Center',
       phone: '(815) 836-5455',
-      email: '',
       description: 'Offers health and counseling services to support student well-being and mental health.',
       hours: 'Hours are as follows: Fall and Spring, Monday-Friday, 8:30am-5pm, and Summer Tuesday-Wenesday, 8:30am-5pm.',
     },

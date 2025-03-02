@@ -50,7 +50,6 @@ function Slides() {
     <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-neutral-900 flex items-center justify-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
         {/* Professor Carousel container*/}
-        <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
         {/*}
         <div className="overflow-hidden h-56">
           <div className="vertical-scroll-animation">

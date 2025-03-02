@@ -4,6 +4,11 @@ import { AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfil
          Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
          CapstoneProducts, Carousel,} from './pages';
 
+
+
+import Navigationbar from './components/Navigationbar';
+
+
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.
   const links = [
@@ -26,19 +31,19 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home links={links}/>}/>
-        <Route path="/about" element={<About/>}/>
+        <Route path="/about" element={<><Navigationbar/><About/></>}/>
         <Route path="/acp/" element={<AdminPanel/>}/>
-        <Route path="/credits" element={<Credits/>}/>
+        <Route path="/credits" element={<><Navigationbar/><Credits/></>}/>
         <Route path="/kiosk" element={<Kiosk/>}/>
         <Route path="/carousel" element={<Carousel/>}/>
         {/*<Route path="/lewis-map" element={<LewisMap/>}/>*/}
-        <Route path="/professor-list" element={<ProfessorList/>}/>
+        <Route path="/professor-list" element={<><Navigationbar/><ProfessorList/></>}/>
         <Route path="/prof/:id" element={<ProfessorProfile/>}/>
-        <Route path="/resources" element={<Resources/>}/>
-        <Route path="/slides" element={<Slides/>}/>
-        <Route path="/upload" element={<Upload/>}/>
-        <Route path="/everydayapp" element={<EverydayApp/>}/>
-        <Route path="/capstoneproducts" element={<CapstoneProducts/>}/>
+        <Route path="/resources" element={<><Navigationbar/><Resources/></>}/>
+        <Route path="/slides" element={<><Navigationbar/><Slides/></>}/>
+        <Route path="/upload" element={<><Navigationbar/><Upload/></>}/>
+        <Route path="/everydayapp" element={<><Navigationbar/><EverydayApp/></>}/>
+        <Route path="/capstoneproducts" element={<><Navigationbar/><CapstoneProducts/></>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -1,10 +1,7 @@
-import Navigationbar from '../components/Navigationbar';
-
 function Credits() {
   return (
     <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
-      <Navigationbar />
-      <div className="max-w-xl mx-auto mt-10">
+      <div className="max-w-xl mx-auto">
         <div className='text-center'>
           <h1 className="text-red-500 text-3xl font-bold mb-4">Credits</h1>
         </div>

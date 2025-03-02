@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Navigationbar from '../components/Navigationbar';
 
 function Credits() {

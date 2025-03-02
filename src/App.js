@@ -15,7 +15,7 @@ function App() {
     { title: 'Capstone Products', path: '/capstoneproducts' },
 
     // Keep Resources and the About pages on the bottom of the list
-    //{ title: 'Credits', path: '/credits' },
+    { title: 'Credits', path: '/credits' },
     { title: 'Resources', path: '/resources' },
     { title: 'About & Contact', path: '/about' }
   ]

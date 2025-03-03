@@ -108,7 +108,7 @@ function Slides() {
           <img
             src="/billboard_qr_code.png" // Ensure this file is in the `public` folder
             alt="Scan to access the ECaMS Hub"
-            className="w-32 h-32"
+            className="w-64 h-64"
           />
         </div>
 

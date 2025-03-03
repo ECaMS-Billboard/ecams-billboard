@@ -1,13 +1,10 @@
-import Navigationbar from '../components/Navigationbar';
-
 const EverydayApp = () => {
     const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.dynamify.sodexo';
     const appleStoreLink = 'https://apps.apple.com/gb/app/everyday/id1338702323';
   
     return (
         <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
-            <Navigationbar />
-            <div className="max-w-xl mx-auto mt-10">
+            <div className="max-w-xl mx-auto">
                 <div className='text-center'>
                     <h1 className="text-red-500 text-3xl font-bold mb-4 underline">Download the Everyday App</h1>
                     </div >

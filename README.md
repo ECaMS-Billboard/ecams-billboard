@@ -45,7 +45,7 @@ As of 11/16/24, the below Microsoft Azure instances are available:
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------------- |
 | Production environment | https://salmon-dune-0ef6bb910.4.azurestaticapps.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu) |
 | Testing environment    | https://ambitious-stone-0a96c9010.4.azurestaticapps.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu) |
-| API endpoint           | https://ecamsbb-api.azurewebsites.net/              | [Ryan Hinkle](mailto:ryanehinkle@lewisu.edu)         |
+| API endpoint           | https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu)  |
 
 <br/>
 

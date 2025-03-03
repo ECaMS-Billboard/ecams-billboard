@@ -108,14 +108,14 @@ function Slides() {
           <img
             src="/billboard_qr_code.png" // Ensure this file is in the `public` folder
             alt="Scan to access the ECaMS Hub"
-            className="w-64 h-64"
+            className="w-240 h-240"
           />
         </div>
 
         {/* Footer Messages Positioned to the Right */}
         <div className="text-right text-slate-100 font-bold">
-          <p className="text-4xl">Access The ECaMS Hub!</p>
-          <p className="text-4xl text-red-500">⇓SCAN ME⇓</p>
+          <p className="text-6xl">Access The ECaMS Hub!</p>
+          <p className="text-6xl text-red-500">⇓SCAN ME⇓</p>
         </div>
       </div>
       </div>

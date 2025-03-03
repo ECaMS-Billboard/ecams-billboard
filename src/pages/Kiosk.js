@@ -109,10 +109,10 @@ function Slides() {
           ⇓SCAN ME⇓
         </footer>
 
-        {/* QR Code Positioned to the Left */}
-        <div className="flex justify-start pl-8 mt-4">
+        {/* QR Code Positioned at Bottom Left */}
+        <div className="absolute bottom-4 left-4">
           <img
-            src="/billboard_qr_code.png" // Ensure this file is in the `public` folder
+            src="/qr-code.png" // Ensure this file is in the `public` folder
             alt="Scan to access the ECaMS Hub"
             className="w-48 h-48"
           />

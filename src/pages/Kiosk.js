@@ -106,7 +106,7 @@ function Slides() {
         {/* QR Code Positioned at Bottom Left */}
         <div className="flex-shrink-0">
           <img
-            src="/qr-code.png" // Ensure this file is in the `public` folder
+            src="/billboard_qr_code.png" // Ensure this file is in the `public` folder
             alt="Scan to access the ECaMS Hub"
             className="w-32 h-32"
           />

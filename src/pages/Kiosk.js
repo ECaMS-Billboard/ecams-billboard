@@ -100,12 +100,26 @@ function Slides() {
             </div>
           ))}
         </div>
-        <footer className="text-slate-100 text-center shadow-lg font-bold text-8xl">Access The ECaMS Hub!</footer>
-        <footer className="text-red-500 text-center shadow-lg font-bold text-8xl">⇓SCAN ME⇓</footer>
+
+        {/* Footer Section */}
+      <div className="flex justify-between items-center w-full p-6 bg-neutral-900">
+        {/* QR Code Positioned at Bottom Left */}
+        <div className="flex-shrink-0">
+          <img
+            src="/billboard_qr_code.png" // Ensure this file is in the `public` folder
+            alt="Scan to access the ECaMS Hub"
+            className="w-64 h-64"
+          />
+        </div>
+
+        {/* Footer Messages Positioned to the Right */}
+        <div className="text-right text-slate-100 font-bold">
+          <p className="text-5xl">Access The ECaMS Hub!</p>
+          <p className="text-5xl text-red-500">⇓SCAN ME⇓</p>
+        </div>
       </div>
-      
+      </div>
     </main>
   );
 }
-
 export default Slides;

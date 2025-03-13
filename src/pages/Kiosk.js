@@ -115,7 +115,7 @@ function Slides() {
         {/* Footer Messages Positioned to the Right */}
         <div className="text-right text-slate-100 font-bold">
           <p className="text-5xl">Access The ECaMS Hub!</p>
-          <p className="text-5xl text-red-500">⇓SCAN ME⇓</p>
+          <p className="text-5xl text-red-500">⇐SCAN ME⇐</p>
         </div>
       </div>
       </div>

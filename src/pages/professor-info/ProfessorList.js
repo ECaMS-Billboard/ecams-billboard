@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 function Professors() {
   const [professors, setProfessors] = useState([]);
   const [isReverse, setIsReverse] = useState(false);
+  const [sortByLastName, setSortByLastName] = useState(false); // New state for sorting by last name
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true); // Track loading state
 
@@ -26,8 +27,8 @@ function Professors() {
   // Sort function
   const sortProfessors = (professors) => {
     return professors.sort((a, b) => {
-      const nameA = `${a.fname} ${a.lname}`.toLowerCase();
-      const nameB = `${b.fname} ${b.lname}`.toLowerCase();
+      const nameA = sortByLastName ? a.lname.toLowerCase() : a.fname.toLowerCase();
+      const nameB = sortByLastName ? b.lname.toLowerCase() : b.fname.toLowerCase();
       return isReverse ? nameB.localeCompare(nameA) : nameA.localeCompare(nameB);
     });
   };
@@ -39,8 +40,14 @@ function Professors() {
     );
   };
 
+  // Toggle sorting order (A-Z or Z-A)
   const toggleSortOrder = () => {
     setIsReverse(!isReverse);
+  };
+
+  // Toggle between sorting by first or last name
+  const toggleSortByLastName = () => {
+    setSortByLastName(!sortByLastName);
   };
 
   const sortedList = sortProfessors([...professors]);
@@ -68,6 +75,12 @@ function Professors() {
             className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
           >
             Sort {isReverse ? "Z-A" : "A-Z"}
+          </button>
+          <button
+            onClick={toggleSortByLastName}
+            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+          >
+            Sort by {sortByLastName ? "First Name" : "Last Name"}
           </button>
         </div>
 

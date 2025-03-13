@@ -1,5 +1,3 @@
-//import { Link } from 'react-router-dom';
-
 function About() {
   return (
     <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">

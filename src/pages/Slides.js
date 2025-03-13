@@ -49,24 +49,8 @@ function Slides() {
 
     <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-neutral-900 flex items-center justify-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
-        {/* Professor Carousel container*/}
-        {/*}
-        <div className="overflow-hidden h-56">
-          <div className="vertical-scroll-animation">
-            {professorInfo.map((slide, index) => (
-              <div 
-              key={index} 
-              className="flex justify-center items-center h-16 bg-gray-200 border-b border-gray-300"
-              >
-                  <h2 className="font-bold mb-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                    {slide.First} {slide.Last} | Office: {slide.Office} |
-                  </h2>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Carousel container */}
+        {/* Carousel container for poster slideshow functionality*/}
         <div
           className="carousel flex transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}

@@ -1,3 +1,5 @@
+//THIS FEATURE IS CURRENTLY NOT BEING USED
+
 import { useEffect, useRef } from 'react';
 import Panzoom from '@panzoom/panzoom';
 

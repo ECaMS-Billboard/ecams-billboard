@@ -36,7 +36,6 @@ function App() {
         <Route path="/credits" element={<><Navigationbar/><Credits/></>}/>
         <Route path="/kiosk" element={<Kiosk/>}/>
         <Route path="/carousel" element={<Carousel/>}/>
-        {/*<Route path="/lewis-map" element={<LewisMap/>}/>*/}
         <Route path="/professor-list" element={<><Navigationbar/><ProfessorList/></>}/>
         <Route path="/prof/:id" element={<ProfessorProfile/>}/>
         <Route path="/resources" element={<><Navigationbar/><Resources/></>}/>

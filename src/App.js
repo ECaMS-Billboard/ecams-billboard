@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import { AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
          Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
-         CapstoneProducts, Carousel,} from './pages';
+         CapstoneProducts, Carousel, Events} from './pages';
 
 
 
@@ -18,6 +18,7 @@ function App() {
     { title: 'Professor Information', path: '/professor-list' },
     { title: 'Everyday App', path: '/everydayapp' },
     { title: 'Capstone Products', path: '/capstoneproducts' },
+    { title: 'Student Events', path: '/events' },
 
     // Keep Resources and the About pages on the bottom of the list
     { title: 'Credits', path: '/credits' },
@@ -43,6 +44,7 @@ function App() {
         <Route path="/upload" element={<><Navigationbar/><Upload/></>}/>
         <Route path="/everydayapp" element={<><Navigationbar/><EverydayApp/></>}/>
         <Route path="/capstoneproducts" element={<><Navigationbar/><CapstoneProducts/></>}/>
+        <Route path="/events" element={<><Navigationbar/><Events/></>}/>
       </Routes>
     </BrowserRouter>
   );

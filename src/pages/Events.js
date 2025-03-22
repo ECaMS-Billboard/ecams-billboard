@@ -1,7 +1,6 @@
 function Events() {
   return (
     <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
-      <Navigationbar />
       <div className="max-w-xl mx-auto mt-10">
         <div className='text-center'>
           <h1 className="text-red-500 text-3xl font-bold mb-4">Student Events</h1>

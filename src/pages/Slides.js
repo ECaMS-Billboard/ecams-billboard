@@ -11,7 +11,7 @@ function Slides() {
   useEffect(() => {
     async function fetchBannerData() {
       try {
-        const response = await fetch('https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/list-images');
+        const response = await fetch('https://ecams-billboard--api.azurewebsites.net/api/banners');
         const data = await response.json();
 
         if (Array.isArray(data)) {
@@ -58,8 +58,8 @@ function Slides() {
           {items.map((item, index) => (
             <div key={index} className="carousel-item w-full flex-shrink-0">
               <img
-                src={`https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/image:${item.filename}`}
-                alt={item.filename || `Slide ${index + 1}`}
+                src={`https://ecams-billboard--api.azurewebsites.net/uploads/${item.image_name}`}
+                alt={item.name || `Slide ${index + 1}`}
                 className="w-full max-h-screen object-contain rounded-lg"
               />
             </div>

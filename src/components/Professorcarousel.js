@@ -170,10 +170,10 @@ const ProfessorCarousel = () => {
                 alt={prof.name}
                 className="w-32 h-32 object-cover mx-auto"
               />
-              <p className="text-white text-sm mt-2">{prof.name}</p> 
+              <p className="text-white text-base font-bold mt-2">{prof.name}</p> 
               <p className="text-white text-sm">{prof.title}</p>
-              <p className="text-white text-xs">{prof.email}</p>
-              <p className="text-white text-xs">{prof.office}</p>
+              <p className="text-white text-sm">{prof.email}</p>
+              <p className="text-white text-sm">{prof.office}</p>
             </div>
           ))}
       </div>

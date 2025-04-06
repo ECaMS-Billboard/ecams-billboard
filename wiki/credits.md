@@ -4,7 +4,7 @@
 
 - [Gabe Carlson](mailto:gabrieljcarlson@lewisu.edu)
 - [Justin Cordero](mailto:justinccordero@lewisu.edu)
-- [Ryan Hinkle](mailto:ryanehinkle@lewisu.edu)
+- [Nicolas Delgado](mailto:nicolasdelgado@lewisu.edu)
 - [Michael Szostak](mailto:michaeldszostak@lewisu.edu)
 - [Samuel Swedo](mailto:samueljswedo@lewisu.edu)
 - [Noah Van Gorp](mailto:noahavangorp@lewisu.edu)
@@ -26,6 +26,7 @@
 - [Luke Mendiola](lukecmendiola@lewisu.edu)
 - [Justina Piwoni](justinajpiwoni@lewisu.edu)
 - [Jacob Prince](jacobmprince@lewisu.edu)
+- [Ryan Hinkle](mailto:ryanehinkle@lewisu.edu)
 
 
 ## Other

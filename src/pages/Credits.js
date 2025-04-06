@@ -16,6 +16,7 @@ function Credits() {
             <li>Noah Van Gorp</li>
             <li>Johan Olmos Zavala</li>
             <li>Anthony Missana</li>
+            <li>Wiktoria Cioch-Gradzik</li>
           </ul>
         </div>
 

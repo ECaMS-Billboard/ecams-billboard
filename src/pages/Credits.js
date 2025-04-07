@@ -18,6 +18,7 @@ function Credits() {
             <li>Anthony Missana</li>
             <li>Wiktoria Cioch-Gradzik</li>
             <li>Ardian Dardovski</li>
+            <li>Nicolas Delgado</li>
           </ul>
         </div>
 

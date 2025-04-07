@@ -8,6 +8,7 @@
 - [Anthony Missana](mailto:anthonypmissana@lewisu.edu)
 - [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)
 - [Nicolas Delgado](mailto:nicolasdelgado@lewisu.edu)
+- [Marcos Esparza](mailto:marcosesparza@lewisu.edu)
 
 ## Past Developers
 

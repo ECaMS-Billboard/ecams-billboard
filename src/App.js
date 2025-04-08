@@ -19,7 +19,7 @@ function App() {
     {
       title: 'Upload a Poster',
       path: '/upload',
-      description: 'Share your academic or event poster with the ECaMS community.'
+      description: 'Share your academic or event poster with the campus.'
     },
     // { title: 'View Map of Lewis', path: '/lewis-map' },
     {
@@ -30,17 +30,17 @@ function App() {
     {
       title: 'Everyday App',
       path: '/everydayapp',
-      description: 'Discover helpful tools to simplify your day-to-day campus life.'
+      description: 'Qucik and easy link to the Everyday App.'
     },
     {
       title: 'Capstone Products',
       path: '/capstoneproducts',
-      description: 'Explore innovative student projects from capstone courses.'
+      description: 'Visit other student projects from capstone courses.'
     },
     {
       title: 'Student Events',
       path: '/events',
-      description: 'Stay in the loop with upcoming student-led events and activities.'
+      description: 'Stay in the loop with upcoming campus events and activities.'
     },
     {
       title: 'Credits',

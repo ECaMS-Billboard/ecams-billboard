@@ -25,7 +25,7 @@ function App() {
     {
       title: 'Professor Information',
       path: '/professor-list',
-      description: 'Testing time baby'
+      description: 'Find contact details and office hours for ECaMS faculty.'
     },
     {
       title: 'Everyday App',

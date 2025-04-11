@@ -2,7 +2,7 @@ const CapstoneProducts = () => {
     const quizmaster = "https://quizmaster-c66a2.web.app/home"
   
     return (
-        <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
+        <body className="min-h-screen bg-black p-8 flex flex-col items-center">
             <div className="max-w-xl mx-auto">
                 <div className='text-center'>
                     <h1 className="text-red-500 text-3xl font-bold mb-4 underline">Capstone Products</h1>

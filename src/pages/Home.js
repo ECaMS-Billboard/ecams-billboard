@@ -9,12 +9,12 @@ function Home({ links }) {
         <img className="w-16" src="lewis_logo.png" alt="Lewis Logo" />
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-2 place-items-center">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-x-2 place-items-center">
         {links.map((link, index) => (
           <Link
             key={index}
             to={link.path}
-            className="group w-full sm:w-1/2 md:w-64 h-[260px] sm:h-[320px] md:h-[360px] rounded-xl cursor-pointer"
+            className="group w-full sm:w-1/2 md:w-64 h-[300px] sm:h-[320px] md:h-[360px] rounded-xl cursor-pointer"
             style={{
               perspective: '1000px',
               WebkitPerspective: '1000px', // For Safari

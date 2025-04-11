@@ -4,11 +4,6 @@ import { Link } from 'react-router-dom';
 function Home({ links }) {
   return (
     <div className="min-h-screen bg-black p-8">
-      <div className="flex items-center justify-center gap-4 mb-8">
-        <h1 className="text-red-500 text-5xl font-extrabold text-center">ECaMS Billboard</h1>
-        <img className="w-16" src="lewis_logo.png" alt="Lewis Logo" />
-      </div>
-
       <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-x-2 place-items-center">
         {links.map((link, index) => (
           <Link

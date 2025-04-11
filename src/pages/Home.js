@@ -9,7 +9,7 @@ function Home({ links }) {
         <img className="w-16" src="lewis_logo.png" alt="Lewis Logo" />
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-x-2 place-items-center">
+      <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-x-2 place-items-center">
         {links.map((link, index) => (
           <Link
             key={index}

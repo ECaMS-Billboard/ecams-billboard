@@ -3,7 +3,7 @@ const EverydayApp = () => {
     const appleStoreLink = 'https://apps.apple.com/gb/app/everyday/id1338702323';
   
     return (
-        <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
+        <body className="min-h-screen bg-black p-8 flex flex-col items-center">
             <div className="max-w-xl mx-auto">
                 <div className='text-center'>
                     <h1 className="text-red-500 text-3xl font-bold mb-4 underline">Download the Everyday App</h1>

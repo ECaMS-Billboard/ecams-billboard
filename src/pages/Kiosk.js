@@ -10,7 +10,7 @@ function Slides() {
   useEffect(() => {
     async function fetchBannerData() {
       try {
-        const response = await fetch('https://ecams-billboard--api.azurewebsites.net/api/banners');
+        const response = await fetch('https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/list-approved-images');
         const data = await response.json();
 
         if (Array.isArray(data)) {
@@ -41,21 +41,19 @@ function Slides() {
   }, [nextSlide]);
 
   return (
-    <main className="overflow-x-hidden overflow-y-hidden box-border h-screen bg-neutral-900 items-center ">
+    <main className="overflow-x-hidden overflow-y-hidden box-border h-screen bg-black items-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
-
-        <header className="text-red-500 text-center shadow-lg font-bold">ECaMS Billboard</header>
 
         {/* Carousel container */}
         <div
           className="carousel flex transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {items.map((item, index) => (
+          {items.map((slide, index) => (
             <div key={index} className="carousel-item w-full h-full flex-shrink-0">
               <img
-                src={`https://ecams-billboard--api.azurewebsites.net/uploads/${item.image_name}`}
-                alt={item.name || `Slide ${index + 1}`}
+                src={`https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/image/${slide.fileId}`}
+                alt={slide.filename || `Slide ${index + 1}`}
                 className="w-full max-h-screen object-contain rounded-lg"
               />
             </div>
@@ -63,7 +61,7 @@ function Slides() {
         </div>
 
         {/* Footer Section */}
-      <div className="flex justify-between items-center w-full p-6 bg-neutral-900">
+      <div className="flex justify-between items-center w-full p-6 bg-black">
         {/* QR Code Positioned at Bottom Left */}
         <div className="flex-shrink-0">
           <img

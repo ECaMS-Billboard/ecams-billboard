@@ -61,21 +61,22 @@ function App() {
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Navigationbar />
       <Routes>
         <Route path="/" element={<Home links={links} />} />
-        <Route path="/about" element={<><Navigationbar /><About /></>} />
+        <Route path="/about" element={<About />} />
         <Route path="/acp/" element={<AdminPanel />} />
-        <Route path="/credits" element={<><Navigationbar /><Credits /></>} />
+        <Route path="/credits" element={<Credits />} />
         <Route path="/kiosk" element={<Kiosk />} />
         <Route path="/carousel" element={<Carousel />} />
-        <Route path="/professor-list" element={<><Navigationbar /><ProfessorList /></>} />
+        <Route path="/professor-list" element={<ProfessorList />} />
         <Route path="/prof/:id" element={<ProfessorProfile />} />
-        <Route path="/resources" element={<><Navigationbar /><Resources /></>} />
-        <Route path="/slides" element={<><Navigationbar /><Slides /></>} />
-        <Route path="/upload" element={<><Navigationbar /><Upload /></>} />
-        <Route path="/everydayapp" element={<><Navigationbar /><EverydayApp /></>} />
-        <Route path="/capstoneproducts" element={<><Navigationbar /><CapstoneProducts /></>} />
-        <Route path="/events" element={<><Navigationbar /><Events /></>} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/slides" element={<Slides />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/everydayapp" element={<EverydayApp />} />
+        <Route path="/capstoneproducts" element={<CapstoneProducts />} />
+        <Route path="/events" element={<Events />} />
       </Routes>
     </BrowserRouter>
   );

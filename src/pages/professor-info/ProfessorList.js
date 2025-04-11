@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 function Professors() {
   const [professors, setProfessors] = useState([]);
   const [isReverse, setIsReverse] = useState(false);
-  const [sortByLastName, setSortByLastName] = useState(false); // New state for sorting by last name
+  const [sortByLastName, setSortByLastName] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setIsLoading] = useState(true); // Track loading state
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Base URL for images
+  const imageBaseUrl = "https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/image/";
 
   // Fetch professor data
   useEffect(() => {
@@ -17,7 +20,7 @@ function Professors() {
       } catch (error) {
         console.error("Error fetching professor data:", error);
       } finally {
-        setIsLoading(false); // Stop loading indicator
+        setIsLoading(false);
       }
     };
 
@@ -40,7 +43,7 @@ function Professors() {
     );
   };
 
-  // Toggle sorting order (A-Z or Z-A)
+  // Toggle sorting order
   const toggleSortOrder = () => {
     setIsReverse(!isReverse);
   };
@@ -57,7 +60,7 @@ function Professors() {
     <div className="min-h-screen bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-red-700 text-4xl font-bold mb-2 text-center">Professor Directory</h1>
-        {isLoading && ( // Show message only when loading
+        {isLoading && (
           <p className="text-grey-400 text-center mb-6">Professors will take a minute to load. Please wait patiently.</p>
         )}
 
@@ -88,7 +91,9 @@ function Professors() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredList.map((info, index) => {
             // Determine image source
-            const imageSrc = info.image ? `/ProfImages/${info.image}` : "/ProfImages/StaticProfessor.png";
+            const imageSrc = info.image && info.image.trim() !== ""
+              ? `${imageBaseUrl}${info.image}` // Use the image from the API if it exists
+              : "/ProfImages/StaticProfessor.png"; // Fallback if image fails to load
 
             return (
               <div key={index} className="bg-neutral-800 p-4 rounded-lg text-center">

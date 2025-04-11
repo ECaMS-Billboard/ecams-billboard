@@ -42,7 +42,7 @@ function Professors() {
 
   //Create display
   return (
-    <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
         <h1 className="text-red-700 text-3xl font-bold mb-4">Professor Information</h1>
         

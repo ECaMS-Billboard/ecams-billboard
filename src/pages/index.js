@@ -15,3 +15,4 @@ export { default as Upload } from './Upload';
 export { default as CapstoneProducts } from './CapstoneProducts';
 export { default as Carousel } from './Carousel';
 export { default as Events } from './Events';
+export { default as MazeGame } from './MazeGame';

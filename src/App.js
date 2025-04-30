@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
-  CapstoneProducts, Carousel, Events
+  CapstoneProducts, Carousel, Events, MazeGame,
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
@@ -43,6 +43,11 @@ function App() {
       description: 'Stay in the loop with upcoming campus events and activities.'
     },
     {
+      title: 'Maze Game',
+      path: '/mazegame',
+      description: 'Play a fun customizable Maze Game.'
+    },
+    {
       title: 'Credits',
       path: '/credits',
       description: 'See who contributed to the creation and success of this platform.'
@@ -77,6 +82,7 @@ function App() {
         <Route path="/everydayapp" element={<EverydayApp />} />
         <Route path="/capstoneproducts" element={<CapstoneProducts />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/mazegame" element={<MazeGame />} />
       </Routes>
     </BrowserRouter>
   );

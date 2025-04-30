@@ -7,6 +7,7 @@
 - [Johan Olmos Zavala](mailto:johanolmoszavala@lewisu.edu)
 - [Anthony Missana](mailto:anthonypmissana@lewisu.edu)
 - [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)
+- [Kacper Zalewski](mailto:kacperzalewski@lewisu.edu)
 - [Nicolas Delgado](mailto:nicolasdelgado@lewisu.edu)
 
 ## Past Developers

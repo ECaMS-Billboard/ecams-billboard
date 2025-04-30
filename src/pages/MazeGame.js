@@ -139,7 +139,7 @@ function MazeGame() {
       const currentTime = new Date().getTime();
       const tapLength = currentTime - lastTap;
       if (tapLength < 300 && tapLength > 0) {
-        e.preventDefault(); // Prevent zoom on double-tap
+        e.preventDefault();
       }
       lastTap = currentTime;
     };
@@ -154,13 +154,23 @@ function MazeGame() {
     <div
       ref={gameRef}
       className="min-h-screen bg-black text-gray-300 p-8 flex flex-col items-center"
-      style={{ touchAction: 'manipulation' }}
+      style={{
+        touchAction: 'manipulation',
+        WebkitUserSelect: 'none',
+        userSelect: 'none',
+        WebkitTapHighlightColor: 'transparent',
+      }}
     >
       {/* Controls */}
       <div className="flex items-center justify-center mb-4 space-x-4">
         <button
           onClick={() => handleSizeChange(-STEP)}
           className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-white text-sm"
+          style={{
+            userSelect: 'none',
+            touchAction: 'none',
+            WebkitTapHighlightColor: 'transparent',
+          }}
         >
           -
         </button>
@@ -170,12 +180,22 @@ function MazeGame() {
         <button
           onClick={() => handleSizeChange(STEP)}
           className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-white text-sm"
+          style={{
+            userSelect: 'none',
+            touchAction: 'none',
+            WebkitTapHighlightColor: 'transparent',
+          }}
         >
           +
         </button>
         <button
           onClick={generateMaze}
           className="ml-6 bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded text-white text-sm"
+          style={{
+            userSelect: 'none',
+            touchAction: 'none',
+            WebkitTapHighlightColor: 'transparent',
+          }}
         >
           Restart
         </button>
@@ -227,8 +247,16 @@ function MazeGame() {
           onClick={() => movePlayer(0, -1)}
           onMouseDown={() => startHoldMove(0, -1)}
           onTouchStart={() => startHoldMove(0, -1)}
-          className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
-          style={{ userSelect: 'none', touchAction: 'none' }}
+          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
+          style={{
+            userSelect: 'none',
+            touchAction: 'none',
+            WebkitTapHighlightColor: 'transparent',
+            padding: '1rem',
+            fontSize: '1.5rem',
+            minWidth: '56px',
+            minHeight: '56px',
+          }}
         >
           ↑
         </button>
@@ -237,8 +265,16 @@ function MazeGame() {
             onClick={() => movePlayer(-1, 0)}
             onMouseDown={() => startHoldMove(-1, 0)}
             onTouchStart={() => startHoldMove(-1, 0)}
-            className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
-            style={{ userSelect: 'none', touchAction: 'none' }}
+            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
+            style={{
+              userSelect: 'none',
+              touchAction: 'none',
+              WebkitTapHighlightColor: 'transparent',
+              padding: '1rem',
+              fontSize: '1.5rem',
+              minWidth: '56px',
+              minHeight: '56px',
+            }}
           >
             ←
           </button>
@@ -246,8 +282,16 @@ function MazeGame() {
             onClick={() => movePlayer(1, 0)}
             onMouseDown={() => startHoldMove(1, 0)}
             onTouchStart={() => startHoldMove(1, 0)}
-            className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
-            style={{ userSelect: 'none', touchAction: 'none' }}
+            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
+            style={{
+              userSelect: 'none',
+              touchAction: 'none',
+              WebkitTapHighlightColor: 'transparent',
+              padding: '1rem',
+              fontSize: '1.5rem',
+              minWidth: '56px',
+              minHeight: '56px',
+            }}
           >
             →
           </button>
@@ -256,8 +300,16 @@ function MazeGame() {
           onClick={() => movePlayer(0, 1)}
           onMouseDown={() => startHoldMove(0, 1)}
           onTouchStart={() => startHoldMove(0, 1)}
-          className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
-          style={{ userSelect: 'none', touchAction: 'none' }}
+          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
+          style={{
+            userSelect: 'none',
+            touchAction: 'none',
+            WebkitTapHighlightColor: 'transparent',
+            padding: '1rem',
+            fontSize: '1.5rem',
+            minWidth: '56px',
+            minHeight: '56px',
+          }}
         >
           ↓
         </button>

@@ -129,7 +129,6 @@ function MazeGame() {
     window.addEventListener('touchend', stop);
   };
 
-  // Scoped double-tap prevention
   useEffect(() => {
     const container = gameRef.current;
     if (!container) return;
@@ -155,7 +154,7 @@ function MazeGame() {
     <div
       ref={gameRef}
       className="min-h-screen bg-black text-gray-300 p-8 flex flex-col items-center"
-      style={{ touchAction: 'manipulation' }} // Scoped style
+      style={{ touchAction: 'manipulation' }}
     >
       {/* Controls */}
       <div className="flex items-center justify-center mb-4 space-x-4">
@@ -213,7 +212,7 @@ function MazeGame() {
                   <div
                     key={`${x}-${y}`}
                     style={{ width: `${cellSize}px`, height: `${cellSize}px` }}
-                    className={`${bg} border border-gray-800`}
+                    className={`${bg}`}
                   />
                 );
               })
@@ -228,7 +227,8 @@ function MazeGame() {
           onClick={() => movePlayer(0, -1)}
           onMouseDown={() => startHoldMove(0, -1)}
           onTouchStart={() => startHoldMove(0, -1)}
-          className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm"
+          className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
+          style={{ userSelect: 'none', touchAction: 'none' }}
         >
           ↑
         </button>
@@ -237,7 +237,8 @@ function MazeGame() {
             onClick={() => movePlayer(-1, 0)}
             onMouseDown={() => startHoldMove(-1, 0)}
             onTouchStart={() => startHoldMove(-1, 0)}
-            className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm"
+            className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
+            style={{ userSelect: 'none', touchAction: 'none' }}
           >
             ←
           </button>
@@ -245,7 +246,8 @@ function MazeGame() {
             onClick={() => movePlayer(1, 0)}
             onMouseDown={() => startHoldMove(1, 0)}
             onTouchStart={() => startHoldMove(1, 0)}
-            className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm"
+            className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
+            style={{ userSelect: 'none', touchAction: 'none' }}
           >
             →
           </button>
@@ -254,7 +256,8 @@ function MazeGame() {
           onClick={() => movePlayer(0, 1)}
           onMouseDown={() => startHoldMove(0, 1)}
           onTouchStart={() => startHoldMove(0, 1)}
-          className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm"
+          className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600 text-sm select-none"
+          style={{ userSelect: 'none', touchAction: 'none' }}
         >
           ↓
         </button>

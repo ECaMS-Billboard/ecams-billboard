@@ -9,7 +9,7 @@
 - [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)
 - [Kacper Zalewski](mailto:kacperzalewski@lewisu.edu)
 - [Nicolas Delgado](mailto:nicolasdelgado@lewisu.edu)
-- [Marcos Esparza](mailto:marcosesparza@lewisu.edu)
+- [Marcos Esparzaa](mailto:marcosesparza@lewisu.edu)
 
 ## Past Developers
 

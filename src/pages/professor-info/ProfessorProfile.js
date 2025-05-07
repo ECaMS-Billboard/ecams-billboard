@@ -43,7 +43,7 @@ function ProfessorProfile() {
   }, [id]);
 
   return (
-    <body className='min-h-screen bg-neutral-900 p-8 flex flex-col items-center'>
+    <body className='min-h-screen bg-black p-8 flex flex-col items-center'>
       <div className='max-w-xl mx-auto mt-10'>
         <div className='text-center text-gray-300 leading-10'>
           <h1 className='text-red-500 text-3xl font-bold mb-4'>{prof.fname} {prof.lname}</h1>

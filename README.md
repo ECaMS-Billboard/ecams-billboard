@@ -125,19 +125,6 @@ As of 11/16/24, the below Microsoft Azure instances are available:
 
 <br/>
 
-## Admin Control Panel (ACP)
-*The below information is subject to change; a new ACP solution is in development.*
-### Access for New Contributors
-
-An existing admin needs to provide access to each new user:
-1. Go to "User Management" and click "New User"
-2. Input new user's name and Lewis Gmail address
-3. Click Save
-
-- Once your account is marked as an admin, go to https://ecams-billboard-acp.azurewebsites.net and use your Lewis Google account to sign in.
-
-<br/>
-
 ## Credits
 A list of past and present developers can be found in [wiki/credits.md](wiki/credits.md)
 

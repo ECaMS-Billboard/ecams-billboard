@@ -8,13 +8,13 @@ function Professors() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Base URL for images
-  const imageBaseUrl = "https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/image/";
+  const imageBaseUrl = "https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/image/";
 
   // Fetch professor data
   useEffect(() => {
     const fetchProfessors = async () => {
       try {
-        const response = await fetch("https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/prof-list");
+        const response = await fetch("https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/prof-list");
         const data = await response.json();
         setProfessors(data);
       } catch (error) {

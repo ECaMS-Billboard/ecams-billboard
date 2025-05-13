@@ -10,7 +10,7 @@ function Slides() {
   useEffect(() => {
     async function fetchBannerData() {
       try {
-        const response = await fetch('https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/list-approved-images');
+        const response = await fetch('https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/list-approved-images');
         const data = await response.json();
 
         if (Array.isArray(data)) {

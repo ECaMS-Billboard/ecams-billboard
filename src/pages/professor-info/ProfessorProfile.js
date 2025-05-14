@@ -21,7 +21,7 @@ function ProfessorProfile() {
   // get data for specific professor using API route
   const fetchProfData = async (id) => {
     try {
-      const response = await fetch(`https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/prof-info/${id}`);
+      const response = await fetch(`https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/prof-info/${id}`);
       const data = await response.json();
 
       if (data) {

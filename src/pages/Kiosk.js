@@ -52,7 +52,7 @@ function Slides() {
           {items.map((slide, index) => (
             <div key={index} className="carousel-item w-full h-full flex-shrink-0">
               <img
-                src={`https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/image/${slide.fileId}`}
+                src={`https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/image/${slide.fileId}`}
                 alt={slide.filename || `Slide ${index + 1}`}
                 className="w-full max-h-screen object-contain rounded-lg"
               />

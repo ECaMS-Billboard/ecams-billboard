@@ -7,113 +7,6 @@ Presently, the project maintains one kiosk in the AS building (S hallway), but w
 
 <br/>
 
-## Getting Started
-
-### Windows Installation 
-
-#### Clone the Repository
-```bash
-git clone https://github.com/ECaMS-Billboard/ecams-billboard.git
-
-cd ecams-billboard
-```
-</br>
-
-#### Install project dependencies
-```bash
-npm i -D react react-scripts react-router-dom tailwindcss express
-```
-
-</br>
-
-#### Run the app in development mode
-```bash
-npm run start
-```
-
-The default port is 3000.
-The page will update automatically when you make changes.
-
-</br>
-
-#### Compile and run production build
-```bash
-npm run build
-cd build/
-node server.js
-```
-
-The default port is 5000.
-
-</br>
-
-### Linux Installation 
-
-#### Clone the Repository
-```bash
-git clone https://github.com/ECaMS-Billboard/ecams-billboard.git
-
-cd ecams-billboard
-```
-
-#### Install Node.js and NPM
-
-##### Debian/Ubuntu
-```bash
-sudo apt update
-
-sudo apt install nodejs npm
-```
-
-</br>
-
-##### Fedora/Ubuntu
-```bash
-sudo dnf update
-
-sudo dnf install nodejs npm
-```
-
-</br>
-
-##### Arch 
-```bash
-sudo pacman update -S
-
-sudo pacman -S nodejs npm
-```
-
-</br>
-
-#### Install project dependencies
-```bash
-npm install 
-```
-
-</br>
-
-#### Run the app in development mode
-```bash
-npm run start
-```
-
-The default port is 3000.
-The page will update automatically when you make changes.
-
-</br>
-
-#### Compile and run production build
-```bash
-npm run build
-cd build/
-node ../server.js
-```
-
-The default port is 5000.
-
-</br>
-
-
 ## Active Deployments
 As of 11/16/24, the below Microsoft Azure instances are available:
 
@@ -125,10 +18,12 @@ As of 11/16/24, the below Microsoft Azure instances are available:
 
 <br/>
 
-## Credits
-A list of past and present developers can be found in [wiki/credits.md](wiki/credits.md)
+## Documentation
+For the Installation document, go to /wiki/INSTALLATION.md
 
-### Documentation
 For the Team document, go to /wiki/TEAM.md
 
 For the PROCESS document, go to /wiki/PROCESS.md
+
+### Credits
+A list of past and present developers can be found in [wiki/credits.md](wiki/credits.md)

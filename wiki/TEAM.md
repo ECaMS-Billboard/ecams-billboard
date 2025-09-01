@@ -5,10 +5,10 @@ Kacper Zalewski - Scrum Master
 
 Wiktoria Cioch-Gradzik - Product Owner
 
-Nicolas Delgado - Member
+Nicolas Delgado - Team Member
 
-Ardian Dardovski - Member
+Ardian Dardovski - Team Member
 
-Marcos Esparza - Member
+Marcos Esparza - Team Member
 
-Joshua Vachachira - Member
+Joshua Vachachira - Team Member

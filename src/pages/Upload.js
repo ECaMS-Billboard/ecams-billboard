@@ -57,11 +57,13 @@ function Upload() {
         <div className="w-full max-w-md flex flex-col gap-4">
 
         <button 
-            onClick={() => document.getElementById('fileInput').click()}
+            // remove 'disabled' from below to reactivate portal submission
+            onClick={() => document.getElementById('fileInput').click()} disabled
             className="block text-white bg-neutral-700 hover:bg-neutral-600 py-3 px-4
                        rounded-lg shadow text-center transition hover:-translate-y-1"
+            // VV Orignal: Choose an image
           >
-            Choose an image
+            Currently, submissions are disabled
           </button>
 
           {/* hidden file input, called by the button above */}

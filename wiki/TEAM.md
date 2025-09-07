@@ -1,7 +1,7 @@
 # Sour Patch Engineers
 
 ## Members
-Kacper Zalewski - Scrum Master
+Kacper Zalewski - Scrum Master :)
 
 Wiktoria Cioch-Gradzik - Product Owner
 

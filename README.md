@@ -21,9 +21,11 @@ As of 11/16/24, the below Microsoft Azure instances are available:
 ## Documentation
 - For the Installation document, go to [/wiki/INSTALLATION.md](/wiki/INSTALLATION.md)
 
-- For the Team document, go to [/wiki/TEAM.md](/wiki/TEAM.md)
+## Team Process
 
 - For the PROCESS document, go to [/wiki/PROCESS.md](/wiki/PROCESS.md)
 
 ### Credits
-A list of past and present developers can be found in [wiki/credits.md](wiki/credits.md)
+- A list of past and present developers can be found in [wiki/credits.md](wiki/credits.md)
+
+- The list of current members maintaining this project can be found here: [/wiki/TEAM.md](/wiki/TEAM.md)

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../../config";
 
 function Professors() {
   const [professors, setProfessors] = useState([]);
@@ -8,13 +9,13 @@ function Professors() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Base URL for images
-  const imageBaseUrl = "https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/image/";
+  const imageBaseUrl = `${API_BASE_URL}/image`;
 
   // Fetch professor data
   useEffect(() => {
     const fetchProfessors = async () => {
       try {
-        const response = await fetch("https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/prof-list");
+        const response = await fetch(`${API_BASE_URL}/prof-list`);
         const data = await response.json();
         setProfessors(data);
       } catch (error) {

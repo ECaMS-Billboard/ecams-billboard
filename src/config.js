@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://ecams-billboard-backend-webapp-gebwfehndnggh3ep.centralus-01.azurewebsites.net"

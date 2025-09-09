@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 //import professorInfo from '../professorInfo.json'
+import { API_BASE_URL } from "../config";
 
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,7 +12,7 @@ function Slides() {
   useEffect(() => {
     async function fetchBannerData() {
       try {
-        const response = await fetch('https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/list-approved-images');
+        const response = await fetch(`${API_BASE_URL}/list-approved-images`);
         const data = await response.json();
 
         if (Array.isArray(data)) {
@@ -58,7 +59,7 @@ function Slides() {
           {items.map((slide, index) => (
             <div key={index} className="carousel-item w-full flex-shrink-0">
               <img
-                src={`https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/image/${slide.fileId}`}
+                src={`${API_BASE_URL}/image/${slide.fileId}`}
                 alt={slide.filename || `Slide ${index + 1}`}
                 className="w-full max-h-screen object-contain rounded-lg"
               />

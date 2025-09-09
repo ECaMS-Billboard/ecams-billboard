@@ -4,6 +4,7 @@
 
 import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from "../../config";
 
 
 function ProfessorProfile() {
@@ -21,7 +22,7 @@ function ProfessorProfile() {
   // get data for specific professor using API route
   const fetchProfData = async (id) => {
     try {
-      const response = await fetch(`https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/prof-info/${id}`);
+      const response = await fetch(`${API_BASE_URL}/prof-info/${id}`);
       const data = await response.json();
 
       if (data) {

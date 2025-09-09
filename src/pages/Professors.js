@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from "../config";
 
 //Create the function that gathers the data
 function Professors() {
@@ -9,7 +10,7 @@ function Professors() {
   useEffect(() => {
     const fetchProfessors = async () => {
       try {
-        const response = await fetch("https://https://ecams-billboard-api2-avgqcycwghf3fzct.centralus-01.azurewebsites.net/prof-list");
+        const response = await fetch(`${API_BASE_URL}/prof-list`);
         const data = await response.json();
         setSortedProfessors(data);
       } catch (error) {

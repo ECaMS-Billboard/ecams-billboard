@@ -9,7 +9,7 @@ function Professors() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Base URL for images
-  const imageBaseUrl = `${API_BASE_URL}/image`;
+  //const imageBaseUrl = `${API_BASE_URL}/image`;
 
   // Fetch professor data
   useEffect(() => {
@@ -93,9 +93,10 @@ function Professors() {
           {filteredList.map((info, index) => {
             // Determine image source
             //const imageSrc = info.image && info.image.trim() !== ""
-            const imageSrc = info.image?.trim()
-              ? `${imageBaseUrl}${info.image}` // Use the image from the API if it exists
-              : "/ProfImages/StaticProfessor.png"; // Fallback if image fails to load
+            //const imageSrc = info.image?.trim()
+            //  ? `${imageBaseUrl}${info.image}` // Use the image from the API if it exists
+            //  : "/ProfImages/StaticProfessor.png"; // Fallback if image fails to load
+            const imageSrc = "/ProfImages/StaticProfessor.png";
 
             return (
               <div key={index} className="bg-neutral-800 p-4 rounded-lg text-center">

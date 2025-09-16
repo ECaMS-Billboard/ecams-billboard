@@ -92,7 +92,8 @@ function Professors() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredList.map((info, index) => {
             // Determine image source
-            const imageSrc = info.image && info.image.trim() !== ""
+            //const imageSrc = info.image && info.image.trim() !== ""
+            const imageSrc = info.image?.trim()
               ? `${imageBaseUrl}${info.image}` // Use the image from the API if it exists
               : "/ProfImages/StaticProfessor.png"; // Fallback if image fails to load
 

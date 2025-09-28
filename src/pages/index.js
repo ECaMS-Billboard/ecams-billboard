@@ -16,3 +16,4 @@ export { default as CapstoneProducts } from './CapstoneProducts';
 export { default as Carousel } from './Carousel';
 export { default as Events } from './Events';
 export { default as MazeGame } from './MazeGame';
+export { default as Ad } from './Ad';

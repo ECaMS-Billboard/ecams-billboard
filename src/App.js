@@ -61,6 +61,11 @@ function App() {
       title: 'About & Contact',
       path: '/about',
       description: 'Learn about the ECaMS Billboard project and how to get in touch.'
+    },
+    {
+      title: 'Ad',
+      path: '/ad',
+      description: 'Remove later Please'
     }
   ];
 
@@ -83,6 +88,7 @@ function App() {
         <Route path="/capstoneproducts" element={<CapstoneProducts />} />
         <Route path="/events" element={<Events />} />
         <Route path="/mazegame" element={<MazeGame />} />
+        <Route path="/ad" element={<Ad />} />
       </Routes>
     </BrowserRouter>
   );

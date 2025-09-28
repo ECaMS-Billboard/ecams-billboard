@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
-  CapstoneProducts, Carousel, Events, MazeGame,
+  CapstoneProducts, Carousel, Events, MazeGame, Ad
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';

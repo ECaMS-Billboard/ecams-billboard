@@ -17,14 +17,18 @@ function Ad() {
             in some way.
             <br/><br/>
             Note that all submissions are manually reviewed before they are displayed. Please
-            use common sense for what is appropriate and do not abuse this platform.   
+            use common sense for what is appropriate and do not abuse this platform.
+            
+            <br/><br/>
+            Intructions for Users: To use this Billboard Website, scan the QR code or copy and paste the link into your browser! 
+            You could also use the Everyday App!
 
-            To use this app, scan the QR code or copy and paste the link into your broswer! 
-            You could also use the Everyday App!         
             <br/><br/>
 
-            <img src="ad.png" alt="agony" className="w-64"/>
-
+            Here is our flier below!            
+            <a href="ad.png" target="_blank" rel="noopener noreferrer">
+                <img src="ad.png" alt="agony" className="w-80 rounded-lg shadow-md cursor-pointer"/>
+            </a>
             Feel free to contact the development team at
             {' '}<a className="underline text-blue-400" href="mailto:ecamsbb@gmail.com">ecamsbb@gmail.com</a>{' '}
             if you have any questions.

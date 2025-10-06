@@ -6,14 +6,15 @@ It serves as a general informational platform for students, with the central fea
 Presently, the project maintains one kiosk in the AS building (S hallway), but will tentatively be expanded to include multiple devices across different locations.
 
 <br/>
+
 ## Active Deployments
-As of 11/16/24, the below Microsoft Azure instances are available:
+As of 10/02/25, the below Microsoft Azure instances are available:
 
 | Service                | URL                                                 | Maintainer                                           |
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------------- |
-| Production environment | https://salmon-dune-0ef6bb910.4.azurestaticapps.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu) |
-| Testing environment    | https://ambitious-stone-0a96c9010.4.azurestaticapps.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu) |
-| API endpoint           | https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/ | [Samuel Swedo](mailto:samueljswedo@lewisu.edu)  |
+| Production environment | https://gentle-mud-0e0a72b10.2.azurestaticapps.net/ | [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu) |
+| Testing environment    | https://wonderful-mud-05f947310.1.azurestaticapps.net/ | [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu) |
+| API endpoint           | https://https://ecams-billboard-backend-webapp-gebwfehndnggh3ep.centralus-01.azurewebsites.net/ | [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)  |
 
 <br/>
 

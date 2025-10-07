@@ -14,7 +14,7 @@ As of 10/02/25, the below Microsoft Azure instances are available:
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------------- |
 | Production environment | https://gentle-mud-0e0a72b10.2.azurestaticapps.net/ | [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu) |
 | Testing environment    | https://wonderful-mud-05f947310.1.azurestaticapps.net/ | [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu) |
-| API endpoint           | https://https://ecams-billboard-backend-webapp-gebwfehndnggh3ep.centralus-01.azurewebsites.net/ | [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)  |
+| API endpoint           | https://ecams-billboard-backend-webapp-gebwfehndnggh3ep.centralus-01.azurewebsites.net/ | [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)  |
 
 <br/>
 

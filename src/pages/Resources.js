@@ -49,26 +49,40 @@ const resourcesData = [
 
 function Resources() {
   return (
-    <body className="min-h-screen bg-black p-8 flex flex-col items-center">
+    <body className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-red-950 p-8 flex flex-col items-center">
       <div className="max-w-xl mx-auto mt-10">
         <div className='text-center'>
-          <h1 className="text-red-500 text-3xl font-bold mb-4">Resources</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-400 to-rose-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">
+            Resources
+          </h1>
         </div>
         {resourcesData.map((resource, index) => (
-          <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300 mt-6">
-            <h2 className="text-xl font-bold text-white mb-2">{resource.title}</h2>
+          <div
+            key={index}
+            className="bg-zinc-900/80 border border-zinc-700 p-6 rounded-2xl shadow-lg backdrop-blur-sm text-gray-200 mt-6 hover:border-red-600 transition flex flex-col items-center justify-center text-center"
+          >    <h2 className="text-xl font-bold text-white mb-2 border-b border-red-600 pb-1 tracking-tight">
+              {resource.title}
+            </h2>
             <p className="text-gray-300">
               Phone: <a className="underline text-blue-400" href={`tel:${resource.phone}`}>{resource.phone}</a>
             </p>
             {resource.email && (
-              <p className="text-gray-300">
-                Email: <a className="underline text-blue-400" href={`mailto:${resource.email}`}>{resource.email}</a>
+              <p className="text-gray-300 flex items-center justify-center gap-2 mt-1">
+                <a
+                  href={`mailto:${resource.email}`}
+                  className="text-blue-400 font-medium hover:text-blue-300 hover:underline transition"
+                  title={resource.email}
+                >
+                  Contact via Email
+                </a>
               </p>
             )}
             {resource.description && (
-              <p className="text-gray-300">Description: {resource.description}</p>
+              <p className="text-gray-400 italic mt-1">{resource.description}</p>
             )}
-            <p className="text-gray-300">Office Hours: {resource.hours}</p>
+            <p className="mt-2 text-sm text-gray-400">
+              <span className="font-semibold text-red-500">Office Hours:</span> {resource.hours}
+            </p>
           </div>
         ))}
       </div>

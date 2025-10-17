@@ -58,7 +58,7 @@ function Upload() {
       <div className="max-w-md mx-auto">
         <h1 className="text-red-500 text-3xl font-bold mb-4">Poster Submission Portal</h1>
         <div className="w-full max-w-md flex flex-col gap-4">
-          // remove 'disabled' below to reactivate portal submission //disabled
+          {/*To disable submission: document.getElementById('fileInput').click()} disabled */}
           <button
         
             onClick={() => document.getElementById('fileInput').click()} 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Upload() {
   const [image, setImage] = useState(null);
@@ -57,10 +58,10 @@ function Upload() {
       <div className="max-w-md mx-auto">
         <h1 className="text-red-500 text-3xl font-bold mb-4">Poster Submission Portal</h1>
         <div className="w-full max-w-md flex flex-col gap-4">
-
+          // remove 'disabled' below to reactivate portal submission //disabled
           <button
-            // remove 'disabled' below to reactivate portal submission
-            onClick={() => document.getElementById('fileInput').click()} //disabled
+        
+            onClick={() => document.getElementById('fileInput').click()} 
             className="block text-white bg-neutral-700 hover:bg-neutral-600 py-3 px-4
                        rounded-lg shadow text-center transition hover:-translate-y-1"
           >

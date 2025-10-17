@@ -60,11 +60,11 @@ function Upload() {
 
           <button
             // remove 'disabled' below to reactivate portal submission
-            onClick={() => document.getElementById('fileInput').click()} disabled
+            onClick={() => document.getElementById('fileInput').click()} //disabled
             className="block text-white bg-neutral-700 hover:bg-neutral-600 py-3 px-4
                        rounded-lg shadow text-center transition hover:-translate-y-1"
           >
-            Currently, submissions are disabled
+    
           </button>
 
           {/* hidden file input, triggered by the button above */}

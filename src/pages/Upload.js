@@ -27,7 +27,7 @@ function Upload() {
     formData.append('notes', "UPLOAD TEST");
 
     try {
-      const response = await fetch('https://ecamsbb-api.azurewebsites.net/upload', {
+      const response = await fetch(`${API_BASE_URL}/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -64,7 +64,7 @@ function Upload() {
             className="block text-white bg-neutral-700 hover:bg-neutral-600 py-3 px-4
                        rounded-lg shadow text-center transition hover:-translate-y-1"
           >
-    
+            Click to upload image!
           </button>
 
           {/* hidden file input, triggered by the button above */}

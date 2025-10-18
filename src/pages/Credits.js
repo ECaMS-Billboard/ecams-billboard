@@ -10,16 +10,25 @@ function Credits() {
         </p>
         
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300">
-          <h2 className="text-xl font-bold text-white mb-2">Current Contributors</h2>
-          <ul className="list-disc list-inside">
-            <li>Kacper Zalewski</li>
-            <li>Wiktoria Cioch-Gradzik</li>
-            <li>Nicolas Delgado</li>
-            <li>Marcos Esparza</li>
-            <li>Ardian Dardovski</li>
-            <li>Joshua Vachachira</li>
-          </ul>
-        </div>
+  <h2 className="text-xl font-bold text-white mb-2">Current Contributors</h2>
+  <ul className="list-disc list-inside">
+    <li>Kacper Zalewski</li>
+    <li>Wiktoria Cioch-Gradzik</li>
+    <li>Nicolas Delgado</li>
+    <li>Marcos Esparza</li>
+    <li>Ardian Dardovski</li>
+    <li>Joshua Vachachira</li>
+  </ul>
+
+  <h3 className="text-lg font-semibold text-white mt-4 mb-2">Junior Developers</h3>
+  <ul className="list-disc list-inside">
+    <li>Kiran Gokula</li>
+    <li>Tony Kochev</li>
+    <li>Niko Salvador</li>
+    <li>Alex Tardecilla</li>
+    <li>Luke Thormeyer</li>
+  </ul>
+</div>
 
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300 mt-6">
           <h2 className="text-xl font-bold text-white mb-2">Past Contributors</h2>

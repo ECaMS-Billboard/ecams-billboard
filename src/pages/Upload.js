@@ -1,72 +1,74 @@
 import React, { useState } from 'react';
-
+import { API_BASE_URL } from "../config";
 
 function Upload() {
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
 
-
-  // handle file input change
+  // Handle file input change
   const handleFileChange = (e) => {
-    const userImg = e.target.files[0]
+    const userImg = e.target.files[0];
     if (userImg) {
       const imgUrl = URL.createObjectURL(userImg);
       setImage(imgUrl);
-      setFile(e.target.files[0]);
+      setFile(userImg);
     }
   };
 
-
+  // Upload image to backend
   const uploadImage = async () => {
     if (!file) {
       alert("Please select an image first!");
       return;
     }
 
-    // prepare data to send to the API
     const formData = new FormData();
     formData.append('file', file);
     formData.append('description', "UPLOAD TEST");
     formData.append('notes', "UPLOAD TEST");
 
-
     try {
-      const response = await fetch('https://ecamsbb-api.azurewebsites.net/upload', {
+      const response = await fetch(`${API_BASE_URL}/upload`, {
         method: 'POST',
         body: formData,
       });
 
+      // Parse the JSON even when there's an error
+      const data = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error('Failed to upload image');
+        // Show the backend’s error message to the user
+        alert(data.error || 'Upload failed. Please try again.');
+        console.error('Upload failed:', data);
+        return;
       }
 
-      const data = await response.json();
+      // Success response
+      alert(data.message || 'Image uploaded successfully.');
       console.log('Upload successful:', data);
-      alert('Image uploaded successfully.');
+
     } catch (error) {
       console.error('Error uploading image:', error);
-      alert('Error uploading image.');
+      alert('Network or server error. Please try again later.');
     }
   };
-
 
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
         <h1 className="text-red-500 text-3xl font-bold mb-4">Poster Submission Portal</h1>
         <div className="w-full max-w-md flex flex-col gap-4">
-
-        <button 
-            // remove 'disabled' from below to reactivate portal submission
-            onClick={() => document.getElementById('fileInput').click()} disabled
+          {/*To disable submission: document.getElementById('fileInput').click()} disabled */}
+          <button
+        
+            onClick={() => document.getElementById('fileInput').click()} 
             className="block text-white bg-neutral-700 hover:bg-neutral-600 py-3 px-4
                        rounded-lg shadow text-center transition hover:-translate-y-1"
-            // VV Orignal: Choose an image
           >
-            Currently, submissions are disabled
+            Click to upload image!
           </button>
 
-          {/* hidden file input, called by the button above */}
+          {/* hidden file input, triggered by the button above */}
           <input
             id="fileInput"
             type="file"

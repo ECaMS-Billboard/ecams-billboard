@@ -30,7 +30,7 @@ function App() {
     {
       title: 'Everyday App',
       path: '/everydayapp',
-      description: 'Qucik and easy link to the Everyday App.'
+      description: 'Quick and easy link to the Everyday App.'
     },
     {
       title: 'Capstone Products',
@@ -62,11 +62,6 @@ function App() {
       path: '/about',
       description: 'Learn about the ECaMS Billboard project and how to get in touch.'
     },
-    {
-      title: 'Ad',
-      path: '/ad',
-      description: 'Remove later Please'
-    }
   ];
 
   return (

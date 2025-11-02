@@ -84,8 +84,12 @@ function Resources() {
               <span className="font-semibold text-red-500">Office Hours:</span> {resource.hours}
             </p>
           </div>
+          
         ))}
       </div>
+      <p className="mt-8 text-sm text-gray-500">
+            © 2025 Lewis University • Powered by ECaMS
+          </p>
     </body>
   );
 }

@@ -45,6 +45,20 @@ const resourcesData = [
     description: 'Offers health and counseling services to support student well-being and mental health.',
     hours: 'Fall and Spring: Monday-Friday, 8:30am-5pm; Summer: Tuesday-Wednesday, 8:30am-5pm.',
   },
+  {
+    title: 'Career Services',
+    phone: '(815) 836-5282',
+    email: 'careerservices@lewisu.edu',
+    description: 'Assists students and alumni with career exploration, resume building, internships, and job search strategies.',
+    hours: 'Monday-Friday: 8:30am-5:00pm.',
+  },
+  {
+    title: 'Office of Student Engagement',
+    phone: '(815) 836-5333',
+    email: 'studentengagement@lewisu.edu',
+    description: 'Coordinates student activities, clubs, leadership programs, and campus-wide events to promote involvement and community.',
+    hours: 'Monday-Sunday: 8:30am-10:00pm.',
+  },
 ];
 
 function Resources() {

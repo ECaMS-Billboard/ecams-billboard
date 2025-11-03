@@ -37,7 +37,7 @@ function AdminPanel() {
 
     if (isAdmin) {
       return (
-        <main className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
+        <main className="min-h-screen bg-black p-8 flex flex-col items-center">
           <div className="flex center items-center">
             <h1 className="text-red-500 text-3xl font-bold mb-4">Admin Panel</h1>
           </div>
@@ -49,7 +49,7 @@ function AdminPanel() {
 
 
     return (
-      <main className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
+      <main className="min-h-screen bg-black p-8 flex flex-col items-center">
         <div className="flex center items-center">
           <h1 className="text-red-500 text-3xl font-bold mb-4">Admin Panel</h1>
         </div>

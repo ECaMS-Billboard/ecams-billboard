@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
-  Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
-  CapstoneProducts, Carousel, Events
+  Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
+  CapstoneProducts, Carousel, Events, MazeGame, Ad
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
@@ -19,7 +19,7 @@ function App() {
     {
       title: 'Upload a Poster',
       path: '/upload',
-      description: 'Share your academic or event poster with the ECaMS community.'
+      description: 'Share your academic or event poster with the campus.'
     },
     // { title: 'View Map of Lewis', path: '/lewis-map' },
     {
@@ -30,17 +30,22 @@ function App() {
     {
       title: 'Everyday App',
       path: '/everydayapp',
-      description: 'Discover helpful tools to simplify your day-to-day campus life.'
+      description: 'Quick and easy link to the Everyday App.'
     },
     {
       title: 'Capstone Products',
       path: '/capstoneproducts',
-      description: 'Explore innovative student projects from capstone courses.'
+      description: 'Visit other student projects from capstone courses.'
     },
     {
       title: 'Student Events',
       path: '/events',
-      description: 'Stay in the loop with upcoming student-led events and activities.'
+      description: 'Stay in the loop with upcoming campus events and activities.'
+    },
+    {
+      title: 'Maze Game',
+      path: '/mazegame',
+      description: 'Play a fun customizable Maze Game.'
     },
     {
       title: 'Credits',
@@ -56,26 +61,30 @@ function App() {
       title: 'About & Contact',
       path: '/about',
       description: 'Learn about the ECaMS Billboard project and how to get in touch.'
-    }
+    },
   ];
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Navigationbar />
       <Routes>
         <Route path="/" element={<Home links={links} />} />
-        <Route path="/about" element={<><Navigationbar /><About /></>} />
+        <Route path="/about" element={<About />} />
         <Route path="/acp/" element={<AdminPanel />} />
-        <Route path="/credits" element={<><Navigationbar /><Credits /></>} />
+        <Route path="/credits" element={<Credits />} />
         <Route path="/kiosk" element={<Kiosk />} />
         <Route path="/carousel" element={<Carousel />} />
-        <Route path="/professor-list" element={<><Navigationbar /><ProfessorList /></>} />
+        <Route path="/carouselApi" element={<CarouselApi />} />
+        <Route path="/professor-list" element={<ProfessorList />} />
         <Route path="/prof/:id" element={<ProfessorProfile />} />
-        <Route path="/resources" element={<><Navigationbar /><Resources /></>} />
-        <Route path="/slides" element={<><Navigationbar /><Slides /></>} />
-        <Route path="/upload" element={<><Navigationbar /><Upload /></>} />
-        <Route path="/everydayapp" element={<><Navigationbar /><EverydayApp /></>} />
-        <Route path="/capstoneproducts" element={<><Navigationbar /><CapstoneProducts /></>} />
-        <Route path="/events" element={<><Navigationbar /><Events /></>} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/slides" element={<Slides />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/everydayapp" element={<EverydayApp />} />
+        <Route path="/capstoneproducts" element={<CapstoneProducts />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/mazegame" element={<MazeGame />} />
+        <Route path="/ad" element={<Ad />} />
       </Routes>
     </BrowserRouter>
   );

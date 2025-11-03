@@ -1,10 +1,14 @@
-# CodingBoneyard
+# Sour Patch Engineers
 
 ## Members
-Samuel Swedo - Scrum Master
+Kacper Zalewski - Scrum Master :)
 
-Noah Van Gorp - Product Owner
+Wiktoria Cioch-Gradzik - Product Owner
 
-Anthony Missana - Member
+Nicolas Delgado - Team Member
 
-Johan Olmos - Member
+Ardian Dardovski - Team Member
+
+Marcos Esparza - Team Member
+
+Joshua Vachachira - Team Member

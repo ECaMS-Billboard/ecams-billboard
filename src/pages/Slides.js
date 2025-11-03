@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 //import professorInfo from '../professorInfo.json'
+import { API_BASE_URL } from "../config";
 
 function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,7 +12,7 @@ function Slides() {
   useEffect(() => {
     async function fetchBannerData() {
       try {
-        const response = await fetch('https://ecams-billboard--api.azurewebsites.net/api/banners');
+        const response = await fetch(`${API_BASE_URL}/list-approved-images`);
         const data = await response.json();
 
         if (Array.isArray(data)) {
@@ -47,7 +48,7 @@ function Slides() {
 
   return (
 
-    <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-neutral-900 flex items-center justify-center ">
+    <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-black flex items-center justify-center ">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
 
         {/* Carousel container for poster slideshow functionality*/}
@@ -55,11 +56,11 @@ function Slides() {
           className="carousel flex transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {items.map((item, index) => (
+          {items.map((slide, index) => (
             <div key={index} className="carousel-item w-full flex-shrink-0">
               <img
-                src={`https://ecams-billboard--api.azurewebsites.net/uploads/${item.image_name}`}
-                alt={item.name || `Slide ${index + 1}`}
+                src={`${API_BASE_URL}/image/${slide.fileId}`}
+                alt={slide.filename || `Slide ${index + 1}`}
                 className="w-full max-h-screen object-contain rounded-lg"
               />
             </div>

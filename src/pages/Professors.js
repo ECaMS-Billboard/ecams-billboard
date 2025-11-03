@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from "../config";
 
 //Create the function that gathers the data
 function Professors() {
@@ -9,7 +10,7 @@ function Professors() {
   useEffect(() => {
     const fetchProfessors = async () => {
       try {
-        const response = await fetch("https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/prof-list");
+        const response = await fetch(`${API_BASE_URL}/prof-list`);
         const data = await response.json();
         setSortedProfessors(data);
       } catch (error) {
@@ -42,7 +43,7 @@ function Professors() {
 
   //Create display
   return (
-    <div className="min-h-screen bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto">
         <h1 className="text-red-700 text-3xl font-bold mb-4">Professor Information</h1>
         

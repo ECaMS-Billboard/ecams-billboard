@@ -4,6 +4,7 @@
 
 import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from "../../config";
 
 
 function ProfessorProfile() {
@@ -21,7 +22,7 @@ function ProfessorProfile() {
   // get data for specific professor using API route
   const fetchProfData = async (id) => {
     try {
-      const response = await fetch(`https://ecams-billboard-api-fkcbd4atbhdwhmat.centralus-01.azurewebsites.net/prof-info/${id}`);
+      const response = await fetch(`${API_BASE_URL}/prof-info/${id}`);
       const data = await response.json();
 
       if (data) {
@@ -43,7 +44,7 @@ function ProfessorProfile() {
   }, [id]);
 
   return (
-    <body className='min-h-screen bg-neutral-900 p-8 flex flex-col items-center'>
+    <body className='min-h-screen bg-black p-8 flex flex-col items-center'>
       <div className='max-w-xl mx-auto mt-10'>
         <div className='text-center text-gray-300 leading-10'>
           <h1 className='text-red-500 text-3xl font-bold mb-4'>{prof.fname} {prof.lname}</h1>

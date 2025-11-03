@@ -1,9 +1,9 @@
-function About() {
+function Ad() {
   return (
     <body className="min-h-screen bg-black p-8 flex flex-col items-center">
       <div className="max-w-xl mx-auto mt-10">
         <div className='text-center'>
-          <h1 className="text-red-500 text-3xl font-bold mb-4">About</h1>
+          <h1 className="text-red-500 text-3xl font-bold mb-4">Ad</h1>
         </div>
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300">
           <p className="text-gray-300">
@@ -18,7 +18,17 @@ function About() {
             <br/><br/>
             Note that all submissions are manually reviewed before they are displayed. Please
             use common sense for what is appropriate and do not abuse this platform.
+            
             <br/><br/>
+            Intructions for Users: To use this Billboard Website, scan the QR code or copy and paste the link into your browser! 
+            You could also use the Everyday App!
+
+            <br/><br/>
+
+            Here is our flier below!            
+            <a href="ad.png" target="_blank" rel="noopener noreferrer">
+                <img src="ad.png" alt="agony" className="w-80 rounded-lg shadow-md cursor-pointer"/>
+            </a>
             Feel free to contact the development team at
             {' '}<a className="underline text-blue-400" href="mailto:ecamsbb@gmail.com">ecamsbb@gmail.com</a>{' '}
             if you have any questions.
@@ -29,5 +39,5 @@ function About() {
   );
 }
 
-export default About;
+export default Ad;
 

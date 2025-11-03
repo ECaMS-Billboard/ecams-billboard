@@ -1,31 +1,71 @@
 const CapstoneProducts = () => {
-    const quizmaster = "https://quizmaster-c66a2.web.app/home"
-  
-    return (
-        <body className="min-h-screen bg-neutral-900 p-8 flex flex-col items-center">
-            <div className="max-w-xl mx-auto">
-                <div className='text-center'>
-                    <h1 className="text-red-500 text-3xl font-bold mb-4 underline">Capstone Products</h1>
-                    </div >
-                        <div className="text-gray-300 text-center">
-                            Here you can check out what other Capstone teams have created.
-                        <h1 className="text-red-500 text-2xl font-bold mb-2 mt-2">
-                            QuizMaster: an alternative to Quizlet
-                        </h1>
-                        
-                        <a href={quizmaster} target="_blank" rel="noopener noreferrer">
-                            <img src="QuizMasterFlyer.png" alt="app store button" className="mb-4"/>
-                            <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Try QuizMaster</button>
-                        </a>
-                        
-                        <h1 className="text-red-500 text-2xl font-bold mt-10">
-                            More Capstone Products Coming Soon.
-                        </h1>
+    const products = [
+        {
+            title: "QuizMaster: An Alternative to Quizlet",
+            image: "QuizMasterFlyer.png",
+            link: "https://quizmaster-c66a2.web.app/home",
+            buttonText: "Try QuizMaster",
 
+        },
+        {
+            title: "ChattyNotes",
+            image: "ChattyNotesFlyer.png",
+            link: "https://chattynotes.io/",
+            buttonText: "Try ChattyNotes",
+        }
+    ]
+
+    return (
+        <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black p-8 flex flex-col items-center text-center">
+            <h1 className="text-red-500 text-4xl font-extrabold mb-6 underline">
+                Capstone Products
+            </h1>
+            <p className="text-gray-300 mb-8 max-w-2xl">
+                Explore creative projects developed by our Capstone teams — each
+                showcasing innovation, design, and collaboration.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl w-full">
+                {products.map((product, index) => (
+                    <div
+                        key={index}
+                        className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                        <img
+                            src={product.image}
+                            alt={product.title}
+                            className="w-full h-64 object-cover"
+                        />
+                        <div className="p-6">
+                            <h2 className="text-red-500 text-2xl font-bold mb-2">
+                                {product.title}
+                            </h2>
+                            <p className="text-gray-300 mb-4">{product.description}</p>
+                            <a
+                                href={product.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <button
+                                    type="button"
+                                    className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-600 hover:to-indigo-500 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-6 py-2.5 transition duration-200"
+                                >
+                                    {product.buttonText}
+                                </button>
+                            </a>
                         </div>
-                </div>
-            </body>
+                    </div>
+                ))}
+            </div>
+
+            <h2 className="text-red-500 text-2xl font-bold mt-12">
+                More Capstone Products Coming Soon.
+            </h2>
+            <p className="mt-8 text-sm text-gray-500">
+            © 2025 Lewis University • Powered by ECaMS
+          </p>
+        </div>
     );
-  };
-  
-  export default CapstoneProducts;
+};
+
+export default CapstoneProducts;

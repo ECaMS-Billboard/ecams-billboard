@@ -2,15 +2,19 @@
 
 ## Current Team
 
+- [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)
+- [Kacper Zalewski](mailto:kacperzalewski@lewisu.edu)
+- [Nicolas Delgado](mailto:nicolasdelgado@lewisu.edu)
+- [Ardian Dardovski](mailto:ardiandardovski@lewisu.edu)
+- [Marcos Esparza](mailto:marcosesparza@lewisu.edu)
+- [Joshua Vachachira](mailto:joshuavachachira@lewisu.edu)
+
+## Past Developers
+
 - [Samuel Swedo](mailto:samueljswedo@lewisu.edu)
 - [Noah Van Gorp](mailto:noahavangorp@lewisu.edu)
 - [Johan Olmos Zavala](mailto:johanolmoszavala@lewisu.edu)
 - [Anthony Missana](mailto:anthonypmissana@lewisu.edu)
-- [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)
-- [Nicolas Delgado](mailto:nicolasdelgado@lewisu.edu)
-
-## Past Developers
-
 - [David Abrutis](davidaabrutis@lewisu.edu)
 - [Fernando Alfaro](fernandogalfaro@lewisu.edu)
 - [Ryan Anderson](ryananderson@lewisu.edu)

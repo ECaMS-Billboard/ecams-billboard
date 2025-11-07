@@ -21,85 +21,54 @@ function MazeGame() {
   const [startTime, setStartTime] = useState(() => Date.now());
   const [elapsed, setElapsed] = useState(0);
   const [best, setBest] = useState(() => {
-    const v = localStorage.getItem(bestKey(size, difficulty));
-    return v ? Number(v) : null;
+    const raw = localStorage.getItem(bestKey(size, difficulty));
+    const num = raw ? Number(raw) : null;
+    return num && num > 0 ? num : null;
   });
   const [running, setRunning] = useState(true);
 
-  // ======== HARD generator: perfect maze on the current size (no downsample) ========
-  // Recursive backtracker (stack-based) that produces a single connected maze (spanning tree).
+  // ======== HARD: proper DFS spanning tree over size×size cells (always solvable) ========
   function generateHardMaze(n) {
     const grid = Array.from({ length: n }, () => Array(n).fill('wall'));
-    const inBounds = (x, y) => x >= 0 && y >= 0 && x < n && y < n;
-
-    // Mark start & goal as path to be safe.
-    grid[0][0] = 'path';
-    grid[n - 1][n - 1] = 'path';
-
-    // Use stack for DFS
-    const stack = [[0, 0]];
-    const dirs = [
-      [1, 0],
-      [-1, 0],
-      [0, 1],
-      [0, -1],
-    ];
-
-    function shuffle(a) {
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = (Math.random() * (i + 1)) | 0;
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    }
-
-    // Keep a visited set for DFS
     const visited = Array.from({ length: n }, () => Array(n).fill(false));
+    const inBounds = (x, y) => x >= 0 && y >= 0 && x < n && y < n;
+    const dirs = [[1,0],[-1,0],[0,1],[0,-1]];
+
+    function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [a[i],a[j]]=[a[j],a[i]];} return a; }
+
+    const stack = [[0,0]];
     visited[0][0] = true;
+    grid[0][0] = 'path';
 
     while (stack.length) {
       const [cx, cy] = stack[stack.length - 1];
-      grid[cy][cx] = 'path';
+      const options = shuffle(dirs.slice()).filter(([dx,dy])=>{
+        const nx = cx + dx, ny = cy + dy;
+        return inBounds(nx, ny) && !visited[ny][nx];
+      });
 
-      // Unvisited neighbors (4-neighborhood)
-      const order = shuffle(dirs.slice());
-      let carved = false;
-
-      for (const [dx, dy] of order) {
-        const nx = cx + dx;
-        const ny = cy + dy;
-        if (!inBounds(nx, ny) || visited[ny][nx]) continue;
-
-        // Only carve if it wouldn't connect to more than 1 path neighbor (keeps it maze-y)
-        let neighbors = 0;
-        for (const [adx, ady] of dirs) {
-          const ax = nx + adx, ay = ny + ady;
-          if (inBounds(ax, ay) && grid[ay][ax] === 'path') neighbors++;
-        }
-        if (neighbors <= 1) {
-          visited[ny][nx] = true;
-          grid[ny][nx] = 'path';
-          stack.push([nx, ny]);
-          carved = true;
-          break;
-        }
+      if (options.length === 0) {
+        stack.pop();
+        continue;
       }
 
-      if (!carved) stack.pop();
+      const [dx, dy] = options[0];
+      const nx = cx + dx, ny = cy + dy;
+      visited[ny][nx] = true;
+      grid[ny][nx] = 'path';
+      stack.push([nx, ny]);
     }
 
-    // Make absolutely sure start and goal are walkable
+    // Ensure start/goal open (they will be visited, but safe-guard)
     grid[0][0] = 'path';
     grid[n - 1][n - 1] = 'path';
     return grid;
   }
 
-  // ----- EASY generator: your original + slightly more open -----
+  // ======== EASY:  original style, slightly more open ========
   function generateEasyMaze(n) {
-    const PATH_PROB = 0.35; // more openings than default
-    const newMaze = Array(n)
-      .fill(null)
-      .map(() => Array(n).fill('wall'));
+    const PATH_PROB = 0.35; // more openings
+    const newMaze = Array(n).fill(null).map(() => Array(n).fill('wall'));
 
     let current = { x: 0, y: 0 };
     newMaze[0][0] = 'path';
@@ -135,9 +104,7 @@ function MazeGame() {
     setRunning(true);
   }, [size, difficulty]);
 
-  useEffect(() => {
-    generateMaze();
-  }, [generateMaze]);
+  useEffect(() => { generateMaze(); }, [generateMaze]);
 
   // ----- Movement -----
   const movePlayer = useCallback(
@@ -160,7 +127,7 @@ function MazeGame() {
     [maze, size]
   );
 
-  // ----- Keyboard controls -----
+  // ----- Keyboard -----
   useEffect(() => {
     const handleKeyDown = (e) => {
       switch (e.key) {
@@ -192,34 +159,43 @@ function MazeGame() {
 
   const hasWon = playerPos.x === goalPos.x && playerPos.y === goalPos.y;
 
-  // ----- Timer ticking (only while running) -----
+  // ----- Timer (only while running) -----
   useEffect(() => {
     if (!running) return;
     const id = setInterval(() => setElapsed(Date.now() - startTime), 200);
     return () => clearInterval(id);
   }, [startTime, running]);
 
-  // Save best + stop timer when you win (no zero!)
+  // Save best + stop timer on win (and never save 0)
   useEffect(() => {
     if (hasWon && running) {
       const finalTime = Date.now() - startTime;
       const key = bestKey(size, difficulty);
-      if (best == null || finalTime < best) {
-        localStorage.setItem(key, String(finalTime));
-        setBest(finalTime);
+
+      if (finalTime > 0) {
+        const storedRaw = localStorage.getItem(key);
+        const stored = storedRaw ? Number(storedRaw) : null;
+        if (stored == null || stored <= 0 || finalTime < stored) {
+          localStorage.setItem(key, String(finalTime));
+          setBest(finalTime);
+        } else {
+          setBest(stored);
+        }
       }
+
       setElapsed(finalTime);
       setRunning(false); // stop ticking
     }
-  }, [hasWon, running, startTime, best, size, difficulty]);
+  }, [hasWon, running, startTime, size, difficulty]);
 
   // Reset timer + reload best when size or difficulty changes
   useEffect(() => {
     setStartTime(Date.now());
     setElapsed(0);
     setRunning(true);
-    const v = localStorage.getItem(bestKey(size, difficulty));
-    setBest(v ? Number(v) : null);
+    const raw = localStorage.getItem(bestKey(size, difficulty));
+    const num = raw ? Number(raw) : null;
+    setBest(num && num > 0 ? num : null);
   }, [size, difficulty]);
 
   // ----- Hold-to-move (no stacking) -----
@@ -420,4 +396,3 @@ function MazeGame() {
 }
 
 export default MazeGame;
-

@@ -27,61 +27,24 @@ function MazeGame() {
   });
   const [running, setRunning] = useState(true);
 
-  // ======== HARD: proper DFS spanning tree over size×size cells (always solvable) ========
-  function generateHardMaze(n) {
-    const grid = Array.from({ length: n }, () => Array(n).fill('wall'));
-    const visited = Array.from({ length: n }, () => Array(n).fill(false));
-    const inBounds = (x, y) => x >= 0 && y >= 0 && x < n && y < n;
-    const dirs = [[1,0],[-1,0],[0,1],[0,-1]];
-
-    function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [a[i],a[j]]=[a[j],a[i]];} return a; }
-
-    const stack = [[0,0]];
-    visited[0][0] = true;
-    grid[0][0] = 'path';
-
-    while (stack.length) {
-      const [cx, cy] = stack[stack.length - 1];
-      const options = shuffle(dirs.slice()).filter(([dx,dy])=>{
-        const nx = cx + dx, ny = cy + dy;
-        return inBounds(nx, ny) && !visited[ny][nx];
-      });
-
-      if (options.length === 0) {
-        stack.pop();
-        continue;
-      }
-
-      const [dx, dy] = options[0];
-      const nx = cx + dx, ny = cy + dy;
-      visited[ny][nx] = true;
-      grid[ny][nx] = 'path';
-      stack.push([nx, ny]);
-    }
-
-    // Ensure start/goal open (they will be visited, but safe-guard)
-    grid[0][0] = 'path';
-    grid[n - 1][n - 1] = 'path';
-    return grid;
-  }
-
-  // ======== EASY:  original style, slightly more open ========
+  // ======== EASY: your original style, more open ========
   function generateEasyMaze(n) {
     const PATH_PROB = 0.35; // more openings
     const newMaze = Array(n).fill(null).map(() => Array(n).fill('wall'));
 
-    let current = { x: 0, y: 0 };
-    newMaze[0][0] = 'path';
-
-    while (current.x !== n - 1 || current.y !== n - 1) {
+    // Guaranteed path (right/down bias)
+    let cx = 0, cy = 0;
+    newMaze[cy][cx] = 'path';
+    while (cx !== n - 1 || cy !== n - 1) {
       const options = [];
-      if (current.x < n - 1) options.push({ x: current.x + 1, y: current.y });
-      if (current.y < n - 1) options.push({ x: current.x, y: current.y + 1 });
-      const next = options[Math.floor(Math.random() * options.length)];
-      current = next;
-      newMaze[current.y][current.x] = 'path';
+      if (cx < n - 1) options.push([1, 0]);
+      if (cy < n - 1) options.push([0, 1]);
+      const [dx, dy] = options[Math.floor(Math.random() * options.length)];
+      cx += dx; cy += dy;
+      newMaze[cy][cx] = 'path';
     }
 
+    // Sprinkle extra paths
     for (let y = 0; y < n; y++) {
       for (let x = 0; x < n; x++) {
         if (newMaze[y][x] !== 'path') {
@@ -93,6 +56,55 @@ function MazeGame() {
     newMaze[0][0] = 'path';
     newMaze[n - 1][n - 1] = 'path';
     return newMaze;
+  }
+
+  // ======== HARD: guaranteed path + sparse openings (challenging but solvable) ========
+  function generateHardMaze(n) {
+    const PATH_PROB = 0.10; // much fewer openings than Easy
+    const grid = Array(n).fill(null).map(() => Array(n).fill('wall'));
+
+    // Guaranteed path (randomized right/down walk)
+    let cx = 0, cy = 0;
+    grid[cy][cx] = 'path';
+    while (cx !== n - 1 || cy !== n - 1) {
+      // Slight bias to create turns
+      const roll = Math.random();
+      const canRight = cx < n - 1;
+      const canDown  = cy < n - 1;
+
+      let dx = 0, dy = 0;
+      if (canRight && canDown) {
+        if (roll < 0.45) { dx = 1; dy = 0; }
+        else if (roll < 0.90) { dx = 0; dy = 1; }
+        else { dx = Math.random() < 0.5 ? 1 : 0; dy = dx ? 0 : 1; }
+      } else if (canRight) { dx = 1; }
+      else { dy = 1; }
+
+      cx += dx; cy += dy;
+      grid[cy][cx] = 'path';
+    }
+
+    // Add sparse extra paths (dead-ends & branches)
+    for (let y = 0; y < n; y++) {
+      for (let x = 0; x < n; x++) {
+        if (grid[y][x] !== 'path') {
+          grid[y][x] = Math.random() < PATH_PROB ? 'path' : 'wall';
+        }
+      }
+    }
+
+    // Ensure start/goal neighbors aren't totally boxed in
+    const neighbors = [[1,0],[0,1],[-1,0],[0,-1]];
+    for (const [dx,dy] of neighbors) {
+      const sx = 0 + dx, sy = 0 + dy;
+      if (sx >= 0 && sy >= 0 && sx < n && sy < n) grid[sy][sx] = grid[sy][sx] === 'wall' && Math.random()<0.3 ? 'path' : grid[sy][sx];
+      const gx = n-1 + dx, gy = n-1 + dy;
+      if (gx >= 0 && gy >= 0 && gx < n && gy < n) grid[gy][gx] = grid[gy][gx] === 'wall' && Math.random()<0.3 ? 'path' : grid[gy][gx];
+    }
+
+    grid[0][0] = 'path';
+    grid[n - 1][n - 1] = 'path';
+    return grid;
   }
 
   // ----- Generate Maze -----
@@ -166,7 +178,7 @@ function MazeGame() {
     return () => clearInterval(id);
   }, [startTime, running]);
 
-  // Save best + stop timer on win (and never save 0)
+  // Save best + stop timer on win (never save 0)
   useEffect(() => {
     if (hasWon && running) {
       const finalTime = Date.now() - startTime;
@@ -184,7 +196,7 @@ function MazeGame() {
       }
 
       setElapsed(finalTime);
-      setRunning(false); // stop ticking
+      setRunning(false);
     }
   }, [hasWon, running, startTime, size, difficulty]);
 

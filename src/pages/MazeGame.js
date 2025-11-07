@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 
+// Configurable Variables
 const MIN_SIZE = 10;
 const MAX_SIZE = 50;
 const STEP = 5;
@@ -12,17 +13,68 @@ function MazeGame() {
   const [maze, setMaze] = useState([]);
   const [playerPos, setPlayerPos] = useState({ x: 0, y: 0 });
   const [goalPos, setGoalPos] = useState({ x: size - 1, y: size - 1 });
+  const [difficulty, setDifficulty] = useState('Hard'); // 'Easy' | 'Hard'
   const gameRef = useRef(null);
 
-  // ---- Timer state ----
+  // ----- Timer / Best (keyed by size + difficulty) -----
+  const bestKey = (s, d) => `mazeBest-${s}-${d}`;
   const [startTime, setStartTime] = useState(() => Date.now());
   const [elapsed, setElapsed] = useState(0);
   const [best, setBest] = useState(() => {
-    const v = localStorage.getItem('mazeBest-' + size);
+    const v = localStorage.getItem(bestKey(size, difficulty));
     return v ? Number(v) : null;
   });
 
+  // ----- HARD mode: perfect-maze (DFS) generator -----
+  function generatePerfectMazeGrid(n) {
+    const H = n % 2 === 0 ? n + 1 : n;
+    const W = H;
+    const WALL = 1, PATH = 0;
+    const grid = Array.from({ length: H }, () => Array(W).fill(WALL));
+
+    const inBounds = (r, c) => r > 0 && c > 0 && r < H - 1 && c < W - 1;
+    const dirs = [[-2,0],[2,0],[0,-2],[0,2]];
+    function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [a[i],a[j]]=[a[j],a[i]];} return a;}
+
+    function carve(r, c) {
+      grid[r][c] = PATH;
+      for (const [dr, dc] of shuffle(dirs.slice())) {
+        const nr = r + dr, nc = c + dc;
+        if (inBounds(nr, nc) && grid[nr][nc] === WALL) {
+          grid[r + dr/2][c + dc/2] = PATH;
+          carve(nr, nc);
+        }
+      }
+    }
+
+    carve(1, 1);
+    grid[1][1] = PATH;
+    grid[H - 2][W - 2] = PATH;
+
+    const out = Array.from({ length: n }, () => Array(n).fill('wall'));
+    for (let y = 0; y < n; y++) {
+      for (let x = 0; x < n; x++) {
+        const gy = Math.min(H - 1, Math.round((y / (n - 1)) * (H - 1)));
+        const gx = Math.min(W - 1, Math.round((x / (n - 1)) * (W - 1)));
+        out[y][x] = grid[gy][gx] === PATH ? 'path' : 'wall';
+      }
+    }
+    return out;
+  }
+
+  // ----- Generate Maze (Easy uses your original; Hard uses DFS) -----
   const generateMaze = useCallback(() => {
+    if (difficulty === 'Hard') {
+      const hardGrid = generatePerfectMazeGrid(size);
+      setMaze(hardGrid);
+      setPlayerPos({ x: 0, y: 0 });
+      setGoalPos({ x: size - 1, y: size - 1 });
+      return;
+    }
+
+    // EASY: your original generator, but a bit more open
+    const PATH_PROB = 0.35; // more paths opened than default
+
     const newMaze = Array(size)
       .fill(null)
       .map(() => Array(size).fill('wall'));
@@ -42,7 +94,7 @@ function MazeGame() {
     for (let y = 0; y < size; y++) {
       for (let x = 0; x < size; x++) {
         if (newMaze[y][x] !== 'path') {
-          newMaze[y][x] = Math.random() > 0.3 ? 'wall' : 'path';
+          newMaze[y][x] = Math.random() < PATH_PROB ? 'path' : 'wall';
         }
       }
     }
@@ -50,12 +102,13 @@ function MazeGame() {
     setMaze(newMaze);
     setPlayerPos({ x: 0, y: 0 });
     setGoalPos({ x: size - 1, y: size - 1 });
-  }, [size]);
+  }, [size, difficulty]);
 
   useEffect(() => {
     generateMaze();
   }, [generateMaze]);
 
+  // ----- Movement -----
   const movePlayer = useCallback(
     (dx, dy) => {
       setPlayerPos((pos) => {
@@ -76,81 +129,76 @@ function MazeGame() {
     [maze, size]
   );
 
+  // ----- Keyboard controls -----
   useEffect(() => {
     const handleKeyDown = (e) => {
       switch (e.key) {
-        case 'ArrowUp':
-          e.preventDefault();
-          movePlayer(0, -1);
-          break;
-        case 'ArrowDown':
-          e.preventDefault();
-          movePlayer(0, 1);
-          break;
-        case 'ArrowLeft':
-          e.preventDefault();
-          movePlayer(-1, 0);
-          break;
-        case 'ArrowRight':
-          e.preventDefault();
-          movePlayer(1, 0);
-          break;
-        default:
-          break;
+        case 'ArrowUp': e.preventDefault(); movePlayer(0, -1); break;
+        case 'ArrowDown': e.preventDefault(); movePlayer(0, 1); break;
+        case 'ArrowLeft': e.preventDefault(); movePlayer(-1, 0); break;
+        case 'ArrowRight': e.preventDefault(); movePlayer(1, 0); break;
+        default: break;
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [movePlayer]);
 
+  // ----- Size control -----
   const handleSizeChange = (delta) => {
     const newSize = Math.max(MIN_SIZE, Math.min(MAX_SIZE, size + delta));
     setSize(newSize);
   };
 
+  // ----- Cell size -----
   const calculateCellSize = () => {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
-    const minSize = Math.min(screenWidth, screenHeight) * SCALE_FACTOR;
-    return Math.min(minSize / size, 50);
+    const minSizePx = Math.min(screenWidth, screenHeight) * SCALE_FACTOR;
+    return Math.min(minSizePx / size, 50);
   };
-
   const cellSize = calculateCellSize();
+
   const hasWon = playerPos.x === goalPos.x && playerPos.y === goalPos.y;
 
-  // ---- Timer ticking ----
+  // ----- Timer ticking -----
   useEffect(() => {
     const id = setInterval(() => setElapsed(Date.now() - startTime), 200);
     return () => clearInterval(id);
   }, [startTime]);
 
-  // Save best time when won
+  // Save best + reset timer when you win
   useEffect(() => {
     if (hasWon) {
+      const key = bestKey(size, difficulty);
       if (best == null || elapsed < best) {
-        localStorage.setItem('mazeBest-' + size, String(elapsed));
+        localStorage.setItem(key, String(elapsed));
         setBest(elapsed);
       }
+      setElapsed(0); // reset timer after win
     }
-  }, [hasWon, elapsed, best, size]);
+  }, [hasWon, elapsed, best, size, difficulty]);
 
-  // Reset timer when maze size changes
+  // Reset timer + reload best when size changes
   useEffect(() => {
     setStartTime(Date.now());
     setElapsed(0);
-    const v = localStorage.getItem('mazeBest-' + size);
+    const v = localStorage.getItem(bestKey(size, difficulty));
     setBest(v ? Number(v) : null);
-  }, [size]);
-  // ------------------------
+  }, [size, difficulty]);
 
+  // ----- Hold-to-move (no stacking) -----
+  const holdRef = useRef(null);
   const startHoldMove = (dx, dy) => {
-    const intervalId = setInterval(() => movePlayer(dx, dy), HOLD_DELAY_MS);
+    if (holdRef.current) clearInterval(holdRef.current);
+    movePlayer(dx, dy);
+    holdRef.current = setInterval(() => movePlayer(dx, dy), HOLD_DELAY_MS);
 
     const stop = () => {
-      clearInterval(intervalId);
+      if (holdRef.current) {
+        clearInterval(holdRef.current);
+        holdRef.current = null;
+      }
       window.removeEventListener('mouseup', stop);
       window.removeEventListener('mouseleave', stop);
       window.removeEventListener('touchend', stop);
@@ -161,157 +209,171 @@ function MazeGame() {
     window.addEventListener('touchend', stop);
   };
 
+  // ----- Touch double-tap prevention -----
   useEffect(() => {
     const container = gameRef.current;
     if (!container) return;
-
     let lastTap = 0;
-
     const handleTouchEnd = (e) => {
-      const currentTime = new Date().getTime();
-      const tapLength = currentTime - lastTap;
-      if (tapLength < 300 && tapLength > 0) {
-        e.preventDefault();
-      }
-      lastTap = currentTime;
+      const t = Date.now();
+      if (t - lastTap < 300 && t - lastTap > 0) e.preventDefault();
+      lastTap = t;
     };
-
     container.addEventListener('touchend', handleTouchEnd);
-    return () => {
-      container.removeEventListener('touchend', handleTouchEnd);
-    };
+    return () => container.removeEventListener('touchend', handleTouchEnd);
   }, []);
 
-  // Restart that resets timer
+  // Restart + reset timer
   const restartWithTimer = () => {
     generateMaze();
     setStartTime(Date.now());
     setElapsed(0);
   };
 
+  // ----- UI (dark theme) -----
   return (
     <div
       ref={gameRef}
-      className="min-h-screen bg-black text-gray-300 p-8 flex flex-col items-center"
-      style={{
-        touchAction: 'manipulation',
-        WebkitUserSelect: 'none',
-        userSelect: 'none',
-        WebkitTapHighlightColor: 'transparent',
-      }}
+      className="min-h-screen bg-neutral-950 text-gray-200 p-6 flex flex-col items-center"
+      style={{ touchAction: 'manipulation', WebkitUserSelect: 'none', userSelect: 'none', WebkitTapHighlightColor: 'transparent' }}
     >
-      {/* Controls */}
-      <div className="flex items-center justify-center mb-4 space-x-4">
-        <button
-          onClick={() => handleSizeChange(-STEP)}
-          className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-white text-sm"
-        >
-          -
-        </button>
-        <div className="text-xl font-semibold w-20 text-center">
-          {size} x {size}
-        </div>
-        <button
-          onClick={() => handleSizeChange(STEP)}
-          className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-white text-sm"
-        >
-          +
-        </button>
-        <button
-          onClick={restartWithTimer}
-          className="ml-6 bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded text-white text-sm"
-        >
-          Restart
-        </button>
-
-        {/* Timer readout */}
-        <div className="ml-6 text-sm">
-          Time: {(elapsed / 1000).toFixed(1)}s
-          {best != null && (
-            <span className="ml-3 text-green-400">
-              Best: {(best / 1000).toFixed(1)}s
-            </span>
-          )}
-        </div>
+      {/* Header */}
+      <div className="w-full max-w-4xl">
+        <h1 className="text-2xl font-bold text-red-500">Maze Game</h1>
       </div>
 
-      {/* Maze Grid */}
-      <div className="mb-6 overflow-auto">
-        {maze.length > 0 && (
-          <div
-            className="grid"
-            style={{
-              gridTemplateColumns: `repeat(${size}, ${cellSize}px)`,
-              gridTemplateRows: `repeat(${size}, ${cellSize}px)`,
-              width: `100%`,
-              height: `auto`,
-            }}
-          >
-            {maze.map((row, y) =>
-              row.map((cell, x) => {
-                let bg;
-                if (hasWon) {
-                  bg = 'bg-green-500';
-                } else if (x === playerPos.x && y === playerPos.y) {
-                  bg = 'bg-blue-400';
-                } else if (x === goalPos.x && y === goalPos.y) {
-                  bg = 'bg-green-500';
-                } else if (cell === 'path') {
-                  bg = 'bg-gray-500';
-                } else {
-                  bg = 'bg-gray-900';
-                }
-
-                return (
-                  <div
-                    key={`${x}-${y}`}
-                    style={{ width: `${cellSize}px`, height: `${cellSize}px` }}
-                    className={`${bg}`}
-                  />
-                );
-              })
-            )}
+      {/* Card container */}
+      <div className="w-full max-w-4xl mt-4 rounded-2xl bg-neutral-900/70 shadow-xl border border-neutral-800">
+        {/* Controls bar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-neutral-800">
+          <div className="flex items-center gap-3">
+            <button onClick={() => handleSizeChange(-STEP)} className="bg-neutral-800 hover:bg-neutral-700 px-3 py-1 rounded text-sm">-</button>
+            <div className="text-lg font-semibold tabular-nums">{size} × {size}</div>
+            <button onClick={() => handleSizeChange(STEP)} className="bg-neutral-800 hover:bg-neutral-700 px-3 py-1 rounded text-sm">+</button>
+            <button onClick={restartWithTimer} className="ml-2 bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded text-sm">Restart</button>
           </div>
-        )}
+
+          {/* Right side: Difficulty + Timer */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-400">Difficulty</span>
+              <select
+                value={difficulty}
+                onChange={(e) => setDifficulty(e.target.value)}
+                className="bg-neutral-800 hover:bg-neutral-700 px-2 py-1 rounded text-sm"
+              >
+                <option>Easy</option>
+                <option>Hard</option>
+              </select>
+            </div>
+            <div className="text-sm">
+              Time: {(elapsed / 1000).toFixed(1)}s
+              {best != null && <span className="ml-3 text-green-400">Best: {(best / 1000).toFixed(1)}s</span>}
+            </div>
+          </div>
+        </div>
+
+        {/* Maze Grid */}
+        <div className="p-4 flex flex-col items-center">
+          {maze.length > 0 && (
+            <div
+              className="grid rounded-lg shadow-inner"
+              style={{
+                gridTemplateColumns: `repeat(${size}, ${cellSize}px)`,
+                gridTemplateRows: `repeat(${size}, ${cellSize}px)`,
+                outline: '1px solid #2a2a2a',
+                background: '#0b0b0b',
+              }}
+            >
+              {maze.map((row, y) =>
+                row.map((cell, x) => {
+                  const isPlayer = x === playerPos.x && y === playerPos.y;
+                  const isGoal = x === goalPos.x && y === goalPos.y;
+
+                  let bg;
+                  if (isPlayer) bg = '#60a5fa';      // blue-400
+                  else if (isGoal) bg = '#22c55e';   // green-500
+                  else if (cell === 'path') bg = '#525252'; // gray-600-ish
+                  else bg = '#171717';               // neutral-900-ish
+
+                  return (
+                    <div
+                      key={`${x}-${y}`}
+                      style={{
+                        width: `${cellSize}px`,
+                        height: `${cellSize}px`,
+                        background: bg,
+                        transition: 'background-color 120ms ease, transform 60ms ease',
+                      }}
+                    />
+                  );
+                })
+              )}
+            </div>
+          )}
+
+          {/* Arrow Controls */}
+          <div className="mt-4 mb-2 flex flex-col items-center space-y-2">
+            <button
+              onClick={() => movePlayer(0, -1)}
+              onMouseDown={() => startHoldMove(0, -1)}
+              onTouchStart={() => startHoldMove(0, -1)}
+              className="bg-neutral-800 hover:bg-neutral-700 rounded text-sm select-none px-4 py-3 text-xl shadow"
+            >
+              ↑
+            </button>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => movePlayer(-1, 0)}
+                onMouseDown={() => startHoldMove(-1, 0)}
+                onTouchStart={() => startHoldMove(-1, 0)}
+                className="bg-neutral-800 hover:bg-neutral-700 rounded text-sm select-none px-4 py-3 text-xl shadow"
+              >
+                ←
+              </button>
+              <button
+                onClick={() => movePlayer(1, 0)}
+                onMouseDown={() => startHoldMove(1, 0)}
+                onTouchStart={() => startHoldMove(1, 0)}
+                className="bg-neutral-800 hover:bg-neutral-700 rounded text-sm select-none px-4 py-3 text-xl shadow"
+              >
+                →
+              </button>
+            </div>
+            <button
+              onClick={() => movePlayer(0, 1)}
+              onMouseDown={() => startHoldMove(0, 1)}
+              onTouchStart={() => startHoldMove(0, 1)}
+              className="bg-neutral-800 hover:bg-neutral-700 rounded text-sm select-none px-4 py-3 text-xl shadow"
+            >
+              ↓
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Arrow Controls */}
-      <div className="flex flex-col items-center space-y-2">
-        <button
-          onClick={() => movePlayer(0, -1)}
-          onMouseDown={() => startHoldMove(0, -1)}
-          onTouchStart={() => startHoldMove(0, -1)}
-          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
-        >
-          ↑
-        </button>
-        <div className="flex space-x-4">
-          <button
-            onClick={() => movePlayer(-1, 0)}
-            onMouseDown={() => startHoldMove(-1, 0)}
-            onTouchStart={() => startHoldMove(-1, 0)}
-            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
-          >
-            ←
-          </button>
-          <button
-            onClick={() => movePlayer(1, 0)}
-            onMouseDown={() => startHoldMove(1, 0)}
-            onTouchStart={() => startHoldMove(1, 0)}
-            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
-          >
-            →
-          </button>
+      {/* Win Overlay */}
+      {hasWon && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-[1px] flex items-center justify-center z-50">
+          <div className="bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl p-6 w-[90%] max-w-md text-center">
+            <div className="text-2xl font-bold text-green-400">You Win!</div>
+            <div className="mt-2 text-sm text-gray-300">
+              {best != null ? <>Best Time: <span className="text-green-400">{(best / 1000).toFixed(1)}s</span></> : <>Great run!</>}
+            </div>
+            <div className="mt-5 flex items-center justify-center gap-3">
+              <button onClick={restartWithTimer} className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded text-sm">
+                Play Again
+              </button>
+              <button
+                onClick={() => setDifficulty((d) => (d === 'Easy' ? 'Hard' : 'Easy'))}
+                className="bg-neutral-800 hover:bg-neutral-700 px-4 py-2 rounded text-sm"
+              >
+                Try {difficulty === 'Easy' ? 'Hard' : 'Easy'}
+              </button>
+            </div>
+          </div>
         </div>
-        <button
-          onClick={() => movePlayer(0, 1)}
-          onMouseDown={() => startHoldMove(0, 1)}
-          onTouchStart={() => startHoldMove(0, 1)}
-          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
-        >
-          ↓
-        </button>
-      </div>
+      )}
     </div>
   );
 }

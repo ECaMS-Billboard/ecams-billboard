@@ -24,84 +24,115 @@ function MazeGame() {
     const v = localStorage.getItem(bestKey(size, difficulty));
     return v ? Number(v) : null;
   });
+  const [running, setRunning] = useState(true);
 
-  // ----- HARD mode: perfect-maze (DFS) generator -----
-  function generatePerfectMazeGrid(n) {
-    const H = n % 2 === 0 ? n + 1 : n;
-    const W = H;
-    const WALL = 1, PATH = 0;
-    const grid = Array.from({ length: H }, () => Array(W).fill(WALL));
+  // ======== HARD generator: perfect maze on the current size (no downsample) ========
+  // Recursive backtracker (stack-based) that produces a single connected maze (spanning tree).
+  function generateHardMaze(n) {
+    const grid = Array.from({ length: n }, () => Array(n).fill('wall'));
+    const inBounds = (x, y) => x >= 0 && y >= 0 && x < n && y < n;
 
-    const inBounds = (r, c) => r > 0 && c > 0 && r < H - 1 && c < W - 1;
-    const dirs = [[-2,0],[2,0],[0,-2],[0,2]];
-    function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [a[i],a[j]]=[a[j],a[i]];} return a;}
+    // Mark start & goal as path to be safe.
+    grid[0][0] = 'path';
+    grid[n - 1][n - 1] = 'path';
 
-    function carve(r, c) {
-      grid[r][c] = PATH;
-      for (const [dr, dc] of shuffle(dirs.slice())) {
-        const nr = r + dr, nc = c + dc;
-        if (inBounds(nr, nc) && grid[nr][nc] === WALL) {
-          grid[r + dr/2][c + dc/2] = PATH;
-          carve(nr, nc);
+    // Use stack for DFS
+    const stack = [[0, 0]];
+    const dirs = [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ];
+
+    function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = (Math.random() * (i + 1)) | 0;
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    // Keep a visited set for DFS
+    const visited = Array.from({ length: n }, () => Array(n).fill(false));
+    visited[0][0] = true;
+
+    while (stack.length) {
+      const [cx, cy] = stack[stack.length - 1];
+      grid[cy][cx] = 'path';
+
+      // Unvisited neighbors (4-neighborhood)
+      const order = shuffle(dirs.slice());
+      let carved = false;
+
+      for (const [dx, dy] of order) {
+        const nx = cx + dx;
+        const ny = cy + dy;
+        if (!inBounds(nx, ny) || visited[ny][nx]) continue;
+
+        // Only carve if it wouldn't connect to more than 1 path neighbor (keeps it maze-y)
+        let neighbors = 0;
+        for (const [adx, ady] of dirs) {
+          const ax = nx + adx, ay = ny + ady;
+          if (inBounds(ax, ay) && grid[ay][ax] === 'path') neighbors++;
+        }
+        if (neighbors <= 1) {
+          visited[ny][nx] = true;
+          grid[ny][nx] = 'path';
+          stack.push([nx, ny]);
+          carved = true;
+          break;
         }
       }
+
+      if (!carved) stack.pop();
     }
 
-    carve(1, 1);
-    grid[1][1] = PATH;
-    grid[H - 2][W - 2] = PATH;
-
-    const out = Array.from({ length: n }, () => Array(n).fill('wall'));
-    for (let y = 0; y < n; y++) {
-      for (let x = 0; x < n; x++) {
-        const gy = Math.min(H - 1, Math.round((y / (n - 1)) * (H - 1)));
-        const gx = Math.min(W - 1, Math.round((x / (n - 1)) * (W - 1)));
-        out[y][x] = grid[gy][gx] === PATH ? 'path' : 'wall';
-      }
-    }
-    return out;
+    // Make absolutely sure start and goal are walkable
+    grid[0][0] = 'path';
+    grid[n - 1][n - 1] = 'path';
+    return grid;
   }
 
-  // ----- Generate Maze (Easy uses your original; Hard uses DFS) -----
-  const generateMaze = useCallback(() => {
-    if (difficulty === 'Hard') {
-      const hardGrid = generatePerfectMazeGrid(size);
-      setMaze(hardGrid);
-      setPlayerPos({ x: 0, y: 0 });
-      setGoalPos({ x: size - 1, y: size - 1 });
-      return;
-    }
-
-    // EASY: your original generator, but a bit more open
-    const PATH_PROB = 0.35; // more paths opened than default
-
-    const newMaze = Array(size)
+  // ----- EASY generator: your original + slightly more open -----
+  function generateEasyMaze(n) {
+    const PATH_PROB = 0.35; // more openings than default
+    const newMaze = Array(n)
       .fill(null)
-      .map(() => Array(size).fill('wall'));
+      .map(() => Array(n).fill('wall'));
 
     let current = { x: 0, y: 0 };
     newMaze[0][0] = 'path';
 
-    while (current.x !== size - 1 || current.y !== size - 1) {
+    while (current.x !== n - 1 || current.y !== n - 1) {
       const options = [];
-      if (current.x < size - 1) options.push({ x: current.x + 1, y: current.y });
-      if (current.y < size - 1) options.push({ x: current.x, y: current.y + 1 });
+      if (current.x < n - 1) options.push({ x: current.x + 1, y: current.y });
+      if (current.y < n - 1) options.push({ x: current.x, y: current.y + 1 });
       const next = options[Math.floor(Math.random() * options.length)];
       current = next;
       newMaze[current.y][current.x] = 'path';
     }
 
-    for (let y = 0; y < size; y++) {
-      for (let x = 0; x < size; x++) {
+    for (let y = 0; y < n; y++) {
+      for (let x = 0; x < n; x++) {
         if (newMaze[y][x] !== 'path') {
           newMaze[y][x] = Math.random() < PATH_PROB ? 'path' : 'wall';
         }
       }
     }
 
-    setMaze(newMaze);
+    newMaze[0][0] = 'path';
+    newMaze[n - 1][n - 1] = 'path';
+    return newMaze;
+  }
+
+  // ----- Generate Maze -----
+  const generateMaze = useCallback(() => {
+    const grid = difficulty === 'Hard' ? generateHardMaze(size) : generateEasyMaze(size);
+    setMaze(grid);
     setPlayerPos({ x: 0, y: 0 });
     setGoalPos({ x: size - 1, y: size - 1 });
+    setRunning(true);
   }, [size, difficulty]);
 
   useEffect(() => {
@@ -119,7 +150,7 @@ function MazeGame() {
           newX < size &&
           newY >= 0 &&
           newY < size &&
-          maze[newY][newX] === 'path'
+          maze[newY]?.[newX] === 'path'
         ) {
           return { x: newX, y: newY };
         }
@@ -161,28 +192,32 @@ function MazeGame() {
 
   const hasWon = playerPos.x === goalPos.x && playerPos.y === goalPos.y;
 
-  // ----- Timer ticking -----
+  // ----- Timer ticking (only while running) -----
   useEffect(() => {
+    if (!running) return;
     const id = setInterval(() => setElapsed(Date.now() - startTime), 200);
     return () => clearInterval(id);
-  }, [startTime]);
+  }, [startTime, running]);
 
-  // Save best + reset timer when you win
+  // Save best + stop timer when you win (no zero!)
   useEffect(() => {
-    if (hasWon) {
+    if (hasWon && running) {
+      const finalTime = Date.now() - startTime;
       const key = bestKey(size, difficulty);
-      if (best == null || elapsed < best) {
-        localStorage.setItem(key, String(elapsed));
-        setBest(elapsed);
+      if (best == null || finalTime < best) {
+        localStorage.setItem(key, String(finalTime));
+        setBest(finalTime);
       }
-      setElapsed(0); // reset timer after win
+      setElapsed(finalTime);
+      setRunning(false); // stop ticking
     }
-  }, [hasWon, elapsed, best, size, difficulty]);
+  }, [hasWon, running, startTime, best, size, difficulty]);
 
-  // Reset timer + reload best when size changes
+  // Reset timer + reload best when size or difficulty changes
   useEffect(() => {
     setStartTime(Date.now());
     setElapsed(0);
+    setRunning(true);
     const v = localStorage.getItem(bestKey(size, difficulty));
     setBest(v ? Number(v) : null);
   }, [size, difficulty]);
@@ -228,6 +263,7 @@ function MazeGame() {
     generateMaze();
     setStartTime(Date.now());
     setElapsed(0);
+    setRunning(true);
   };
 
   // ----- UI (dark theme) -----
@@ -293,8 +329,8 @@ function MazeGame() {
                   let bg;
                   if (isPlayer) bg = '#60a5fa';      // blue-400
                   else if (isGoal) bg = '#22c55e';   // green-500
-                  else if (cell === 'path') bg = '#525252'; // gray-600-ish
-                  else bg = '#171717';               // neutral-900-ish
+                  else if (cell === 'path') bg = '#525252'; // path
+                  else bg = '#171717';               // wall
 
                   return (
                     <div
@@ -358,7 +394,12 @@ function MazeGame() {
           <div className="bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl p-6 w-[90%] max-w-md text-center">
             <div className="text-2xl font-bold text-green-400">You Win!</div>
             <div className="mt-2 text-sm text-gray-300">
-              {best != null ? <>Best Time: <span className="text-green-400">{(best / 1000).toFixed(1)}s</span></> : <>Great run!</>}
+              Your Time: <span className="text-green-400">{(elapsed / 1000).toFixed(1)}s</span>
+              {best != null && (
+                <span className="ml-3">
+                  Best: <span className="text-green-400">{(best / 1000).toFixed(1)}s</span>
+                </span>
+              )}
             </div>
             <div className="mt-5 flex items-center justify-center gap-3">
               <button onClick={restartWithTimer} className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded text-sm">
@@ -379,5 +420,4 @@ function MazeGame() {
 }
 
 export default MazeGame;
-
 

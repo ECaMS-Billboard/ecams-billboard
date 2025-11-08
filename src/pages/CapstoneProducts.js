@@ -12,6 +12,12 @@ const CapstoneProducts = () => {
             image: "ChattyNotesFlyer.png",
             link: "https://chattynotes.io/",
             buttonText: "Try ChattyNotes",
+        },
+        {
+            title: "BeamRail",
+            image: "BeamRailFlyer.png",
+            link: "https://beamrail.com/",
+            buttonText: "Try BeamRail",
         }
     ]
 

@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
-  CapstoneProducts, Carousel, Events, MazeGame, Ad
+  CapstoneProducts, Carousel, Events, MazeGame, Ad, ContactUs
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
@@ -62,6 +63,11 @@ function App() {
       path: '/about',
       description: 'Learn about the ECaMS Billboard project and how to get in touch.'
     },
+    {
+      title: 'Contact Us',
+      path: '/contactus',
+      description: 'Submit a form or Email us about questions, feedback, etc.'
+    },
   ];
 
   return (
@@ -75,6 +81,7 @@ function App() {
         <Route path="/kiosk" element={<Kiosk />} />
         <Route path="/carousel" element={<Carousel />} />
         <Route path="/carouselApi" element={<CarouselApi />} />
+        <Route path="/contactus" element={<ContactUs />} />
         <Route path="/professor-list" element={<ProfessorList />} />
         <Route path="/prof/:id" element={<ProfessorProfile />} />
         <Route path="/resources" element={<Resources />} />

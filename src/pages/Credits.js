@@ -1,6 +1,6 @@
 function Credits() {
   return (
-    <body className="min-h-screen bg-black p-8 flex flex-col items-center">
+    <body className="min-h-screen bg-gradient-to-br from-red-900 via-black to-black p-8 flex flex-col items-center">
       <div className="max-w-xl mx-auto">
         <div className='text-center'>
           <h1 className="text-red-500 text-3xl font-bold mb-4">Credits</h1>

@@ -9,6 +9,14 @@
 - [Marcos Esparza](mailto:marcosesparza@lewisu.edu)
 - [Joshua Vachachira](mailto:joshuavachachira@lewisu.edu)
 
+## Junior Developers
+
+- [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)
+- [Niko Salvador](mailto:nikosalvador@lewisu.edu)
+- [Tony Kochev](mailto:tonyakochev@lewisu.edu)
+- [Luke Thormeyer](mailto:lukemthormeyer@lewis.edu)
+- [Kiran Gokula](mailto:saikiranreddygokul@lewisu.edu)
+
 ## Past Developers
 
 - [Samuel Swedo](mailto:samueljswedo@lewisu.edu)

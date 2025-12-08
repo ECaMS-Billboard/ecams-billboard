@@ -37,6 +37,14 @@ function Professors() {
     });
   };
 
+  // RateMyProfessors search URL for each professor
+  const buildRmpSearchUrl = (prof) => {
+    const query = encodeURIComponent(
+      `${prof.fname} ${prof.lname} Lewis University RateMyProfessors`
+    );
+    return `https://www.google.com/search?q=${query}`;
+  };
+
   // Filter for search
   const filterProfessors = (professors) => {
     return professors.filter((prof) =>
@@ -101,11 +109,32 @@ function Professors() {
                   className="w-32 h-32 mx-auto mb-3 rounded-full border-4 border-red-700 object-cover"
                   onError={(e) => { e.target.src = "/ProfImages/StaticProfessor.png"; }} // Fallback if image fails to load
                 />
-                <h2 className="text-lg font-semibold">{info.fname} {info.lname}</h2>
-                <p className="text-gray-400">{info.office}</p>
-                <a href={`mailto:${info.email}`} className="text-blue-500 underline">
+                <h2 className="text-lg font-semibold">
+                  {info.fname} {info.lname}
+                </h2>
+
+                <p className="text-gray-400">
+                  {info.office}
+                </p>
+
+                <a
+                  href={`mailto:${info.email}`}
+                  className="text-blue-500 underline block"
+                >
                   {info.email}
                 </a>
+
+                <p className="mt-2">
+                  <a
+                    href={buildRmpSearchUrl(info)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-red-400 hover:text-red-300 underline text-sm"
+                  >
+                    Search on RateMyProfessors
+                  </a>
+                </p>
+
               </div>
             );
           })}

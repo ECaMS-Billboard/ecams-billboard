@@ -54,14 +54,16 @@ function Upload() {
   };
 
   return (
-    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8
+                bg-white text-black
+                dark:bg-black dark:text-white
+                transition-colors duration-300">      <div className="max-w-md mx-auto">
         <h1 className="text-red-500 text-3xl font-bold mb-4">Poster Submission Portal</h1>
         <div className="w-full max-w-md flex flex-col gap-4">
           {/*To disable submission: document.getElementById('fileInput').click()} disabled */}
           <button
-        
-            onClick={() => document.getElementById('fileInput').click()} 
+
+            onClick={() => document.getElementById('fileInput').click()}
             className="block text-white bg-neutral-700 hover:bg-neutral-600 py-3 px-4
                        rounded-lg shadow text-center transition hover:-translate-y-1"
           >

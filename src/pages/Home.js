@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 
 function Home({ links }) {
   return (
-<div className="min-h-screen bg-gradient-to-b from-[#a00000] via-black to-black p-8 text-white">
+    <div className="min-h-screen p-8 
+                    bg-gradient-to-b from-red-100 via-white to-red-100 
+                    text-black
+                    dark:from-[#a00000] dark:via-black dark:to-black 
+                    dark:text-white
+                    transition-colors duration-300">
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-x-2 place-items-center">
         {links.map((link, index) => (
           <Link
@@ -26,24 +32,33 @@ function Home({ links }) {
               }}
               tabIndex="0"
             >
-              <div className="group-hover:rotate-y-[-8deg] transition-transform duration-500 rounded-xl overflow-hidden w-full h-full bg-gradient-to-b from-[#a00000] via-black to-black
-">
-                <div className="absolute inset-0 pointer-events-none rounded-xl shadow-[0_0_30px_rgba(255,0,0,0.3)] group-hover:shadow-[0_0_50px_rgba(255,0,0,0.6)] z-0"></div>
+              <div
+                className="group-hover:rotate-y-[-8deg] transition-transform duration-500 rounded-xl overflow-hidden w-full h-full
+                           bg-gradient-to-b from-white via-gray-100 to-gray-200
+                           dark:from-[#a00000] dark:via-black dark:to-black"
+              >
+                <div className="absolute inset-0 pointer-events-none rounded-xl shadow-[0_0_30px_rgba(255,0,0,0.15)] group-hover:shadow-[0_0_50px_rgba(255,0,0,0.4)] z-0"></div>
 
                 <div className="relative z-10 w-full h-full flex flex-col justify-center items-center text-center p-6 space-y-4">
-                  <h2 className="text-xl font-bold text-white">{link.title}</h2>
-                  <p className="text-sm text-gray-300">
-                    {link.description || "Click to learn more about this feature."}
+                  <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
+                    {link.title}
+                  </h2>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    {link.description || 'Click to learn more about this feature.'}
                   </p>
-                  <span className="text-red-400 font-semibold hover:underline">SEE MORE</span>
+                  <span className="text-red-600 dark:text-red-400 font-semibold hover:underline">
+                    SEE MORE
+                  </span>
                 </div>
               </div>
             </div>
           </Link>
         ))}
       </div>
-      <p className="mt-10 text-center text-sm text-gray-500">Powered by ECaMS • Lewis University</p>
 
+      <p className="mt-10 text-center text-sm text-gray-600 dark:text-gray-400">
+        Powered by ECaMS • Lewis University
+      </p>
     </div>
   );
 }

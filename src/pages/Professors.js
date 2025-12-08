@@ -43,10 +43,12 @@ function Professors() {
 
   //Create display
   return (
-    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8
+                bg-white text-black
+                dark:bg-black dark:text-white
+                transition-colors duration-300">      <div className="max-w-md mx-auto">
         <h1 className="text-red-700 text-3xl font-bold mb-4">Professor Information</h1>
-        
+
         <button
           onClick={toggleSortOrder}
           className="bg-blue-500 text-white py-2 px-4 rounded mb-4"

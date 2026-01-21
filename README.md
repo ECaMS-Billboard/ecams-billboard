@@ -14,7 +14,7 @@ As of 1/21/26, the below Microsoft Azure instances are available:
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------------- |
 | Production environment | https://blue-wave-096251910.4.azurestaticapps.net | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
 | Testing environment    | https://nice-forest-03447d410.2.azurestaticapps.net | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
-| API endpoint           | https://ecams-bb-main-api-fcemcbcdcgapfebj.canadacentral-01.azurewebsites.net/ | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)  |
+| API endpoint           | https://ecams-bb-main-api-b5eebnawg4efapek.centralus-01.azurewebsites.net/ | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)  |
 
 <br/>
 

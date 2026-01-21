@@ -12,9 +12,9 @@ As of 1/21/26, the below Microsoft Azure instances are available:
 
 | Service                | URL                                                 | Maintainer                                           |
 | ---------------------- | --------------------------------------------------- | ---------------------------------------------------- |
-| Production environment | https://victorious-field-0ab82c50f.1.azurestaticapps.net/ | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
-| Testing environment    | https://polite-sand-03b30d60f.1.azurestaticapps.net/ | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
-| API endpoint           | https://ecams-bb-main-api-fcemcbcdcgapfebj.canadacentral-01.azurewebsites.net/ | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)  |
+| Production environment | https://blue-wave-096251910.4.azurestaticapps.net | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
+| Testing environment    | https://nice-forest-03447d410.2.azurestaticapps.net | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
+| API endpoint           | https://ecams-bb-main-api-b5eebnawg4efapek.centralus-01.azurewebsites.net/ | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)  |
 
 <br/>
 

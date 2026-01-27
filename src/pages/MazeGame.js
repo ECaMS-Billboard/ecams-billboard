@@ -79,6 +79,7 @@ function MazeGame() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       switch (e.key) {
+<<<<<<< HEAD
         case 'ArrowUp':
           e.preventDefault();
           movePlayer(0, -1);
@@ -95,6 +96,12 @@ function MazeGame() {
           e.preventDefault();
           movePlayer(1, 0);
           break;
+=======
+        case 'ArrowUp': e.preventDefault(); movePlayer(0, -1); break;
+        case 'ArrowDown': e.preventDefault(); movePlayer(0, 1); break;
+        case 'ArrowLeft': e.preventDefault(); movePlayer(-1, 0); break;
+        case 'ArrowRight': e.preventDefault(); movePlayer(1, 0); break;
+>>>>>>> f272dc8 (Update MazeGame.js)
         default:
           break;
       }

@@ -6,3 +6,5 @@ Niko Salvador - Product Owner
 Alexander Tardecilla - Scrum Master
 
 Tony Kochev - Team Member 
+
+Morgan Krupp - Team Member

@@ -12,6 +12,7 @@ function Credits() {
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300">
   <h2 className="text-xl font-bold text-white mb-2">Current Contributors</h2>
   <ul className="list-disc list-inside">
+    <li>Morgan Krupp</li>
     <li>Kacper Zalewski</li>
     <li>Wiktoria Cioch-Gradzik</li>
     <li>Nicolas Delgado</li>

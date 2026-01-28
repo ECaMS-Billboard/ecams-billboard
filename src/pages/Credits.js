@@ -13,12 +13,16 @@ function Credits() {
   <h2 className="text-xl font-bold text-white mb-2">Current Contributors</h2>
   <ul className="list-disc list-inside">
     <li>Tony Kochev</li>
+<<<<<<< HEAD
     <li>Morgan Krupp</li>
+=======
+    <li>Niko Salvador</li>
+>>>>>>> 4446e72 (Add name to credits)
   </ul>
 
   <h3 className="text-lg font-semibold text-white mt-4 mb-2">Junior Developers</h3>
   <ul className="list-disc list-inside">
-    <li>Niko Salvador</li>
+    
     <li>Alex Tardecilla</li>
     <li>Luke Thormeyer</li>
   </ul>

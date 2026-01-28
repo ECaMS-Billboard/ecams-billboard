@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 
-// Configurable Variables
 const MIN_SIZE = 10;
 const MAX_SIZE = 50;
 const STEP = 5;
@@ -14,6 +13,14 @@ function MazeGame() {
   const [playerPos, setPlayerPos] = useState({ x: 0, y: 0 });
   const [goalPos, setGoalPos] = useState({ x: size - 1, y: size - 1 });
   const gameRef = useRef(null);
+
+  // ---- Timer state ----
+  const [startTime, setStartTime] = useState(() => Date.now());
+  const [elapsed, setElapsed] = useState(0);
+  const [best, setBest] = useState(() => {
+    const v = localStorage.getItem('mazeBest-' + size);
+    return v ? Number(v) : null;
+  });
 
   const generateMaze = useCallback(() => {
     const newMaze = Array(size)
@@ -72,6 +79,7 @@ function MazeGame() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       switch (e.key) {
+<<<<<<< HEAD
         case 'ArrowUp':
           e.preventDefault();
           movePlayer(0, -1);
@@ -88,6 +96,12 @@ function MazeGame() {
           e.preventDefault();
           movePlayer(1, 0);
           break;
+=======
+        case 'ArrowUp': e.preventDefault(); movePlayer(0, -1); break;
+        case 'ArrowDown': e.preventDefault(); movePlayer(0, 1); break;
+        case 'ArrowLeft': e.preventDefault(); movePlayer(-1, 0); break;
+        case 'ArrowRight': e.preventDefault(); movePlayer(1, 0); break;
+>>>>>>> f272dc8 (Update MazeGame.js)
         default:
           break;
       }
@@ -113,6 +127,31 @@ function MazeGame() {
 
   const cellSize = calculateCellSize();
   const hasWon = playerPos.x === goalPos.x && playerPos.y === goalPos.y;
+
+  // ---- Timer ticking ----
+  useEffect(() => {
+    const id = setInterval(() => setElapsed(Date.now() - startTime), 200);
+    return () => clearInterval(id);
+  }, [startTime]);
+
+  // Save best time when won
+  useEffect(() => {
+    if (hasWon) {
+      if (best == null || elapsed < best) {
+        localStorage.setItem('mazeBest-' + size, String(elapsed));
+        setBest(elapsed);
+      }
+    }
+  }, [hasWon, elapsed, best, size]);
+
+  // Reset timer when maze size changes
+  useEffect(() => {
+    setStartTime(Date.now());
+    setElapsed(0);
+    const v = localStorage.getItem('mazeBest-' + size);
+    setBest(v ? Number(v) : null);
+  }, [size]);
+  // ------------------------
 
   const startHoldMove = (dx, dy) => {
     const intervalId = setInterval(() => movePlayer(dx, dy), HOLD_DELAY_MS);
@@ -150,6 +189,13 @@ function MazeGame() {
     };
   }, []);
 
+  // Restart that resets timer
+  const restartWithTimer = () => {
+    generateMaze();
+    setStartTime(Date.now());
+    setElapsed(0);
+  };
+
   return (
     <div
       ref={gameRef}
@@ -166,11 +212,6 @@ function MazeGame() {
         <button
           onClick={() => handleSizeChange(-STEP)}
           className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-white text-sm"
-          style={{
-            userSelect: 'none',
-            touchAction: 'none',
-            WebkitTapHighlightColor: 'transparent',
-          }}
         >
           -
         </button>
@@ -180,25 +221,25 @@ function MazeGame() {
         <button
           onClick={() => handleSizeChange(STEP)}
           className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-white text-sm"
-          style={{
-            userSelect: 'none',
-            touchAction: 'none',
-            WebkitTapHighlightColor: 'transparent',
-          }}
         >
           +
         </button>
         <button
-          onClick={generateMaze}
+          onClick={restartWithTimer}
           className="ml-6 bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded text-white text-sm"
-          style={{
-            userSelect: 'none',
-            touchAction: 'none',
-            WebkitTapHighlightColor: 'transparent',
-          }}
         >
           Restart
         </button>
+
+        {/* Timer readout */}
+        <div className="ml-6 text-sm">
+          Time: {(elapsed / 1000).toFixed(1)}s
+          {best != null && (
+            <span className="ml-3 text-green-400">
+              Best: {(best / 1000).toFixed(1)}s
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Maze Grid */}
@@ -247,16 +288,7 @@ function MazeGame() {
           onClick={() => movePlayer(0, -1)}
           onMouseDown={() => startHoldMove(0, -1)}
           onTouchStart={() => startHoldMove(0, -1)}
-          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
-          style={{
-            userSelect: 'none',
-            touchAction: 'none',
-            WebkitTapHighlightColor: 'transparent',
-            padding: '1rem',
-            fontSize: '1.5rem',
-            minWidth: '56px',
-            minHeight: '56px',
-          }}
+          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
         >
           ↑
         </button>
@@ -265,16 +297,7 @@ function MazeGame() {
             onClick={() => movePlayer(-1, 0)}
             onMouseDown={() => startHoldMove(-1, 0)}
             onTouchStart={() => startHoldMove(-1, 0)}
-            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
-            style={{
-              userSelect: 'none',
-              touchAction: 'none',
-              WebkitTapHighlightColor: 'transparent',
-              padding: '1rem',
-              fontSize: '1.5rem',
-              minWidth: '56px',
-              minHeight: '56px',
-            }}
+            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
           >
             ←
           </button>
@@ -282,16 +305,7 @@ function MazeGame() {
             onClick={() => movePlayer(1, 0)}
             onMouseDown={() => startHoldMove(1, 0)}
             onTouchStart={() => startHoldMove(1, 0)}
-            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
-            style={{
-              userSelect: 'none',
-              touchAction: 'none',
-              WebkitTapHighlightColor: 'transparent',
-              padding: '1rem',
-              fontSize: '1.5rem',
-              minWidth: '56px',
-              minHeight: '56px',
-            }}
+            className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
           >
             →
           </button>
@@ -300,16 +314,7 @@ function MazeGame() {
           onClick={() => movePlayer(0, 1)}
           onMouseDown={() => startHoldMove(0, 1)}
           onTouchStart={() => startHoldMove(0, 1)}
-          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none"
-          style={{
-            userSelect: 'none',
-            touchAction: 'none',
-            WebkitTapHighlightColor: 'transparent',
-            padding: '1rem',
-            fontSize: '1.5rem',
-            minWidth: '56px',
-            minHeight: '56px',
-          }}
+          className="bg-gray-700 rounded hover:bg-gray-600 text-sm select-none p-4 text-xl"
         >
           ↓
         </button>
@@ -319,3 +324,5 @@ function MazeGame() {
 }
 
 export default MazeGame;
+
+

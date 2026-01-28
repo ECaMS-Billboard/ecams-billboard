@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
-  Resources, Slides, Upload, EverydayApp, /*LewisMap,*/
-  CapstoneProducts, Carousel, Events, MazeGame, Ad
+  Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
+  CapstoneProducts, Carousel, Events, /*MazeGame,*/ Ad
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
@@ -42,11 +42,13 @@ function App() {
       path: '/events',
       description: 'Stay in the loop with upcoming campus events and activities.'
     },
+/*
     {
       title: 'Maze Game',
       path: '/mazegame',
       description: 'Play a fun customizable Maze Game.'
     },
+    */
     {
       title: 'Credits',
       path: '/credits',
@@ -74,6 +76,7 @@ function App() {
         <Route path="/credits" element={<Credits />} />
         <Route path="/kiosk" element={<Kiosk />} />
         <Route path="/carousel" element={<Carousel />} />
+        <Route path="/carouselApi" element={<CarouselApi />} />
         <Route path="/professor-list" element={<ProfessorList />} />
         <Route path="/prof/:id" element={<ProfessorProfile />} />
         <Route path="/resources" element={<Resources />} />
@@ -82,7 +85,6 @@ function App() {
         <Route path="/everydayapp" element={<EverydayApp />} />
         <Route path="/capstoneproducts" element={<CapstoneProducts />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/mazegame" element={<MazeGame />} />
         <Route path="/ad" element={<Ad />} />
       </Routes>
     </BrowserRouter>

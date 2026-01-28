@@ -43,6 +43,12 @@ function Credits() {
             <li>Luke Mendiola</li>
             <li>Justina Piwoni</li>
             <li>Jacob Prince</li>
+            <li>Kacper Zalewski</li>
+            <li>Wiktoria Cioch-Gradzik</li>
+            <li>Nicolas Delgado</li>
+            <li>Marcos Esparza</li>
+            <li>Ardian Dardovski</li>
+            <li>Joshua Vachachira</li>
           </ul>
         </div>
 

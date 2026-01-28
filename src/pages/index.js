@@ -14,6 +14,7 @@ export { default as Slides } from './Slides';
 export { default as Upload } from './Upload';
 export { default as CapstoneProducts } from './CapstoneProducts';
 export { default as Carousel } from './Carousel';
+export { default as CarouselApi } from './CarouselApi';
 export { default as Events } from './Events';
-export { default as MazeGame } from './MazeGame';
+// export { default as MazeGame } from './MazeGame';
 export { default as Ad } from './Ad';

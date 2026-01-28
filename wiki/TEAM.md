@@ -1,19 +1,13 @@
-# \# Speed Goats
+# Speed Goats
 
-# 
+## Members
+Niko Salvador - Product Owner
 
-# \## Members
-
-# Niko Salvador - Product Owner
-
-# 
-
-# Alexander Tardecilla - Scrum Master
-
-# 
+Alexander Tardecilla - Scrum Master
 
 Tony Kochev - Team Member 
 
-Luke Thormeyer - Team Memeber
-===
+Morgan Krupp - Team Member
+
+Luke Thormeyer - Team Member
 

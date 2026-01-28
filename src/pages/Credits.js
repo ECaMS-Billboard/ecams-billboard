@@ -12,14 +12,10 @@ function Credits() {
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300">
   <h2 className="text-xl font-bold text-white mb-2">Current Contributors</h2>
   <ul className="list-disc list-inside">
+    <li>Kiran Gokula</li>
     <li>Tony Kochev</li>
-    <li>Morgan Krupp</li>
     <li>Niko Salvador</li>
     <li>Alex Tardecilla</li>
-  </ul>
-
-  <h3 className="text-lg font-semibold text-white mt-4 mb-2">Junior Developers</h3>
-  <ul className="list-disc list-inside">
     <li>Luke Thormeyer</li>
   </ul>
 </div>

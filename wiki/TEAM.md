@@ -1,14 +1,12 @@
-# Sour Patch Engineers
+# SpeedGoats Engineers
 
 ## Members
-Kacper Zalewski - Scrum Master :)
+Alex Tardecilla - Scrum Master
 
-Wiktoria Cioch-Gradzik - Product Owner
+Niko Salvador - Product Owner
 
-Nicolas Delgado - Team Member
+Tony Kochev - Team Member
 
-Ardian Dardovski - Team Member
+Morgan Krupp - Team Member
 
-Marcos Esparza - Team Member
-
-Joshua Vachachira - Team Member
+Luke Thormeyer - Team Member

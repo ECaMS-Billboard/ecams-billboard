@@ -1,16 +1,20 @@
 # Credits
 
 ## Current Team
+- [Morgan Krupp](mailto:morganrkrupp@lewisu.edu)
+- [Luke Thormeyer](mailto:lukemthormeyer@lewisu.edu)
+- [Tony Kochev](mailto:tkochev@lewisu.edu)
+- [Niko Salvador](mailto:nikosalvador@lewisu.edu)
+- [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)
 
+
+## Past Developers
 - [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)
 - [Kacper Zalewski](mailto:kacperzalewski@lewisu.edu)
 - [Nicolas Delgado](mailto:nicolasdelgado@lewisu.edu)
 - [Ardian Dardovski](mailto:ardiandardovski@lewisu.edu)
 - [Marcos Esparza](mailto:marcosesparza@lewisu.edu)
 - [Joshua Vachachira](mailto:joshuavachachira@lewisu.edu)
-
-## Past Developers
-
 - [Samuel Swedo](mailto:samueljswedo@lewisu.edu)
 - [Noah Van Gorp](mailto:noahavangorp@lewisu.edu)
 - [Johan Olmos Zavala](mailto:johanolmoszavala@lewisu.edu)

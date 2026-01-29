@@ -1,11 +1,11 @@
-# SpeedGoats Engineers
+# Speed Goats
 
 ## Members
-Alex Tardecilla - Scrum Master
-
 Niko Salvador - Product Owner
 
-Tony Kochev - Team Member
+Alexander Tardecilla - Scrum Master
+
+Tony Kochev - Team Member 
 
 Morgan Krupp - Team Member
 

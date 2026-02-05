@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from "./components/Footer";
+
 
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
@@ -87,6 +89,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/ad" element={<Ad />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

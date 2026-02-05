@@ -9,9 +9,9 @@ const navItems = [
   { name: 'Everyday App', path: '/everydayapp' },
   { name: 'Capstone', path: '/capstoneproducts' },
   { name: 'Events', path: '/events' },
-  { name: 'Resources', path: '/resources' },
+  //{ name: 'Resources', path: '/resources' },
   { name: 'About', path: '/about' },
-  { name: 'Credits', path: '/credits' },
+ // { name: 'Credits', path: '/credits' },
 ];
 
 export default function Navigationbar() {

@@ -105,7 +105,7 @@ const Bracket = () => {
   if (state.tournamentEnded) {
     return (
       <div className="min-h-screen bg-black py-12 px-4 text-center text-white">
-        <h1 className="text-4xl font-bold text-green-500 mb-6">🏆 Winner: {state.winners[0]} 🏆</h1>
+        <h1 className="text-4xl font-bold text-green-500 mb-6">Winner: {state.winners[0]}</h1>
       </div>
     );
   }

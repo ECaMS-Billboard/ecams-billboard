@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
-  CapstoneProducts, Carousel, Events, /*MazeGame,*/ Ad
+  CapstoneProducts, Carousel, Events, Bracket, /*MazeGame,*/ Ad
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
@@ -43,6 +43,12 @@ function App() {
       title: 'Student Events',
       path: '/events',
       description: 'Stay in the loop with upcoming campus events and activities.'
+    },
+
+    {
+      title: 'Vote Weekly Bracket',
+      path: '/Bracket',
+      description: "Best Valentine's Day Desserts."
     },
 /*
     {
@@ -87,6 +93,7 @@ function App() {
         <Route path="/everydayapp" element={<EverydayApp />} />
         <Route path="/capstoneproducts" element={<CapstoneProducts />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/Bracket" element={<Bracket />} />
         <Route path="/ad" element={<Ad />} />
       </Routes>
       <Footer />

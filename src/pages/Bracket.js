@@ -1,80 +1,75 @@
 import { useState } from 'react';
 
 const Bracket = () => {
-  const items = ['Cake', 'Ice Cream', 'Cookies', 'Brownies'];
+  // Fixed, even list — no runtime surprises
+  const matchups = [
+    { a: 'Cake', b: 'Ice Cream' },
+    { a: 'Cookies', b: 'Brownies' },
+  ];
 
-  // Create first round matchups
-  const initialMatchups = [];
-  for (let i = 0; i < items.length; i += 2) {
-    initialMatchups.push({
-      pair: [items[i], items[i + 1]],
-      votes: {
-        [items[i]]: 0,
-        [items[i + 1]]: 0,
-      },
-    });
-  }
+  const [votes, setVotes] = useState({
+    Cake: 0,
+    'Ice Cream': 0,
+    Cookies: 0,
+    Brownies: 0,
+  });
 
-  const [round, setRound] = useState(1);
-  const [matchups, setMatchups] = useState(initialMatchups);
-
-  const vote = (matchIndex, choice) => {
-    const updated = [...matchups];
-    updated[matchIndex].votes[choice] += 1;
-    setMatchups(updated);
+  const vote = (item) => {
+    setVotes((prev) => ({
+      ...prev,
+      [item]: prev[item] + 1,
+    }));
   };
 
   return (
-    <div className="min-h-screen bg-black text-white p-8">
-      <h1 className="text-4xl font-bold text-center mb-2">
-        Dessert Bracket
-      </h1>
+    <div className="min-h-screen bg-black text-white py-12 px-4">
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Round label */}
+        <h2 className="text-gray-400 text-lg mb-2">Round 1</h2>
+        <h1 className="text-4xl font-bold text-red-600 mb-8">
+          Dessert Bracket
+        </h1>
 
-      {/* ROUND LABEL */}
-      <h2 className="text-xl text-center text-gray-300 mb-8">
-        Round {round}
-      </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {matchups.map((m, index) => {
+            const aVotes = votes[m.a];
+            const bVotes = votes[m.b];
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {matchups.map((match, index) => {
-          const [a, b] = match.pair;
-          const aVotes = match.votes[a];
-          const bVotes = match.votes[b];
+            const aLeading = aVotes >= bVotes;
+            const bLeading = bVotes > aVotes;
 
-          const aLeading = aVotes >= bVotes;
-          const bLeading = bVotes > aVotes;
+            return (
+              <div
+                key={index}
+                className="bg-gray-800 p-6 rounded-lg shadow"
+              >
+                <h3 className="text-xl font-semibold mb-4">
+                  Match {index + 1}
+                </h3>
 
-          return (
-            <div
-              key={index}
-              className="bg-gray-800 p-6 rounded-lg shadow"
-            >
-              <h3 className="text-lg font-semibold mb-4">
-                Match {index + 1}
-              </h3>
+                <div className="flex flex-col gap-3">
+                  <button
+                    onClick={() => vote(m.a)}
+                    className={`py-2 rounded font-semibold transition ${
+                      aLeading ? 'bg-green-600' : 'bg-gray-600'
+                    }`}
+                  >
+                    {m.a} — {aVotes} votes
+                  </button>
 
-              <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => vote(index, a)}
-                  className={`py-2 px-4 rounded font-semibold transition
-                    ${aLeading ? 'bg-green-600' : 'bg-red-600'}
-                    hover:brightness-110`}
-                >
-                  {a} — {aVotes} vote(s)
-                </button>
-
-                <button
-                  onClick={() => vote(index, b)}
-                  className={`py-2 px-4 rounded font-semibold transition
-                    ${bLeading ? 'bg-green-600' : 'bg-red-600'}
-                    hover:brightness-110`}
-                >
-                  {b} — {bVotes} vote(s)
-                </button>
+                  <button
+                    onClick={() => vote(m.b)}
+                    className={`py-2 rounded font-semibold transition ${
+                      bLeading ? 'bg-green-600' : 'bg-gray-600'
+                    }`}
+                  >
+                    {m.b} — {bVotes} votes
+                  </button>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Bracket = () => {
-  // Initial desserts
-  const desserts = [
+  // Items for the tournament
+  const items = [
     'Cake',
     'Ice Cream',
     'Cookies',
@@ -13,128 +13,135 @@ const Bracket = () => {
     'Cheesecake',
   ];
 
-  // Helper: pair up an array into matchups
-  const createMatchups = (arr) => {
+  const ROUND_DURATION_MS = 10_000; // 10 seconds for testing, change to 604_800_000 (1 week) in production
+
+  // Initialize state
+  const [state, setState] = useState({
+    currentRound: 0,
+    roundStart: new Date().toISOString(),
+    matchups: [],
+    tournamentEnded: false,
+    winners: [],
+  });
+
+  // Create initial matchups
+  useEffect(() => {
+    const shuffled = [...items].sort(() => Math.random() - 0.5);
     const matchups = [];
-    for (let i = 0; i < arr.length; i += 2) {
-      const pair = arr[i + 1] ? [arr[i], arr[i + 1]] : [arr[i], arr[i]];
+    for (let i = 0; i < shuffled.length; i += 2) {
+      const pair = shuffled[i + 1] ? [shuffled[i], shuffled[i + 1]] : [shuffled[i], shuffled[i]];
       matchups.push({ pair, votes: { [pair[0]]: 0, [pair[1]]: 0 } });
     }
-    return matchups;
+    setState((s) => ({ ...s, matchups }));
+  }, []);
+
+  // Timer to advance rounds automatically
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (state.tournamentEnded || state.matchups.length === 0) return;
+
+      const now = new Date().getTime();
+      const roundEnd = new Date(state.roundStart).getTime() + ROUND_DURATION_MS;
+
+      if (now >= roundEnd) {
+        const winners = state.matchups.map((m) => {
+          const [a, b] = m.pair;
+          return m.votes[a] >= m.votes[b] ? a : b;
+        });
+
+        if (winners.length === 1) {
+          setState({ ...state, winners, tournamentEnded: true });
+        } else {
+          // create next round matchups
+          const nextMatchups = [];
+          for (let i = 0; i < winners.length; i += 2) {
+            const pair = winners[i + 1] ? [winners[i], winners[i + 1]] : [winners[i], winners[i]];
+            nextMatchups.push({ pair, votes: { [pair[0]]: 0, [pair[1]]: 0 } });
+          }
+
+          setState({
+            currentRound: state.currentRound + 1,
+            roundStart: new Date().toISOString(),
+            matchups: nextMatchups,
+            tournamentEnded: false,
+            winners: [],
+          });
+        }
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [state]);
+
+  // Voting function
+  const vote = (matchIndex, choice) => {
+    if (state.tournamentEnded) return;
+    const newMatchups = [...state.matchups];
+    newMatchups[matchIndex].votes[choice] += 1;
+    setState({ ...state, matchups: newMatchups });
   };
 
-  // State: array of rounds
-  const [rounds, setRounds] = useState([
-    { matchups: createMatchups(desserts), completed: false },
-  ]);
+  // Loading state
+  if (state.matchups.length === 0) {
+    return <div className="min-h-screen bg-black text-white text-center p-12">Loading tournament...</div>;
+  }
 
-  // Vote handler
-  const vote = (roundIndex, matchIndex, choice) => {
-    setRounds((prevRounds) => {
-      const newRounds = [...prevRounds];
-      newRounds[roundIndex] = { ...newRounds[roundIndex] };
-      newRounds[roundIndex].matchups = [...newRounds[roundIndex].matchups];
-      const match = { ...newRounds[roundIndex].matchups[matchIndex] };
-      match.votes = { ...match.votes };
-      match.votes[choice] += 1;
-      newRounds[roundIndex].matchups[matchIndex] = match;
-      return newRounds;
-    });
-  };
-
-  // Advance round automatically if all matches in the current round have votes > 0
-  const advanceRound = () => {
-    const currentRound = rounds[rounds.length - 1];
-    const winners = currentRound.matchups.map((m) =>
-      m.votes[m.pair[0]] >= m.votes[m.pair[1]] ? m.pair[0] : m.pair[1]
+  // Tournament ended
+  if (state.tournamentEnded) {
+    return (
+      <div className="min-h-screen bg-black text-white text-center p-12">
+        <h1 className="text-4xl font-bold text-green-500">Winner: {state.winners[0]}</h1>
+      </div>
     );
+  }
 
-    if (winners.length === 1) {
-      // Tournament ended
-      setRounds((prev) => [
-        ...prev.slice(0, prev.length - 1),
-        { ...currentRound, completed: true, winners },
-      ]);
-    } else {
-      const nextRound = { matchups: createMatchups(winners), completed: false };
-      setRounds((prev) => [
-        ...prev.slice(0, prev.length - 1),
-        { ...currentRound, completed: true },
-        nextRound,
-      ]);
-    }
-  };
-
-  const currentRoundIndex = rounds.findIndex((r) => !r.completed);
-  const currentRound =
-    currentRoundIndex >= 0 ? rounds[currentRoundIndex] : rounds[rounds.length - 1];
-  const tournamentWinner =
-    rounds[rounds.length - 1].completed &&
-    rounds[rounds.length - 1].matchups.length === 1
-      ? rounds[rounds.length - 1].matchups[0].pair[0]
-      : null;
+  // Countdown
+  const now = new Date().getTime();
+  const roundEnd = new Date(state.roundStart).getTime() + ROUND_DURATION_MS;
+  const secondsLeft = Math.ceil((roundEnd - now) / 1000);
 
   return (
-    <div className="min-h-screen bg-black text-white py-12 px-4">
+    <div className="min-h-screen bg-black text-white p-12">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-red-600 text-4xl font-bold mb-6">Dessert Bracket</h1>
+        <h1 className="text-red-700 text-4xl font-bold mb-6">Vote for Your Favorite Dessert!</h1>
+        <h2 className="text-2xl mb-6">
+          Round {state.currentRound + 1} — {secondsLeft} second(s) left
+        </h2>
 
-        {tournamentWinner ? (
-          <h2 className="text-green-500 text-3xl font-bold">
-            Winner: {tournamentWinner}
-          </h2>
-        ) : (
-          <>
-            <h2 className="text-gray-400 text-lg mb-4">
-              Round {currentRoundIndex + 1}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-              {currentRound.matchups.map((m, index) => {
-                const a = m.pair[0];
-                const b = m.pair[1];
-                const aVotes = m.votes[a];
-                const bVotes = m.votes[b];
-                const aLeading = aVotes >= bVotes;
-                const bLeading = bVotes > aVotes;
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {state.matchups.map((match, index) => {
+            const [a, b] = match.pair;
+            const totalVotes = (match.votes[a] || 0) + (match.votes[b] || 0);
+            const aPercent = totalVotes ? Math.round((match.votes[a] / totalVotes) * 100) : 0;
+            const bPercent = totalVotes ? 100 - aPercent : 0;
 
-                return (
-                  <div
-                    key={index}
-                    className="bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition"
+            return (
+              <div key={index} className="bg-gray-800 p-6 rounded shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold mb-4">Match {index + 1}</h3>
+
+                <div className="flex flex-col gap-2">
+                  <button
+                    className={`py-2 px-4 rounded font-semibold ${
+                      aPercent >= bPercent ? 'bg-green-600' : 'bg-red-600'
+                    } hover:brightness-110 transition`}
+                    onClick={() => vote(index, a)}
                   >
-                    <h3 className="text-xl font-semibold mb-4">
-                      Match {index + 1}
-                    </h3>
-                    <div className="flex flex-col gap-2">
-                      <button
-                        onClick={() => vote(currentRoundIndex, index, a)}
-                        className={`py-2 rounded font-semibold ${
-                          aLeading ? 'bg-green-600' : 'bg-gray-600'
-                        }`}
-                      >
-                        {a} — {aVotes} votes
-                      </button>
-                      <button
-                        onClick={() => vote(currentRoundIndex, index, b)}
-                        className={`py-2 rounded font-semibold ${
-                          bLeading ? 'bg-green-600' : 'bg-gray-600'
-                        }`}
-                      >
-                        {b} — {bVotes} votes
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <button
-              onClick={advanceRound}
-              className="bg-blue-500 text-white py-2 px-4 rounded font-semibold"
-            >
-              Advance Round
-            </button>
-          </>
-        )}
+                    {a} — {match.votes[a]} votes ({aPercent}%)
+                  </button>
+
+                  <button
+                    className={`py-2 px-4 rounded font-semibold ${
+                      bPercent >= aPercent ? 'bg-green-600' : 'bg-red-600'
+                    } hover:brightness-110 transition`}
+                    onClick={() => vote(index, b)}
+                  >
+                    {b} — {match.votes[b]} votes ({bPercent}%)
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

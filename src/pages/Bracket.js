@@ -1,47 +1,80 @@
 import { useState } from 'react';
 
 const Bracket = () => {
-  const matchups = [
-    ['Cake', 'Ice Cream'],
-    ['Cookies', 'Brownies'],
-    ['Pie', 'Cupcakes'],
-    ['Donuts', 'Cheesecake'],
-  ];
+  const items = ['Cake', 'Ice Cream', 'Cookies', 'Brownies'];
 
-  const [votes, setVotes] = useState(
-    matchups.map(() => ({ a: 0, b: 0 }))
-  );
+  // Create first round matchups
+  const initialMatchups = [];
+  for (let i = 0; i < items.length; i += 2) {
+    initialMatchups.push({
+      pair: [items[i], items[i + 1]],
+      votes: {
+        [items[i]]: 0,
+        [items[i + 1]]: 0,
+      },
+    });
+  }
 
-  const vote = (index, side) => {
-    const newVotes = [...votes];
-    newVotes[index][side] += 1;
-    setVotes(newVotes);
+  const [round, setRound] = useState(1);
+  const [matchups, setMatchups] = useState(initialMatchups);
+
+  const vote = (matchIndex, choice) => {
+    const updated = [...matchups];
+    updated[matchIndex].votes[choice] += 1;
+    setMatchups(updated);
   };
 
   return (
     <div className="min-h-screen bg-black text-white p-8">
-      <h1 className="text-4xl font-bold text-center mb-8">
-        Vote for Your Favorite Dessert
+      <h1 className="text-4xl font-bold text-center mb-2">
+        Dessert Bracket
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {matchups.map(([a, b], index) => (
-          <div key={index} className="bg-gray-800 p-6 rounded">
-            <button
-              className="w-full bg-red-600 py-2 mb-2 rounded"
-              onClick={() => vote(index, 'a')}
-            >
-              {a} — {votes[index].a}
-            </button>
+      {/* ROUND LABEL */}
+      <h2 className="text-xl text-center text-gray-300 mb-8">
+        Round {round}
+      </h2>
 
-            <button
-              className="w-full bg-green-600 py-2 rounded"
-              onClick={() => vote(index, 'b')}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {matchups.map((match, index) => {
+          const [a, b] = match.pair;
+          const aVotes = match.votes[a];
+          const bVotes = match.votes[b];
+
+          const aLeading = aVotes >= bVotes;
+          const bLeading = bVotes > aVotes;
+
+          return (
+            <div
+              key={index}
+              className="bg-gray-800 p-6 rounded-lg shadow"
             >
-              {b} — {votes[index].b}
-            </button>
-          </div>
-        ))}
+              <h3 className="text-lg font-semibold mb-4">
+                Match {index + 1}
+              </h3>
+
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={() => vote(index, a)}
+                  className={`py-2 px-4 rounded font-semibold transition
+                    ${aLeading ? 'bg-green-600' : 'bg-red-600'}
+                    hover:brightness-110`}
+                >
+                  {a} — {aVotes} vote(s)
+                </button>
+
+                <button
+                  onClick={() => vote(index, b)}
+                  className={`py-2 px-4 rounded font-semibold transition
+                    ${bLeading ? 'bg-green-600' : 'bg-red-600'}
+                    hover:brightness-110`}
+                >
+                  {b} — {bVotes} vote(s)
+                </button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

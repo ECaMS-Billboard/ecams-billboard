@@ -1,130 +1,100 @@
 import { useState, useEffect } from 'react';
 
 const Bracket = () => {
-  // Items for the tournament
   const items = [
-    'Cake',
-    'Ice Cream',
-    'Cookies',
-    'Brownies',
-    'Pie',
-    'Cupcakes',
-    'Donuts',
-    'Cheesecake',
+    'Cake', 'Ice Cream', 'Cookies', 'Brownies',
+    'Pie', 'Cupcakes', 'Donuts', 'Cheesecake'
   ];
 
-  const ROUND_DURATION_MS = 10_000; // 10 seconds for testing, change to 604_800_000 (1 week) in production
+  const ROUND_DURATION_MS = 10_000; // 10 seconds for testing, change to 604_800_000 for 1 week
 
-  // Initialize state
-  const [state, setState] = useState({
-    currentRound: 0,
-    roundStart: new Date().toISOString(),
-    matchups: [],
-    tournamentEnded: false,
-    winners: [],
-  });
+  const [roundIndex, setRoundIndex] = useState(0);
+  const [matchups, setMatchups] = useState([]);
+  const [tournamentEnded, setTournamentEnded] = useState(false);
 
-  // Create initial matchups
+  // Initialize first round
   useEffect(() => {
     const shuffled = [...items].sort(() => Math.random() - 0.5);
-    const matchups = [];
+    const initialMatchups = [];
     for (let i = 0; i < shuffled.length; i += 2) {
       const pair = shuffled[i + 1] ? [shuffled[i], shuffled[i + 1]] : [shuffled[i], shuffled[i]];
-      matchups.push({ pair, votes: { [pair[0]]: 0, [pair[1]]: 0 } });
+      initialMatchups.push({ pair, votes: { [pair[0]]: 0, [pair[1]]: 0 } });
     }
-    setState((s) => ({ ...s, matchups }));
+    setMatchups(initialMatchups);
   }, []);
 
-  // Timer to advance rounds automatically
+  // Advance round automatically
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (state.tournamentEnded || state.matchups.length === 0) return;
+    if (matchups.length === 0 || tournamentEnded) return;
 
-      const now = new Date().getTime();
-      const roundEnd = new Date(state.roundStart).getTime() + ROUND_DURATION_MS;
+    const timer = setTimeout(() => {
+      // Calculate winners
+      const winners = matchups.map((m) => {
+        const [a, b] = m.pair;
+        return m.votes[a] >= m.votes[b] ? a : b;
+      });
 
-      if (now >= roundEnd) {
-        const winners = state.matchups.map((m) => {
-          const [a, b] = m.pair;
-          return m.votes[a] >= m.votes[b] ? a : b;
-        });
-
-        if (winners.length === 1) {
-          setState({ ...state, winners, tournamentEnded: true });
-        } else {
-          // create next round matchups
-          const nextMatchups = [];
-          for (let i = 0; i < winners.length; i += 2) {
-            const pair = winners[i + 1] ? [winners[i], winners[i + 1]] : [winners[i], winners[i]];
-            nextMatchups.push({ pair, votes: { [pair[0]]: 0, [pair[1]]: 0 } });
-          }
-
-          setState({
-            currentRound: state.currentRound + 1,
-            roundStart: new Date().toISOString(),
-            matchups: nextMatchups,
-            tournamentEnded: false,
-            winners: [],
-          });
+      if (winners.length === 1) {
+        setTournamentEnded(true);
+      } else {
+        // Next round matchups
+        const nextMatchups = [];
+        for (let i = 0; i < winners.length; i += 2) {
+          const pair = winners[i + 1] ? [winners[i], winners[i + 1]] : [winners[i], winners[i]];
+          nextMatchups.push({ pair, votes: { [pair[0]]: 0, [pair[1]]: 0 } });
         }
+        setMatchups(nextMatchups);
+        setRoundIndex((prev) => prev + 1);
       }
-    }, 1000);
+    }, ROUND_DURATION_MS);
 
-    return () => clearInterval(timer);
-  }, [state]);
+    return () => clearTimeout(timer);
+  }, [matchups, tournamentEnded]);
 
-  // Voting function
+  // Vote function
   const vote = (matchIndex, choice) => {
-    if (state.tournamentEnded) return;
-    const newMatchups = [...state.matchups];
+    if (tournamentEnded) return;
+    const newMatchups = [...matchups];
     newMatchups[matchIndex].votes[choice] += 1;
-    setState({ ...state, matchups: newMatchups });
+    setMatchups(newMatchups);
   };
 
-  // Loading state
-  if (state.matchups.length === 0) {
+  if (matchups.length === 0) {
     return <div className="min-h-screen bg-black text-white text-center p-12">Loading tournament...</div>;
   }
 
-  // Tournament ended
-  if (state.tournamentEnded) {
+  if (tournamentEnded) {
+    const finalMatch = matchups[0].pair;
+    const winner = matchups[0].votes[finalMatch[0]] >= matchups[0].votes[finalMatch[1]] ? finalMatch[0] : finalMatch[1];
     return (
       <div className="min-h-screen bg-black text-white text-center p-12">
-        <h1 className="text-4xl font-bold text-green-500">Winner: {state.winners[0]}</h1>
+        <h1 className="text-4xl font-bold text-green-500">Winner: {winner}</h1>
       </div>
     );
   }
-
-  // Countdown
-  const now = new Date().getTime();
-  const roundEnd = new Date(state.roundStart).getTime() + ROUND_DURATION_MS;
-  const secondsLeft = Math.ceil((roundEnd - now) / 1000);
 
   return (
     <div className="min-h-screen bg-black text-white p-12">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-red-700 text-4xl font-bold mb-6">Vote for Your Favorite Dessert!</h1>
-        <h2 className="text-2xl mb-6">
-          Round {state.currentRound + 1} — {secondsLeft} second(s) left
-        </h2>
+        <h2 className="text-2xl mb-6">Round {roundIndex + 1}</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {state.matchups.map((match, index) => {
+          {matchups.map((match, i) => {
             const [a, b] = match.pair;
-            const totalVotes = (match.votes[a] || 0) + (match.votes[b] || 0);
+            const totalVotes = match.votes[a] + match.votes[b];
             const aPercent = totalVotes ? Math.round((match.votes[a] / totalVotes) * 100) : 0;
             const bPercent = totalVotes ? 100 - aPercent : 0;
 
             return (
-              <div key={index} className="bg-gray-800 p-6 rounded shadow hover:shadow-lg transition">
-                <h3 className="text-xl font-bold mb-4">Match {index + 1}</h3>
-
+              <div key={i} className="bg-gray-800 p-6 rounded shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold mb-4">Match {i + 1}</h3>
                 <div className="flex flex-col gap-2">
                   <button
                     className={`py-2 px-4 rounded font-semibold ${
                       aPercent >= bPercent ? 'bg-green-600' : 'bg-red-600'
                     } hover:brightness-110 transition`}
-                    onClick={() => vote(index, a)}
+                    onClick={() => vote(i, a)}
                   >
                     {a} — {match.votes[a]} votes ({aPercent}%)
                   </button>
@@ -133,7 +103,7 @@ const Bracket = () => {
                     className={`py-2 px-4 rounded font-semibold ${
                       bPercent >= aPercent ? 'bg-green-600' : 'bg-red-600'
                     } hover:brightness-110 transition`}
-                    onClick={() => vote(index, b)}
+                    onClick={() => vote(i, b)}
                   >
                     {b} — {match.votes[b]} votes ({bPercent}%)
                   </button>

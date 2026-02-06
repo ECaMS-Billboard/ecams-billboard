@@ -1,69 +1,4 @@
-const EverydayApp = () => {
-    const googlePlayLink =
-        "https://play.google.com/store/apps/details?id=com.dynamify.sodexo";
-    const appleStoreLink =
-        "https://apps.apple.com/gb/app/everyday/id1338702323";
-
-    return (
-        <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-black text-gray-200 flex flex-col items-center justify-center px-6">
-            <div className="max-w-xl w-full text-center">
-                {/* Header */}
-                <h1 className="text-4xl md:text-5xl font-bold text-red-500 mb-4 drop-shadow-lg">
-                    Download the Everyday App
-                </h1>
-
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                    Stay connected with campus dining! The{" "}
-                    <span className="text-red-400 font-semibold">Everyday App</span> is your go-to tool
-                    for ordering food and beverages across campus. Download it today for
-                    your iOS or Android device and enjoy a faster, easier dining experience.
-                </p>
-
-                <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-red-500/20 hover:border-red-500/50 transition-all duration-300">
-                    <h2 className="text-lg font-semibold text-red-400 mb-4">
-                        Choose Your Platform:
-                    </h2>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <a
-                            href={googlePlayLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transform hover:scale-105 transition duration-300"
-                        >
-                            <img
-                                src="googleplay.png"
-                                alt="Google Play button"
-                                className="w-64 mx-auto"
-                            />
-                        </a>
-
-                        <a
-                            href={appleStoreLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transform hover:scale-105 transition duration-300"
-                        >
-                            <img
-                                src="appstore.png"
-                                alt="App Store button"
-                                className="w-56 mx-auto"
-                            />
-                        </a>
-                    </div>
-                </div>
-
-                <p className="mt-8 text-sm text-gray-500">
-                    © 2025 Lewis University • Powered by ECaMS
-                </p>
-            </div>
-        </div>
-    );
-};
-
-export default EverydayApp;
-
-/*import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const Bracket = () => {
   const items = [
@@ -79,13 +14,13 @@ const Bracket = () => {
 
   const STORAGE_KEY = 'bracketWeeklyState';
   const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-  
-
 
   const [state, setState] = useState(null);
 
   // Initialize tournament
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const savedState = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
     if (savedState) {
@@ -116,6 +51,7 @@ const Bracket = () => {
 
   // Save state
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     if (state) localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }, [state]);
 
@@ -125,6 +61,7 @@ const Bracket = () => {
 
     const now = new Date();
     const roundStart = new Date(state.roundStart);
+
     if (now - roundStart >= ONE_WEEK_MS) {
       const winners = state.matchups.map((m) => {
         const [a, b] = m.pair;
@@ -165,12 +102,20 @@ const Bracket = () => {
     setState({ ...state, matchups: newMatchups });
   };
 
-  if (!state) return <div className="min-h-screen bg-black py-12 px-4 text-center text-white">Loading tournament...</div>;
+  if (!state) {
+    return (
+      <div className="min-h-screen bg-black py-12 px-4 text-center text-white">
+        Loading tournament...
+      </div>
+    );
+  }
 
   if (state.tournamentEnded) {
     return (
       <div className="min-h-screen bg-black py-12 px-4 text-center text-white">
-        <h1 className="text-4xl font-bold text-green-500 mb-6">Winner: {state.winners[0]}</h1>
+        <h1 className="text-4xl font-bold text-green-500 mb-6">
+          Winner: {state.winners[0]}
+        </h1>
       </div>
     );
   }
@@ -183,7 +128,9 @@ const Bracket = () => {
   return (
     <div className="min-h-screen bg-black py-12 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-red-700 text-4xl font-bold mb-6">Vote for Your Favorite Dessert!</h1>
+        <h1 className="text-red-700 text-4xl font-bold mb-6">
+          Vote for Your Favorite Dessert!
+        </h1>
         <h2 className="text-white text-2xl mb-6">
           Round {state.currentRound + 1} — {daysLeft} day(s) left to vote
         </h2>
@@ -191,12 +138,15 @@ const Bracket = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {state.matchups.map((match, index) => {
             const [a, b] = match.pair;
-            const totalVotes = match.votes[a] + match.votes[b];
+            const totalVotes = (match.votes[a] || 0) + (match.votes[b] || 0);
             const aPercent = totalVotes ? Math.round((match.votes[a] / totalVotes) * 100) : 0;
             const bPercent = totalVotes ? 100 - aPercent : 0;
 
             return (
-              <div key={index} className="bg-gray-800 p-6 rounded shadow hover:shadow-lg transition">
+              <div
+                key={index}
+                className="bg-gray-800 p-6 rounded shadow hover:shadow-lg transition"
+              >
                 <h3 className="text-xl font-bold text-white mb-4">Match {index + 1}</h3>
 
                 <div className="flex flex-col gap-2">
@@ -228,4 +178,3 @@ const Bracket = () => {
 };
 
 export default Bracket;
-*/

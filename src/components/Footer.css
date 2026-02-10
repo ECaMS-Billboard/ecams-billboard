@@ -1,0 +1,37 @@
+.footer {
+  width: 100%;
+  background: linear-gradient(to top, #000, #111); /* subtle gradient */
+  padding: 16px 0; 
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 16px; 
+  font-size: 0.95rem; 
+}
+
+.footer-link {
+  color: #ff4d4d; 
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #ff9999; 
+  transform: scale(1.05);
+}
+
+.footer-divider {
+  color: #777;
+}
+
+.footer-year {
+  color: #ff4d4d; 
+  font-size: 0.9rem; 
+}
+
+

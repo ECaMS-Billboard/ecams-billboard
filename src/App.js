@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainLayout from './components/MainLayout';
+
 
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
-  CapstoneProducts, Carousel, Events, /*MazeGame,*/ Ad
+  CapstoneProducts, Carousel, Events, Bracket, /*MazeGame,*/ Ad
 } from './pages';
 
-import Navigationbar from './components/Navigationbar';
+
 
 function App() {
   // Defines what links will be displayed by `./pages/Home.js`.
@@ -42,6 +44,12 @@ function App() {
       path: '/events',
       description: 'Stay in the loop with upcoming campus events and activities.'
     },
+
+    {
+      title: 'Vote Weekly Bracket',
+      path: '/Bracket',
+      description: "Best Valentine's Day Desserts."
+    },
 /*
     {
       title: 'Maze Game',
@@ -68,24 +76,34 @@ function App() {
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Navigationbar />
       <Routes>
-        <Route path="/" element={<Home links={links} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/acp/" element={<AdminPanel />} />
-        <Route path="/credits" element={<Credits />} />
+
+        {/* Pages WITH navbar + footer*/}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home links={links} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/acp/" element={<AdminPanel />} />
+          <Route path="/credits" element={<Credits />} />
+          
+          <Route path="/carousel" element={<Carousel />} />
+          <Route path="/carouselApi" element={<CarouselApi />} />
+          <Route path="/professor-list" element={<ProfessorList />} />
+          <Route path="/prof/:id" element={<ProfessorProfile />} />
+          <Route path="/resources" element={<Resources />} />
+          
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/everydayapp" element={<EverydayApp />} />
+          <Route path="/capstoneproducts" element={<CapstoneProducts />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/Bracket" element={<Bracket />} />
+          <Route path="/ad" element={<Ad />} />
+        </Route>
+
+        {/* Pages WITHOUT navbar + footer */}
         <Route path="/kiosk" element={<Kiosk />} />
-        <Route path="/carousel" element={<Carousel />} />
-        <Route path="/carouselApi" element={<CarouselApi />} />
-        <Route path="/professor-list" element={<ProfessorList />} />
-        <Route path="/prof/:id" element={<ProfessorProfile />} />
-        <Route path="/resources" element={<Resources />} />
         <Route path="/slides" element={<Slides />} />
-        <Route path="/upload" element={<Upload />} />
-        <Route path="/everydayapp" element={<EverydayApp />} />
-        <Route path="/capstoneproducts" element={<CapstoneProducts />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/ad" element={<Ad />} />
+
+
       </Routes>
     </BrowserRouter>
   );

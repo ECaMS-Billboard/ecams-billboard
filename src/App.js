@@ -5,7 +5,7 @@ import MainLayout from './components/MainLayout';
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
-  CapstoneProducts, Carousel, Events, Bracket, /*MazeGame,*/ Ad
+  CapstoneProducts, Carousel, Events, Bracket, /*MazeGame,*/ /*Ad*/
 } from './pages';
 
 
@@ -56,7 +56,7 @@ function App() {
       path: '/mazegame',
       description: 'Play a fun customizable Maze Game.'
     },
-    */
+    
     {
       title: 'Credits',
       path: '/credits',
@@ -67,11 +67,13 @@ function App() {
       path: '/resources',
       description: 'Access academic support services and essential campus resources.'
     },
+    
     {
       title: 'About & Contact',
       path: '/about',
       description: 'Learn about the ECaMS Billboard project and how to get in touch.'
     },
+    */
   ];
 
   return (
@@ -96,7 +98,7 @@ function App() {
           <Route path="/capstoneproducts" element={<CapstoneProducts />} />
           <Route path="/events" element={<Events />} />
           <Route path="/Bracket" element={<Bracket />} />
-          <Route path="/ad" element={<Ad />} />
+          {/*<Route path="/ad" element={<Ad />} /> */}
         </Route>
 
         {/* Pages WITHOUT navbar + footer */}

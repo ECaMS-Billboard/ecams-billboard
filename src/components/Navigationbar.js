@@ -25,7 +25,7 @@ export default function Navigationbar() {
 
       <nav className="bg-black text-sm flex flex-wrap justify-center gap-4 py-2 border-t border-red-500">
         {navItems.map((item) => (
-          <NavLink key={item.path} to={item.path} className="text-red-400 px-3">
+          <NavLink key={item.path} to={item.path} className="text-red-500 px-3">
             {item.name}
           </NavLink>
         ))}

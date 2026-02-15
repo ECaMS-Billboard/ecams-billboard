@@ -1,9 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import heroBg from '../imgs/hero-bg.jpg';
 
 function Home({ links }) {
   return (
     <div className="min-h-screen bg-black p-8">
+
+      {/* HERO SECTION */}
+      <section
+        className="w-full border-b border-red-700"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Blur overlay */}
+        <div className="backdrop-blur-sm bg-black/50">
+          <div className="h-64 flex items-center justify-center">
+            <div className="bg-white rounded-2xl shadow-xl px-8 py-6 max-w-lg w-full text-center mx-4">
+              <h1 className="text-3xl font-bold mb-2">
+                Exam Billboard
+              </h1>
+              <p className="text-gray-600 mb-4">
+                Upload your slides to display on the kiosk
+              </p>
+
+             <Link
+                to="/upload"
+                className="block w-full bg-red-600 hover:bg-red-700 text-white text-lg font-semibold py-3 rounded-xl transition"
+              >
+                Upload Slides
+              </Link>
+
+              <p className="text-sm text-gray-400 mt-3">
+                Supported: PDF, PPT, JPG, PNG
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* EXISTING CARD GRID */}
       <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-x-2 place-items-center">
         {links.map((link, index) => (
           <Link

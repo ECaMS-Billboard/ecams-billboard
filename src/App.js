@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainLayout from './components/MainLayout';
+/*import MainLayout from './components/MainLayout';*/
 import Footer from './components/Footer';
 
 

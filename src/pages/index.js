@@ -19,3 +19,4 @@ export { default as Events } from './Events';
 // export { default as MazeGame } from './MazeGame';
 //export { default as Ad } from './Ad';
 export { default as Bracket } from './Bracket';
+export { default as Tutorial } from './Tutorial';

@@ -1,7 +1,7 @@
 # Speed Goats Scrum Process
 
 ## Sprint Plannings
-Plannings will take place at the start of each sprint on the first Tuesday at 2 pm. The final Sprint Backlog will be finalized by the end of the day.
+Plannings will take place at the start of each sprint on the first Tuesday at 2 pm. The final Sprint Backlog will be finalized by the end of the day. By the second Tuesday of the sprint, the Product owner will determine when all work for the Sprint is due, in order to finalize documentation for the end of the sprint in a timely manner and keep everyone on the same page. 
 
 ## Demo's and Retrospectives
 Demos and Retrospectives will be conducted on the first Tuesday at 2 pm of each sprint and must meet our definition of Done, which include that has to be demoable in production.

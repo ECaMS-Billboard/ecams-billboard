@@ -20,3 +20,4 @@ export { default as Events } from './Events';
 //export { default as Ad } from './Ad';
 export { default as Bracket } from './Bracket';
 export { default as Tutorial } from './Tutorial';
+export { default as Calendar } from './Calendar';

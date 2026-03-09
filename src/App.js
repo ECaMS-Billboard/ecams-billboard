@@ -48,9 +48,9 @@ function App() {
     },
 
     {
-      title: 'Vote Weekly Bracket',
+      title: 'Vote Monthly Bracket',
       path: '/Bracket',
-      description: "Best Valentine's Day Desserts."
+      description: "Best St Patricks's Day Foods."
     },
 /*
     {

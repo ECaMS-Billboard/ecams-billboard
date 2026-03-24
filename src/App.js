@@ -18,39 +18,46 @@ function App() {
     {
       title: 'View Poster Slideshow',
       path: '/slides',
-      description: 'The slideshow that is currently present on the Kiosk.'
+      description: 'The slideshow that is currently present on the Kiosk.',
+      icon: "icons/slideshow.png"
     },
     {
       title: 'Upload a Poster',
       path: '/upload',
-      description: 'Share your academic or event poster with the campus.'
+      description: 'Share your academic or event poster with the campus.',
+      icon: "icons/upload.png"
     },
     // { title: 'View Map of Lewis', path: '/lewis-map' },
     {
       title: 'Professor Information',
       path: '/professor-list',
-      description: 'Find contact details and office hours for ECaMS faculty.'
+      description: 'Find contact details and office hours for ECaMS faculty.',
+      icon: "icons/prof-info.png"
     },
     {
       title: 'Everyday App',
       path: '/everydayapp',
-      description: 'Quick and easy link to the Everyday App.'
+      description: 'Quick and easy link to the Everyday App.',
+      icon: "icons/everyday-app.png"
     },
     {
       title: 'Capstone Products',
       path: '/capstoneproducts',
-      description: 'Visit other student projects from capstone courses.'
+      description: 'Visit other student projects from capstone courses.',
+      icon: "icons/capstone.png"
     },
     {
       title: 'Student Events',
       path: '/events',
-      description: 'Stay in the loop with upcoming campus events and activities.'
+      description: 'Stay in the loop with upcoming campus events and activities.',
+      icon: "icons/events.png"
     },
 
     {
       title: 'Vote Monthly Bracket',
       path: '/Bracket',
-      description: "Best St Patricks's Day Foods."
+      description: "Best St Patricks's Day Foods.",
+      icon: "icons/bracket.png"
     },
 /*
     {
@@ -62,22 +69,26 @@ function App() {
     {
       title: 'Credits',
       path: '/credits',
-      description: 'See who contributed to the creation and success of this platform.'
+      description: 'See who contributed to the creation and success of this platform.',
+      icon: "icons/credits.png"
     },
     {
       title: 'Resources',
       path: '/resources',
-      description: 'Access academic support services and essential campus resources.'
+      description: 'Access academic support services and essential campus resources.',
+      icon: "icons/resources.png"
     },
     {
       title: 'About & Contact',
       path: '/about',
-      description: 'Learn about the ECaMS Billboard project and how to get in touch.'
+      description: 'Learn about the ECaMS Billboard project and how to get in touch.',
+      icon: "icons/about.png"
     },
     {
       title: 'Calendar',
       path: '/calendar',
-      description: 'View Lewis Events on the Calendar'
+      description: 'View Lewis Events on the Calendar',
+      icon: "icons/calendar.png"
     },
   ];
 

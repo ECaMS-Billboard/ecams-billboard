@@ -2,7 +2,22 @@ import React from "react";
 
 function Calendar() {
   const events = {
-    
+    3: "Wall Street Wealth Managment",
+    4: "Nursing Career Fair",
+    7: "Men's Lacrosse vs Lynn University",
+    8: "Lewis Baseball vs Purdue Northwest",
+    10: "Math CLub Pie a Professor Fundraiser Day",
+    12: "Math CLub Pie a Professor Fundraiser Day",
+    13: "Math CLub Pie a Professor Fundraiser Day",
+    11: "Math CLub Pie a Professor Fundraiser Day",
+    15: "Women's Lacrosse vs Davenport",
+    20: "Lewis Baseball vs William Jewell College",
+    21: "Lewis Softball vs Truman State",
+    24: "Lewis Baseball vs Roosevelt",
+    25: "Thrift and Art Fair",
+    28: "Lewis Baseball vs Trumam State",
+    28: "Lewis Lacrosse vs Matyville",
+    29: "Lewis University Baseball vs Truman State University",
   };
 
   const daysInMonth = 31;

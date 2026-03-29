@@ -9,6 +9,8 @@ function Footer() {
         <span className="footer-divider">|</span>
         <Link to="/resources" className="footer-link">Resources</Link>
         <span className="footer-divider">|</span>
+        <Link to="/tutorial" className="footer-link">Tutorial</Link>
+        <span className="footer-divider">|</span>
         <span className="footer-year">
           &copy; {new Date().getFullYear()} ECaMS Billboard
         </span>

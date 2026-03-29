@@ -1,83 +1,83 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Bracket = () => {
-  // Initial desserts
-  const desserts = [
-    'Cake',
-    'Ice Cream',
-    'Cookies',
-    'Brownies',
-    'Pie',
-    'Cupcakes',
-    'Donuts',
-    'Cheesecake',
-  ];
+  const [bracket, setBracket] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Helper: pair up an array into matchups
-  const createMatchups = (arr) => {
-    const matchups = [];
-    for (let i = 0; i < arr.length; i += 2) {
-      const pair = arr[i + 1] ? [arr[i], arr[i + 1]] : [arr[i], arr[i]];
-      matchups.push({ pair, votes: { [pair[0]]: 0, [pair[1]]: 0 } });
-    }
-    return matchups;
-  };
+  const API_BASE =
+    'https://ecams-bb-main-api-b5eebnawg4efapek.centralus-01.azurewebsites.net';
 
-  // State: array of rounds
-  const [rounds, setRounds] = useState([
-    { matchups: createMatchups(desserts), completed: false },
-  ]);
+  // Fetch bracket on load
+  useEffect(() => {
+    fetch(`${API_BASE}/api/bracket`)
+      .then((res) => res.json())
+      .then((data) => {
+        setBracket(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch bracket:', err);
+        setLoading(false);
+      });
+  }, []);
 
   // Vote handler
-  const vote = (roundIndex, matchIndex, choice) => {
-    setRounds((prevRounds) => {
-      const newRounds = [...prevRounds];
-      newRounds[roundIndex] = { ...newRounds[roundIndex] };
-      newRounds[roundIndex].matchups = [...newRounds[roundIndex].matchups];
-      const match = { ...newRounds[roundIndex].matchups[matchIndex] };
-      match.votes = { ...match.votes };
-      match.votes[choice] += 1;
-      newRounds[roundIndex].matchups[matchIndex] = match;
-      return newRounds;
-    });
+  const vote = (matchIndex, choice) => {
+    fetch(`${API_BASE}/api/bracket/vote`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        matchupIndex: matchIndex,
+        choice: choice,
+      }),
+    })
+      .then((res) => res.json())
+      .then((updatedBracket) => {
+        setBracket(updatedBracket);
+      })
+      .catch((err) => console.error('Vote failed:', err));
   };
 
-  // Advance round automatically if all matches in the current round have votes > 0
+  // Advance round
   const advanceRound = () => {
-    const currentRound = rounds[rounds.length - 1];
-    const winners = currentRound.matchups.map((m) =>
-      m.votes[m.pair[0]] >= m.votes[m.pair[1]] ? m.pair[0] : m.pair[1]
+    fetch(`${API_BASE}/api/bracket/advance`, {
+      method: 'PUT',
+    })
+      .then((res) => res.json())
+      .then((updatedBracket) => {
+        setBracket(updatedBracket);
+      })
+      .catch((err) => console.error('Advance round failed:', err));
+  };
+
+  if (loading)
+    return (
+      <div className="text-center text-white mt-12">
+        Loading bracket...
+      </div>
     );
 
-    if (winners.length === 1) {
-      // Tournament ended
-      setRounds((prev) => [
-        ...prev.slice(0, prev.length - 1),
-        { ...currentRound, completed: true, winners },
-      ]);
-    } else {
-      const nextRound = { matchups: createMatchups(winners), completed: false };
-      setRounds((prev) => [
-        ...prev.slice(0, prev.length - 1),
-        { ...currentRound, completed: true },
-        nextRound,
-      ]);
-    }
-  };
+  if (!bracket)
+    return (
+      <div className="text-center text-white mt-12">
+        No bracket found.
+      </div>
+    );
 
-  const currentRoundIndex = rounds.findIndex((r) => !r.completed);
-  const currentRound =
-    currentRoundIndex >= 0 ? rounds[currentRoundIndex] : rounds[rounds.length - 1];
+  const currentRoundIndex = bracket.currentRound;
+  const currentRound = bracket.matchups || [];
+
   const tournamentWinner =
-    rounds[rounds.length - 1].completed &&
-    rounds[rounds.length - 1].matchups.length === 1
-      ? rounds[rounds.length - 1].matchups[0].pair[0]
+    bracket.tournamentEnded && currentRound.length === 1
+      ? currentRound[0].pair[0]
       : null;
 
   return (
     <div className="min-h-screen bg-black text-white py-12 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-red-600 text-4xl font-bold mb-6">Dessert Bracket</h1>
+        <h1 className="text-red-600 text-4xl font-bold mb-6">
+          Dessert Bracket
+        </h1>
 
         {tournamentWinner ? (
           <h2 className="text-green-500 text-3xl font-bold">
@@ -88,12 +88,15 @@ const Bracket = () => {
             <h2 className="text-gray-400 text-lg mb-4">
               Round {currentRoundIndex + 1}
             </h2>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-              {currentRound.matchups.map((m, index) => {
+              {currentRound.map((m, index) => {
                 const a = m.pair[0];
                 const b = m.pair[1];
-                const aVotes = m.votes[a];
-                const bVotes = m.votes[b];
+
+                const aVotes = m.votes?.[a] || 0;
+                const bVotes = m.votes?.[b] || 0;
+
                 const aLeading = aVotes >= bVotes;
                 const bLeading = bVotes > aVotes;
 
@@ -105,17 +108,19 @@ const Bracket = () => {
                     <h3 className="text-xl font-semibold mb-4">
                       Match {index + 1}
                     </h3>
+
                     <div className="flex flex-col gap-2">
                       <button
-                        onClick={() => vote(currentRoundIndex, index, a)}
+                        onClick={() => vote(index, a)}
                         className={`py-2 rounded font-semibold ${
                           aLeading ? 'bg-green-600' : 'bg-gray-600'
                         }`}
                       >
                         {a} — {aVotes} votes
                       </button>
+
                       <button
-                        onClick={() => vote(currentRoundIndex, index, b)}
+                        onClick={() => vote(index, b)}
                         className={`py-2 rounded font-semibold ${
                           bLeading ? 'bg-green-600' : 'bg-gray-600'
                         }`}
@@ -127,6 +132,7 @@ const Bracket = () => {
                 );
               })}
             </div>
+
             <button
               onClick={advanceRound}
               className="bg-blue-500 text-white py-2 px-4 rounded font-semibold"

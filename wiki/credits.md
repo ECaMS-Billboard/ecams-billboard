@@ -2,7 +2,10 @@
 
 ## Current Team
 - [Morgan Krupp](mailto:morganrkrupp@lewisu.edu)
-
+- [Luke Thormeyer](mailto:lukemthormeyer@lewisu.edu)
+- [Tony Kochev](mailto:tkochev@lewisu.edu)
+- [Niko Salvador](mailto:nikosalvador@lewisu.edu)
+- [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)
 
 
 ## Past Developers

@@ -16,7 +16,7 @@ const CapstoneProducts = () => {
     ]
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black p-8 flex flex-col items-center text-center">
+        <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-black p-8 flex flex-col items-center text-center">
             <h1 className="text-red-500 text-4xl font-extrabold mb-6 underline">
                 Capstone Products
             </h1>

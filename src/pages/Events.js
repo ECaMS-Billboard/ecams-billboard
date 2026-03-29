@@ -1,6 +1,6 @@
 function Events() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-black text-gray-200 flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-black p-8 flex flex-col items-center text-center">
     <div className="max-w-xl mx-auto mt-10 backdrop-blur-md bg-gray-800/70 p-8 rounded-2xl shadow-lg border border-red-600">
         <div className="text-center">
           <h1 className="text-red-500 text-4xl font-extrabold mb-4 tracking-wide">Student Events</h1>

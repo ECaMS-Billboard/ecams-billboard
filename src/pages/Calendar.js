@@ -2,15 +2,11 @@ import React from "react";
 
 function Calendar() {
   const events = {
-    3: "Wall Street Wealth Managment",
-    4: "Nursing Career Fair",
-    7: "Men's Lacross vs Lynn University",
-    8: "Lewis Baseball vs Purdue Northwest",
-    10: "Math CLub Pie a Professor Fundraiser Day",
-    12: "Math CLub Pie a Professor Fundraiser Day",
-    13: "Math CLub Pie a Professor Fundraiser Day",
-    11: "Math CLub Pie a Professor Fundraiser Day",
-    29: "Lewis University Baseball vs Truman State University",
+    3: "Career Fair",
+    7: "Club Meeting",
+    12: "Midterm Exams",
+    18: "Guest Speaker",
+    25: "Hackathon",
   };
 
   const daysInMonth = 31;

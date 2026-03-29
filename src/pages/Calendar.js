@@ -16,7 +16,6 @@ function Calendar() {
     24: "Lewis Baseball vs Roosevelt",
     25: "Thrift and Art Fair",
     28: "Lewis Baseball vs Trumam State",
-    28: "Lewis Lacrosse vs Matyville",
     29: "Lewis University Baseball vs Truman State University",
   };
 

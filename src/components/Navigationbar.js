@@ -9,6 +9,7 @@ const navItems = [
   { name: 'Everyday App', path: '/everydayapp' },
   { name: 'Capstone', path: '/capstoneproducts' },
   { name: 'Events', path: '/events' },
+  { name: 'Bracket', path: '/Bracket' },
   //{ name: 'Resources', path: '/resources' },
   { name: 'About', path: '/about' },
  // { name: 'Credits', path: '/credits' },

@@ -7,6 +7,10 @@
 - [Niko Salvador](mailto:nikosalvador@lewisu.edu)
 - [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)
 
+## Next Team - StoneOcean
+
+- [Nicholas Jones](mailto:nicholasjones@lewisu.edu)
+
 
 ## Past Developers
 - [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)

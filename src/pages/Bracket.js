@@ -23,32 +23,49 @@ const Bracket = () => {
 
   // Vote handler
   const vote = (matchIndex, choice) => {
-    fetch(`${API_BASE}/api/bracket/vote`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        matchupIndex: matchIndex,
-        choice: choice,
-      }),
+  const key = `voted_matchup_${matchIndex}`;
+
+  // Prevent voting again (frontend)
+  if (localStorage.getItem(key)) {
+    alert("You already voted on this matchup!");
+    return;
+  }
+
+  fetch(`${API_BASE}/api/bracket/vote`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      matchupIndex: matchIndex,
+      choice: choice,
+    }),
+  })
+    .then((res) => res.json())
+    .then((updatedBracket) => {
+      // If backend rejected vote, don't save
+      if (updatedBracket.error) {
+        alert(updatedBracket.error);
+        return;
+      }
+
+      // Save vote locally
+      localStorage.setItem(key, "true");
+
+      setBracket(updatedBracket);
     })
-      .then((res) => res.json())
-      .then((updatedBracket) => {
-        setBracket(updatedBracket);
-      })
-      .catch((err) => console.error('Vote failed:', err));
+    .catch((err) => console.error('Vote failed:', err));
   };
 
   // Advance round
-  const advanceRound = () => {
-    fetch(`${API_BASE}/api/bracket/advance`, {
-      method: 'PUT',
-    })
-      .then((res) => res.json())
-      .then((updatedBracket) => {
-        setBracket(updatedBracket);
-      })
-      .catch((err) => console.error('Advance round failed:', err));
-  };
+  //const advanceRound = () => {
+  //  fetch(`${API_BASE}/api/bracket/advance`, {
+  //    method: 'PUT',
+  //  })
+  //    .then((res) => res.json())
+  //    .then((updatedBracket) => {
+  //      setBracket(updatedBracket);
+  //    })
+  //    .catch((err) => console.error('Advance round failed:', err));
+  //};
 
   if (loading)
     return (
@@ -76,7 +93,7 @@ const Bracket = () => {
     <div className="min-h-screen bg-black text-white py-12 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-red-600 text-4xl font-bold mb-6">
-          Dessert Bracket
+          Best March Madness Snacks
         </h1>
 
         {tournamentWinner ? (
@@ -132,13 +149,6 @@ const Bracket = () => {
                 );
               })}
             </div>
-
-            <button
-              onClick={advanceRound}
-              className="bg-blue-500 text-white py-2 px-4 rounded font-semibold"
-            >
-              Advance Round
-            </button>
           </>
         )}
       </div>

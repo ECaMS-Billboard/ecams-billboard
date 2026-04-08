@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
-  CapstoneProducts, Carousel, Tutorial, Events, Bracket, Calendar /*MazeGame,*/ /*Ad*/
+  CapstoneProducts, Carousel, Tutorial, Events, Bracket, Calendar, CampusMap /*MazeGame,*/ /*Ad*/
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
@@ -90,6 +90,12 @@ function App() {
       description: 'View Lewis Events on the Calendar',
       icon: "icons/calendar.png"
     },
+    {
+      title: 'Campus Map',
+      path: '/campusmap',
+      description: 'View the Campus Map',
+      icon: "icons/calendar.png"
+    },
   ];
 
   return (
@@ -115,6 +121,7 @@ function App() {
         <Route path="/Bracket" element={<Bracket />} />
         {/*<Route path="/ad" element={<Ad />} />*/}
         <Route path="/tutorial" element={<Tutorial />} />
+        <Route path="/campusmap" element={<CampusMap />} />
       </Routes>
       <Footer />
     </BrowserRouter>

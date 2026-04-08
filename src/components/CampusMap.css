@@ -1,0 +1,38 @@
+.map-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .map-image {
+    width: 100%;
+  }
+  
+  .hotspot {
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  /* Example position (tweak these manually) */
+  .library {
+    top: 40%;
+    left: 60%;
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Tooltip styling */
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+  
+  .hotspot:hover .tooltip {
+    display: block;
+  }

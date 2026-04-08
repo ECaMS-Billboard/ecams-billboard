@@ -2,25 +2,19 @@ import React from "react";
 
 function Calendar() {
   const events = {
-    3: "Wall Street Wealth Managment",
-    4: "Nursing Career Fair",
-    7: "Men's Lacrosse vs Lynn University",
-    8: "Lewis Baseball vs Purdue Northwest",
-    10: "Math CLub Pie a Professor Fundraiser Day",
-    12: "Math CLub Pie a Professor Fundraiser Day",
-    13: "Math CLub Pie a Professor Fundraiser Day",
-    11: "Math CLub Pie a Professor Fundraiser Day",
-    15: "Women's Lacrosse vs Davenport",
-    20: "Lewis Baseball vs William Jewell College",
-    21: "Lewis Softball vs Truman State",
-    24: "Lewis Baseball vs Roosevelt",
-    25: "Thrift and Art Fair",
-    28: "Lewis Baseball vs Trumam State",
-    29: "Lewis University Baseball vs Truman State University",
+    1: "Softball vs Ohio Dominican",
+    2: "St. Patty's punch cup foundraiser",
+    11: "Campus Visit Day",
+    14: "Girls Who Code Hour",
+    15: "Sandwhich making for those in need",
+    19: "Lewis Baseball vs Missouri S&T",
+    22: "Annual Celebration of Scholarships",
+    27: "Lewis University Athletics Charlie Awards",
+    29: "I love Lewis Day",
   };
 
-  const daysInMonth = 31;
-  const firstDayOffset = 6; // 0 = Sunday
+  const daysInMonth = 30;
+  const firstDayOffset = 3; // 0 = Sunday
 
   const totalBoxes = firstDayOffset + daysInMonth;
 
@@ -32,7 +26,7 @@ function Calendar() {
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className="text-red-500 text-4xl font-extrabold tracking-wide">
-            Campus Calendar
+            April
           </h1>
           <p className="text-gray-400 mt-2">
             Stay up to date with important events happening this month.

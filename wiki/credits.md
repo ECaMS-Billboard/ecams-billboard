@@ -10,6 +10,7 @@
 ## Next Team - StoneOcean
 
 - [Nicholas Jones](mailto:nicholasjones@lewisu.edu)
+- [Juno Tyne](mailto:samuelntyne@lewisu.edu)
 
 
 ## Past Developers

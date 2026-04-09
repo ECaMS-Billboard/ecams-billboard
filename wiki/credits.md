@@ -11,6 +11,7 @@
 
 - [Nicholas Jones](mailto:nicholasjones@lewisu.edu)
 - [Juno Tyne](mailto:samuelntyne@lewisu.edu)
+- [Ryan Wandke](mailto:ryanowandke@lewisu.edu)
 
 
 ## Past Developers

@@ -24,6 +24,7 @@ function Credits() {
           <h2 className="text-xl font-bold text-white mb-2">Upcoming Team</h2>
           <ul className="list-disc list-inside">
             <li>Juno Tyne</li>
+            <li>Ryan Wandke</li>
           </ul>
         </div>
 

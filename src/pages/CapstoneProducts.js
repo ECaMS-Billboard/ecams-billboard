@@ -8,10 +8,10 @@ const CapstoneProducts = () => {
 
         },
         {
-            title: "ChattyNotes",
-            image: "ChattyNotesFlyer.png",
-            link: "https://chattynotes.io/",
-            buttonText: "Try ChattyNotes",
+            title: "LU-Bucks",
+            image: "Lu-Bucks.png",
+            link: "https://main.d201yyvy2d1qne.amplifyapp.com/About-Page/About.html",
+            buttonText: "Try LU-Bucks",
         }
     ]
 

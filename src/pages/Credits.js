@@ -25,6 +25,7 @@ function Credits() {
           <ul className="list-disc list-inside">
             <li>Juno Tyne</li>
             <li>Ryan Wandke</li>
+            <li>Nicholas Jones</li>
           </ul>
         </div>
 

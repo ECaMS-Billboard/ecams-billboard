@@ -26,6 +26,7 @@ function Credits() {
             <li>Juno Tyne</li>
             <li>Ryan Wandke</li>
             <li>Nicholas Jones</li>
+            <li>Fawz Manzoor</li>
           </ul>
         </div>
 

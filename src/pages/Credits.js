@@ -21,6 +21,16 @@ function Credits() {
 </div>
 
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300 mt-6">
+          <h2 className="text-xl font-bold text-white mb-2">Upcoming Team</h2>
+          <ul className="list-disc list-inside">
+            <li>Juno Tyne</li>
+            <li>Ryan Wandke</li>
+            <li>Nicholas Jones</li>
+            <li>Fawz Manzoor</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300 mt-6">
           <h2 className="text-xl font-bold text-white mb-2">Past Contributors</h2>
           <ul className="list-disc list-inside">
             <li>Samuel Swedo</li>

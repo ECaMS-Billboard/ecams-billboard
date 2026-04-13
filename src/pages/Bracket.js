@@ -93,7 +93,7 @@ const Bracket = () => {
     <div className="min-h-screen bg-black text-white py-12 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-red-600 text-4xl font-bold mb-6">
-          Best March Madness Snacks
+          Best Disney Movie
         </h1>
 
         {tournamentWinner ? (

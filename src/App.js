@@ -56,7 +56,7 @@ function App() {
     {
       title: 'Vote Monthly Bracket',
       path: '/Bracket',
-      description: "Best St Patricks's Day Foods.",
+      description: "Vote for the best Disney Movie",
       icon: "icons/bracket.png"
     },
 /*

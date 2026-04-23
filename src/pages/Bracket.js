@@ -26,7 +26,7 @@ const Bracket = () => {
      COUNTDOWN (ADDED ONLY)
   ========================= */
 
-  const getTimeLeft = (roundEnd, serverTime) => {
+  const getTimeLeft = (roundEnd) => {
     if (!roundEnd) return "";
 
     const diff = new Date(roundEnd) - new Date();
@@ -55,7 +55,6 @@ const Bracket = () => {
   const vote = (matchIndex, choice) => {
     const key = `voted_matchup_${matchIndex}`;
 
-    // Prevent voting again (frontend)
     if (localStorage.getItem(key)) {
       alert("You already voted on this matchup!");
       return;
@@ -81,18 +80,6 @@ const Bracket = () => {
       })
       .catch((err) => console.error('Vote failed:', err));
   };
-
-  // Advance round
-  //const advanceRound = () => {
-  //  fetch(`${API_BASE}/api/bracket/advance`, {
-  //    method: 'PUT',
-  //  })
-  //    .then((res) => res.json())
-  //    .then((updatedBracket) => {
-  //      setBracket(updatedBracket);
-  //    })
-  //    .catch((err) => console.error('Advance round failed:', err));
-  //};
 
   if (loading)
     return (
@@ -122,7 +109,6 @@ const Bracket = () => {
         <h1 className="text-red-600 text-4xl font-bold mb-6">
           Best Disney Movie
         </h1>
-        
 
         {tournamentWinner ? (
           <h2 className="text-green-500 text-3xl font-bold">

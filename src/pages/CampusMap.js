@@ -3,6 +3,13 @@ import "../components/CampusMap.css";
 import Map from "../imgs/campus-map.jpg";
 
 const CampusMap = () => {
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start"});
+    }
+  }
   return (
     <div className="map-page">
 
@@ -10,8 +17,11 @@ const CampusMap = () => {
       <div className="map-container">
         <img src={Map} alt="Campus Map" className="map-image" />
 
-        <div className="hotspot library">
-          <span className="tooltip">Library - Open 24/7</span>
+        <div 
+        className="hotspot library"
+        onClick={() => scrollToSection("library")}
+        >
+          <span className="tooltip">Library</span>
         </div>
       </div>
 

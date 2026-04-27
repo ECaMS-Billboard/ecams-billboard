@@ -1,19 +1,23 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-/*import MainLayout from './components/MainLayout';*/
+import { useState } from 'react';
+
 import Footer from './components/Footer';
 
 
 
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
-  Resources, Slides, Upload, EverydayApp, CarouselApi,/*LewisMap,*/
-  CapstoneProducts, Carousel, Tutorial, Events, Bracket, Calendar, CampusMap /*MazeGame,*/ /*Ad*/
+  Resources, Slides, Upload, EverydayApp, CarouselApi,
+  CapstoneProducts, Carousel, Tutorial, Events, Bracket, Calendar, CampusMap
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
 
 function App() {
-  // Defines what links will be displayed by `./pages/Home.js`.
+
+  
+  const [searchTerm, setSearchTerm] = useState('');
+
   const links = [
     {
       title: 'View Poster Slideshow',
@@ -27,7 +31,7 @@ function App() {
       description: 'Share your academic or event poster with the campus.',
       icon: "icons/upload.png"
     },
-    // { title: 'View Map of Lewis', path: '/lewis-map' },
+    
     {
       title: 'Professor Information',
       path: '/professor-list',
@@ -59,13 +63,7 @@ function App() {
       description: "Vote for the best Disney Movie",
       icon: "icons/bracket.png"
     },
-/*
-    {
-      title: 'Maze Game',
-      path: '/mazegame',
-      description: 'Play a fun customizable Maze Game.'
-    },
-    */
+
     {
       title: 'Credits',
       path: '/credits',
@@ -98,11 +96,26 @@ function App() {
     },
   ];
 
+ 
+  const filteredLinks = links.filter(link =>
+    link.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    link.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Navigationbar />
+
+      {}
+      <Navigationbar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
+
       <Routes>
-        <Route path="/" element={<Home links={links} />} />
+
+        {}
+        <Route path="/" element={<Home links={filteredLinks} />} />
+
         <Route path="/about" element={<About />} />
         <Route path="/acp/" element={<AdminPanel />} />
         <Route path="/credits" element={<Credits />} />
@@ -123,6 +136,7 @@ function App() {
         <Route path="/tutorial" element={<Tutorial />} />
         <Route path="/campusmap" element={<CampusMap />} />
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );

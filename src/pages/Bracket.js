@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 const Bracket = () => {
   const [bracket, setBracket] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [countdown, setCountdown] = useState("");
 
   const API_BASE =
     'https://ecams-bb-main-api-b5eebnawg4efapek.centralus-01.azurewebsites.net';
@@ -21,51 +22,64 @@ const Bracket = () => {
       });
   }, []);
 
-  // Vote handler
-  const vote = (matchIndex, choice) => {
-  const key = `voted_matchup_${matchIndex}`;
+  /* =========================
+     COUNTDOWN (ADDED ONLY)
+  ========================= */
 
-  // Prevent voting again (frontend)
-  if (localStorage.getItem(key)) {
-    alert("You already voted on this matchup!");
-    return;
-  }
+  const getTimeLeft = (roundEnd) => {
+    if (!roundEnd) return "";
 
-  fetch(`${API_BASE}/api/bracket/vote`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      matchupIndex: matchIndex,
-      choice: choice,
-    }),
-  })
-    .then((res) => res.json())
-    .then((updatedBracket) => {
-      // If backend rejected vote, don't save
-      if (updatedBracket.error) {
-        alert(updatedBracket.error);
-        return;
-      }
+    const diff = new Date(roundEnd) - new Date();
 
-      // Save vote locally
-      localStorage.setItem(key, "true");
+    if (diff <= 0) return "Round ending...";
 
-      setBracket(updatedBracket);
-    })
-    .catch((err) => console.error('Vote failed:', err));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
   };
 
-  // Advance round
-  //const advanceRound = () => {
-  //  fetch(`${API_BASE}/api/bracket/advance`, {
-  //    method: 'PUT',
-  //  })
-  //    .then((res) => res.json())
-  //    .then((updatedBracket) => {
-  //      setBracket(updatedBracket);
-  //    })
-  //    .catch((err) => console.error('Advance round failed:', err));
-  //};
+  useEffect(() => {
+    if (!bracket?.roundEnd) return;
+
+    const interval = setInterval(() => {
+      setCountdown(getTimeLeft(bracket.roundEnd));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [bracket]);
+
+  // Vote handler
+  const vote = (matchIndex, choice) => {
+    const key = `voted_matchup_${matchIndex}`;
+
+    if (localStorage.getItem(key)) {
+      alert("You already voted on this matchup!");
+      return;
+    }
+
+    fetch(`${API_BASE}/api/bracket/vote`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        matchupIndex: matchIndex,
+        choice: choice,
+      }),
+    })
+      .then((res) => res.json())
+      .then((updatedBracket) => {
+        if (updatedBracket.error) {
+          alert(updatedBracket.error);
+          return;
+        }
+
+        localStorage.setItem(key, "true");
+        setBracket(updatedBracket);
+      })
+      .catch((err) => console.error('Vote failed:', err));
+  };
 
   if (loading)
     return (
@@ -102,9 +116,14 @@ const Bracket = () => {
           </h2>
         ) : (
           <>
-            <h2 className="text-gray-400 text-lg mb-4">
+            <h2 className="text-gray-400 text-lg mb-2">
               Round {currentRoundIndex + 1}
             </h2>
+
+            {/* COUNTDOWN (ADDED ONLY) */}
+            <h3 className="text-yellow-400 text-md mb-4">
+              Time Left: {countdown}
+            </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
               {currentRound.map((m, index) => {

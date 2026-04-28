@@ -92,7 +92,7 @@ function App() {
       title: 'Campus Map',
       path: '/campusmap',
       description: 'View the Campus Map',
-      icon: "icons/calendar.png"
+      icon: "icons/map.png"
     },
   ];
 

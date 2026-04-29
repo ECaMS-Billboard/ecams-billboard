@@ -125,7 +125,7 @@ const fetchWinners = () => {
 <div className="mb-6">
   <button
     onClick={fetchWinners}
-    className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+    className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded"
   >
     View Past Winners
   </button>

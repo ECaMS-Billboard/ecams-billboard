@@ -60,7 +60,7 @@ function App() {
     {
       title: 'Vote Monthly Bracket',
       path: '/Bracket',
-      description: "Vote for the best Disney Movie",
+      description: "Vote for your favorite flowert",
       icon: "icons/bracket.png"
     },
 

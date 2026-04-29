@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 
+
 const Bracket = () => {
   const [bracket, setBracket] = useState(null);
   const [loading, setLoading] = useState(true);
   const [countdown, setCountdown] = useState("");
+  const [winners, setWinners] = useState([]);
+  const [showWinners, setShowWinners] = useState(false);
 
   const API_BASE =
     'https://ecams-bb-main-api-b5eebnawg4efapek.centralus-01.azurewebsites.net';
@@ -25,6 +28,15 @@ const Bracket = () => {
   /* =========================
      COUNTDOWN (ADDED ONLY)
   ========================= */
+const fetchWinners = () => {
+  fetch(`${API_BASE}/api/bracket/winners`)
+    .then((res) => res.json())
+    .then((data) => {
+      setWinners(data);
+      setShowWinners(true);
+    })
+    .catch((err) => console.error('Failed to fetch winners:', err));
+};
 
   const getTimeLeft = (roundEnd) => {
     if (!roundEnd) return "";
@@ -107,8 +119,43 @@ const Bracket = () => {
     <div className="min-h-screen bg-black text-white py-12 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-red-600 text-4xl font-bold mb-6">
-          Best Disney Movie
-        </h1>
+  Favorite Flower
+</h1>
+
+<div className="mb-6">
+  <button
+    onClick={fetchWinners}
+    className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+  >
+    View Past Winners
+  </button>
+
+  {showWinners && (
+    <div className="bg-gray-900 p-4 rounded mt-4">
+      <h2 className="text-xl font-bold mb-3">Past Winners</h2>
+
+      {winners.length === 0 ? (
+        <p>No past winners yet.</p>
+      ) : (
+        <ul className="text-left mx-auto max-w-md">
+          {winners.map((w, i) => (
+            <li key={i} className="mb-2">
+              {w.topic || "Bracket"} —{" "}
+              <span className="text-green-400">{w.winner}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <button
+        onClick={() => setShowWinners(false)}
+        className="mt-3 text-red-400"
+      >
+        Close
+      </button>
+    </div>
+  )}
+</div>
 
         {tournamentWinner ? (
           <h2 className="text-green-500 text-3xl font-bold">

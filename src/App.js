@@ -12,6 +12,7 @@ import {
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
+import NavigationButtons from './components/NavigationButtons';
 
 function App() {
 
@@ -110,6 +111,7 @@ function App() {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
       />
+      <NavigationButtons />
 
       <Routes>
 

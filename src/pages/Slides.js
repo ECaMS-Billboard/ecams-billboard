@@ -1,7 +1,6 @@
 // This page is accessed through the mobile portal (Home.js). Loops the poster slideshow.
 
 import React, { useState, useEffect, useCallback } from 'react';
-//import professorInfo from '../professorInfo.json'
 import { API_BASE_URL } from "../config";
 
 function Slides() {
@@ -24,34 +23,40 @@ function Slides() {
         console.error('Fetch error:', error);
       }
     }
+
     fetchBannerData();
   }, []);
 
   // Show next slide
   const nextSlide = useCallback(() => {
+    if (items.length === 0) return;
+
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   }, [items.length]);
 
   // Show previous slide
   const prevSlide = useCallback(() => {
+    if (items.length === 0) return;
+
     setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
   }, [items.length]);
 
   // Auto-slide
   useEffect(() => {
+    if (items.length <= 1) return;
+
     const autoSlide = setInterval(() => {
       nextSlide();
     }, 10000);
 
     return () => clearInterval(autoSlide);
-  }, [nextSlide]);
+  }, [nextSlide, items.length]);
 
   return (
-
-    <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-black flex items-center justify-center ">
+    <main className="overflow-x-hidden overflow-y-hidden box-border min-h-screen min-w-full bg-black flex items-center justify-center">
       <div className="relative overflow-hidden rounded-lg shadow-lg">
 
-        {/* Carousel container for poster slideshow functionality*/}
+        {/* Carousel container for poster slideshow functionality */}
         <div
           className="carousel flex transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -68,18 +73,23 @@ function Slides() {
         </div>
 
         {/* Navigation buttons */}
-        <button
-          onClick={prevSlide}
-          className="control-button absolute top-1/2 left-2 transform -translate-y-1/2 p-2 rounded-full bg-neutral-700 text-white shadow-md hover:bg-neutral-600"
-        >
-          ❮
-        </button>
-        <button
-          onClick={nextSlide}
-          className="control-button absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-neutral-700 text-white shadow-md hover:bg-neutral-600"
-        >
-          ❯
-        </button>
+        {items.length > 1 && (
+          <>
+            <button
+              onClick={prevSlide}
+              className="control-button absolute top-1/2 left-2 transform -translate-y-1/2 p-2 rounded-full bg-neutral-700 text-white shadow-md hover:bg-neutral-600"
+            >
+              ❮
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="control-button absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full bg-neutral-700 text-white shadow-md hover:bg-neutral-600"
+            >
+              ❯
+            </button>
+          </>
+        )}
       </div>
     </main>
   );

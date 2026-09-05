@@ -12,6 +12,7 @@ import {
 } from './pages';
 
 import Navigationbar from './components/Navigationbar';
+import NavigationButtons from './components/NavigationButtons';
 
 function App() {
 
@@ -60,7 +61,7 @@ function App() {
     {
       title: 'Vote Monthly Bracket',
       path: '/Bracket',
-      description: "Vote for the best Disney Movie",
+      description: "Vote for your favorite flower",
       icon: "icons/bracket.png"
     },
 
@@ -92,7 +93,7 @@ function App() {
       title: 'Campus Map',
       path: '/campusmap',
       description: 'View the Campus Map',
-      icon: "icons/calendar.png"
+      icon: "icons/map.png"
     },
   ];
 
@@ -110,6 +111,7 @@ function App() {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
       />
+      <NavigationButtons />
 
       <Routes>
 

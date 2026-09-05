@@ -6,7 +6,7 @@
 
 .map-container {
   position: relative;
-  width: 80%;
+  display: inline-block;
 }
 
 .map-image {
@@ -42,44 +42,118 @@
   padding-left: 20px;
 }
 
-/* Base hotspot */
+/* MAP CONTAINER */
+.map-container {
+  position: relative;
+  display: inline-block;
+}
+
+.map-image {
+  width: 100%;
+  display: block;
+}
+
+/* HOTSPOTS */
 .hotspot {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+/* BUTTON STYLE */
+.hotspot-marker {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #ff4d4d, #990000);
+
+  border: 2px solid white;
+
+  box-shadow:
+    0 0 12px rgba(255,0,0,0.7),
+    0 0 20px rgba(255,0,0,0.4);
+
+  transition: all 0.25s ease;
+}
+
+.hotspot-marker:hover {
+  transform: scale(1.2) rotate(10deg);
+
+  box-shadow:
+    0 0 18px rgba(255,0,0,1),
+    0 0 30px rgba(255,0,0,0.8);
+}
+
+/* POPUP */
+.popup-card {
+  position: absolute;
+
+  top: 10%;
+  right: 5%;
+
+  width: 260px;
+
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 18px;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+
+  z-index: 1000;
+}
+
+/* CLOSE */
+.close-popup {
+  position: absolute;
+
+  top: 8px;
+  right: 12px;
+
+  background: none;
+  border: none;
+
+  font-size: 20px;
+
   cursor: pointer;
 }
 
-/* Example positions (you will tweak these) */
-.hotspot.library {
-  top: 40%;
-  left: 55%;
-}
+/* BUTTON */
+.popup-btn {
+  margin-top: 12px;
 
-.hotspot.science {
-  top: 30%;
-  left: 40%;
-}
-
-.hotspot.rec {
-  top: 60%;
-  left: 50%;
-}
-
-/* Tooltip */
-.tooltip {
-  position: absolute;
-  top: -25px;
-  left: 25px;
-  background: black;
+  background: #990000;
   color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  display: none;
+
+  border: none;
+
+  padding: 10px 14px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
 }
 
-.hotspot:hover .tooltip {
-  display: block;
+.popup-btn:hover {
+  background: #700000;
+}
+
+/* BUILDING CARDS */
+.building {
+  background: white;
+
+  padding: 18px;
+
+  margin-bottom: 18px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }

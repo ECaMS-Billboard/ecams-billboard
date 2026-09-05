@@ -12,21 +12,17 @@ function Credits() {
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300">
   <h2 className="text-xl font-bold text-white mb-2">Current Contributors</h2>
   <ul className="list-disc list-inside">
-    <li>Morgan Krupp</li>
-    <li>Tony Kochev</li>
-    <li>Niko Salvador</li>
-    <li>Alex Tardecilla</li>
-    <li>Luke Thormeyer</li>
+    <li>Juno Tyne</li>
+    <li>Ryan Wandke</li>
+    <li>Nicholas Jones</li>
+    <li>Fawz Manzoor</li>
   </ul>
 </div>
 
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300 mt-6">
           <h2 className="text-xl font-bold text-white mb-2">Upcoming Team</h2>
           <ul className="list-disc list-inside">
-            <li>Juno Tyne</li>
-            <li>Ryan Wandke</li>
-            <li>Nicholas Jones</li>
-            <li>Fawz Manzoor</li>
+            <li>To Be Determined at a Later Date</li>
           </ul>
         </div>
 
@@ -59,6 +55,11 @@ function Credits() {
             <li>Marcos Esparza</li>
             <li>Ardian Dardovski</li>
             <li>Joshua Vachachira</li>
+            <li>Morgan Krupp</li>
+            <li>Tony Kochev</li>
+            <li>Niko Salvador</li>
+            <li>Alex Tardecilla</li>
+            <li>Luke Thormeyer</li>
           </ul>
         </div>
 

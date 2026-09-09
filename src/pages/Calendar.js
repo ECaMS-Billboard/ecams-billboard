@@ -18,7 +18,7 @@ function Calendar() {
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className="text-red-500 text-4xl font-extrabold tracking-wide">
-           September
+            September
           </h1>
           <p className="text-gray-400 mt-2">
             Stay up to date with important events happening this month.

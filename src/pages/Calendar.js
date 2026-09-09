@@ -2,19 +2,11 @@ import React from "react";
 
 function Calendar() {
   const events = {
-    1: "Softball vs Ohio Dominican",
-    2: "St. Patty's punch cup foundraiser",
-    11: "Campus Visit Day",
-    14: "Girls Who Code Hour",
-    15: "Sandwhich making for those in need",
-    19: "Lewis Baseball vs Missouri S&T",
-    22: "Annual Celebration of Scholarships",
-    27: "Lewis University Athletics Charlie Awards",
-    29: "I love Lewis Day",
+  
   };
 
-  const daysInMonth = 30;
-  const firstDayOffset = 3; // 0 = Sunday
+  const daysInMonth = 31;
+  const firstDayOffset = 2; // 0 = Sunday
 
   const totalBoxes = firstDayOffset + daysInMonth;
 
@@ -26,7 +18,7 @@ function Calendar() {
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className="text-red-500 text-4xl font-extrabold tracking-wide">
-            April
+           September
           </h1>
           <p className="text-gray-400 mt-2">
             Stay up to date with important events happening this month.

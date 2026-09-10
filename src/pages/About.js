@@ -12,7 +12,7 @@ function About() {
             to learn more about campus events and organizations.
             <br/><br/>
             The ECaMS Billboard is currently being maintained and updated by{" "}
-           
+           <a
               Team Stone Ocean.
             </a>
             <br/><br/>

@@ -1,19 +1,13 @@
 # Credits
 
 ## Current Team
-- [Morgan Krupp](mailto:morganrkrupp@lewisu.edu)
-- [Luke Thormeyer](mailto:lukemthormeyer@lewisu.edu)
-- [Tony Kochev](mailto:tkochev@lewisu.edu)
-- [Niko Salvador](mailto:nikosalvador@lewisu.edu)
-- [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)
-
-## Next Team - StoneOcean
 
 - [Nicholas Jones](mailto:nicholasjones@lewisu.edu)
 - [Juno Tyne](mailto:samuelntyne@lewisu.edu)
 - [Ryan Wandke](mailto:ryanowandke@lewisu.edu)
 - [Fawz manzoor](mailto:fawzmmanzoor@lewisu.edu)
 
+## Next Team - To Be Determined
 
 ## Past Developers
 - [Wiktoria Cioch-Gradzik](mailto:wiktorianciochgrad@lewisu.edu)
@@ -42,6 +36,11 @@
 - [Justina Piwoni](justinajpiwoni@lewisu.edu)
 - [Jacob Prince](jacobmprince@lewisu.edu)
 - [Michael Szostak](mailto:michaeldszostak@lewisu.edu)
+- [Morgan Krupp](mailto:morganrkrupp@lewisu.edu)
+- [Luke Thormeyer](mailto:lukemthormeyer@lewisu.edu)
+- [Tony Kochev](mailto:tkochev@lewisu.edu)
+- [Niko Salvador](mailto:nikosalvador@lewisu.edu)
+- [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)
 
 
 ## Other

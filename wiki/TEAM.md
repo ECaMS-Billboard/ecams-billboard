@@ -1,14 +1,12 @@
-# Speed Goats
+# Stone Ocean
 
-## Members
-Luke Thormeyer - Product Owner
+## Members (Scrum Master and Product Owner Change Every Sprint)
+Nicholas Jones
 
-Tony Kochev - Scrum Master
+Juno Tyne
 
-Niko Salvador - Team Member
+Ryan Wandke
 
-Alexander Tardecilla - Team Member
-
-Morgan Krupp - Team Member
+Fawz manzoor
 
 

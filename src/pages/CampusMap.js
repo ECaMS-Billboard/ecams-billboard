@@ -262,4 +262,4 @@ const CampusMap = () => {
   );
 };
 
-export default CampusMap;    
+export default CampusMap;   

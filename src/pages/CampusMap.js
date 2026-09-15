@@ -17,7 +17,7 @@ const buildings = [
       "Third Floor: Veterans Affairs, Academic Services",
     ],
 
-    top: "42%",
+    top: "50%",
     left: "57%",
   },
 

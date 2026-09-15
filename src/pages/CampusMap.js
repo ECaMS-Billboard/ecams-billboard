@@ -17,8 +17,8 @@ const buildings = [
       "Third Floor: Veterans Affairs, Academic Services",
     ],
 
-    top: "50%",
-    left: "57%",
+    top: "45%",
+    left: "61%",
   },
 
   {
@@ -34,8 +34,8 @@ const buildings = [
       "Upper Floor: Biology",
     ],
 
-    top: "35%",
-    left: "48%",
+    top: "37%",
+    left: "50%",
   },
 
   {
@@ -50,8 +50,116 @@ const buildings = [
       "First Floor: Dining Hall",
     ],
 
-    top: "60%",
-    left: "63%",
+    top: "69%",
+    left: "38%",
+  },
+
+  {
+    id: "science",
+    name: "De La Salle Hall (DL) – 45",
+
+    shortDescription:
+      "Bookstore, Courtyard Cafe, Mailroom, Marketing and Communications.",
+
+    details: [
+      "Ground Floor: Bookstore, Courtyard Cafe, Mailroom, Marketing and Communications",
+      "Second Floor: English, Radio/TV Brodcast Studio, Dean/Humanities/Fine Arts and Communications, Damian Auditorium",
+      "Third Floor: Education",
+    ],
+
+    top: "69%",
+    left: "50%",
+  },
+
+  {
+    id: "social studies",
+    name: "Benilde Hall (BE) - 43",
+
+    shortDescription:
+      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
+
+    details: [
+      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
+    ],
+
+    top: "69%",
+    left: "61%",
+  },
+
+  {
+    id: "Gymnasium",
+    name: "JFK Student Recreation and Sports Center (SC) - 23",
+
+    shortDescription:
+      "The Gymnasium",
+
+    details: [
+      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
+    ],
+
+    top: "49%",
+    left: "36%",
+  },
+
+  {
+    id: "Fine Arts",
+    name: "Oremus Fine Arts Center (FA) 18",
+
+    shortDescription:
+      "Arts Center and Theatre",
+
+    details: [
+      "First Floor: Art/Design, Caterpillar Gallery, Phillip Lynch Theatre, Wadsworth Family Gallery",
+      "Second Floor: Music, Ives Recital Hall, Theatre, Keith White Theatre",
+    ],
+
+    top: "35%",
+    left: "37%",
+  },
+
+  {
+    id: "Aviation",
+    name: "Brother Neil Kieffe, FSC Aviation Building (HW) - 21",
+
+    shortDescription:
+      "Aviation Maintenance and Hangar",
+
+    details: [
+      "Aviation Maintenance and Hangar",
+    ],
+
+    top: "38%",
+    left: "27%",
+  },
+    
+  {
+    id: "Aviation",
+    name: "Harold E. White Aviation Center (HW) - 19",
+
+    shortDescription:
+      "Aviation Dispatch",
+
+    details: [
+      "Aviation and Flight Dispatch Center",
+    ],
+
+    top: "33%",
+    left: "30%",
+  },
+    
+  {
+    id: "North Campus_1",
+    name: "St. Charles Borromeo (SB) - 1",
+
+    shortDescription:
+      "Accessed Via 101 Airport Road",
+
+    details: [
+      "Human Resorces, College of Buisness, Convocation Hall, Presidental Gallery, Facilities, Flight Deck, Innovation Hub, Lowell Stahl Center",
+    ],
+
+    top: "16%",
+    left: "74%",
   },
 ];
 
@@ -154,4 +262,4 @@ const CampusMap = () => {
   );
 };
 
-export default CampusMap;
+export default CampusMap;    

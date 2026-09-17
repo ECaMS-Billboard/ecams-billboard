@@ -11,10 +11,7 @@ function About() {
             (CPSC-49200) course. It serves as an advertising and informational platform for students
             to learn more about campus events and organizations.
             <br/><br/>
-            The ECaMS Billboard is currently being maintained and updated by{" "}
-           <a>
-              Team Stone Ocean.
-            </a>
+            The ECaMS Billboard is currently being maintained and updated by Team Stone Ocean.
             <br/><br/>
             While "ECaMS" is in the project name and our only kiosk is located in the AS
             building, poster submissions are not necessarily restricted to this department. 

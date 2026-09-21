@@ -12,6 +12,8 @@ function About() {
             to learn more about campus events and organizations.
             <br/><br/>
             The ECaMS Billboard is currently being maintained and updated by Team Stone Ocean.
+            Team Stone Ocean consists of Ryan Wandke, Juno Tyre, Fawz Mansoor, and Nicholas Jones. 
+            If you wish to contact us our emails are: ryanowandke@lewisu.edu, samuelntyne@lewisu.edu,  fawzmmanzoor@lewisu.edu and  NicholasJones@lewisu.edu
             <br/><br/>
             While "ECaMS" is in the project name and our only kiosk is located in the AS
             building, poster submissions are not necessarily restricted to this department. 

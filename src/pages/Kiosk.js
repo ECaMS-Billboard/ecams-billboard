@@ -29,6 +29,7 @@ function Slides() {
 
  // Show next slide
   const nextSlide = useCallback(() => {
+    if (items.length === 0) return;
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   }, [items.length]);
 

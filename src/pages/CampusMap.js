@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../components/CampusMap.css";
-import Map from "../imgs/campus-map.png";
+import Map from '../imgs/lewis_map.png';
 
 const buildings = [
   {

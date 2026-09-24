@@ -11,6 +11,7 @@ function Slides() {
   useEffect(() => {
     async function fetchBannerData() {
       try {
+        console.log(API_BASE_URL);
         const response = await fetch(`${API_BASE_URL}/list-approved-images`);
         const data = await response.json();
 

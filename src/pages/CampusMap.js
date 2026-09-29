@@ -4,21 +4,18 @@ import Map from '../imgs/lewis_map.png';
 
 const buildings = [
   {
-    id: "library",
-    name: "Learning Resource Center (LR) – 33",
+    id: "North Campus_1",
+    name: "St. Charles Borromeo (SB) - 1",
 
     shortDescription:
-      "Library, Writing Center, Financial Aid, and Student Services.",
+      "Accessed Via 101 Airport Road",
 
     details: [
-      "Basement: Office of Technology",
-      "Ground Floor: Financial Aid, Registrar, Career Services",
-      "First Floor: Library, Writing Center",
-      "Third Floor: Veterans Affairs, Academic Services",
+      "Human Resorces, College of Buisness, Convocation Hall, Presidental Gallery, Facilities, Flight Deck, Innovation Hub, Lowell Stahl Center",
     ],
 
-    top: "45%",
-    left: "61%",
+    top: "14%",
+    left: "72%",
   },
 
   {
@@ -39,19 +36,97 @@ const buildings = [
   },
 
   {
-    id: "student-center",
-    name: "Student Center (JG) – 47",
+    id: "Fine Arts",
+    name: "Oremus Fine Arts Center (FA) 18",
 
     shortDescription:
-      "Dining Hall, Student Engagement, and Student Senate.",
+      "Arts Center and Theatre",
 
     details: [
-      "Lower Level: Student Engagement",
-      "First Floor: Dining Hall",
+      "First Floor: Art/Design, Caterpillar Gallery, Phillip Lynch Theatre, Wadsworth Family Gallery",
+      "Second Floor: Music, Ives Recital Hall, Theatre, Keith White Theatre",
+    ],
+
+    top: "35%",
+    left: "35%",
+  },
+    
+  {
+    id: "Aviation",
+    name: "Harold E. White Aviation Center (HW) - 19",
+
+    shortDescription:
+      "Aviation Dispatch",
+
+    details: [
+      "Aviation and Flight Dispatch Center",
+    ],
+
+    top: "33%",
+    left: "28%",
+  },
+
+  {
+    id: "Aviation",
+    name: "Brother Neil Kieffe, FSC Aviation Building (HW) - 21",
+
+    shortDescription:
+      "Aviation Maintenance and Hangar",
+
+    details: [
+      "Aviation Maintenance and Hangar",
+    ],
+
+    top: "38%",
+    left: "25%",
+  },
+
+  {
+    id: "Gymnasium",
+    name: "JFK Student Recreation and Sports Center (SC) - 23",
+
+    shortDescription:
+      "The Gymnasium",
+
+    details: [
+      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
+    ],
+
+    top: "49%",
+    left: "34.5%",
+  },
+
+  {
+    id: "library",
+    name: "Learning Resource Center (LR) – 33",
+
+    shortDescription:
+      "Library, Writing Center, Financial Aid, and Student Services.",
+
+    details: [
+      "Basement: Office of Technology",
+      "Ground Floor: Financial Aid, Registrar, Career Services",
+      "First Floor: Library, Writing Center",
+      "Third Floor: Veterans Affairs, Academic Services",
+    ],
+
+    top: "44%",
+    left: "59.5%",
+  },
+
+  {
+    id: "social studies",
+    name: "Benilde Hall (BE) - 43",
+
+    shortDescription:
+      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
+
+    details: [
+      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
     ],
 
     top: "69%",
-    left: "38%",
+    left: "59.5%",
   },
 
   {
@@ -68,98 +143,23 @@ const buildings = [
     ],
 
     top: "69%",
-    left: "50%",
+    left: "47%",
   },
 
   {
-    id: "social studies",
-    name: "Benilde Hall (BE) - 43",
+    id: "student-center",
+    name: "Student Center (JG) – 47",
 
     shortDescription:
-      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
+      "Dining Hall, Student Engagement, and Student Senate.",
 
     details: [
-      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
+      "Lower Level: Student Engagement",
+      "First Floor: Dining Hall",
     ],
 
     top: "69%",
-    left: "61%",
-  },
-
-  {
-    id: "Gymnasium",
-    name: "JFK Student Recreation and Sports Center (SC) - 23",
-
-    shortDescription:
-      "The Gymnasium",
-
-    details: [
-      "Justice, Law and Public Safety Studies, Political Science, Psychology, Sociology, Social Work, Dean/Education and Social Sciences",
-    ],
-
-    top: "49%",
-    left: "36%",
-  },
-
-  {
-    id: "Fine Arts",
-    name: "Oremus Fine Arts Center (FA) 18",
-
-    shortDescription:
-      "Arts Center and Theatre",
-
-    details: [
-      "First Floor: Art/Design, Caterpillar Gallery, Phillip Lynch Theatre, Wadsworth Family Gallery",
-      "Second Floor: Music, Ives Recital Hall, Theatre, Keith White Theatre",
-    ],
-
-    top: "35%",
-    left: "37%",
-  },
-
-  {
-    id: "Aviation",
-    name: "Brother Neil Kieffe, FSC Aviation Building (HW) - 21",
-
-    shortDescription:
-      "Aviation Maintenance and Hangar",
-
-    details: [
-      "Aviation Maintenance and Hangar",
-    ],
-
-    top: "38%",
-    left: "27%",
-  },
-    
-  {
-    id: "Aviation",
-    name: "Harold E. White Aviation Center (HW) - 19",
-
-    shortDescription:
-      "Aviation Dispatch",
-
-    details: [
-      "Aviation and Flight Dispatch Center",
-    ],
-
-    top: "33%",
-    left: "30%",
-  },
-    
-  {
-    id: "North Campus_1",
-    name: "St. Charles Borromeo (SB) - 1",
-
-    shortDescription:
-      "Accessed Via 101 Airport Road",
-
-    details: [
-      "Human Resorces, College of Buisness, Convocation Hall, Presidental Gallery, Facilities, Flight Deck, Innovation Hub, Lowell Stahl Center",
-    ],
-
-    top: "16%",
-    left: "74%",
+    left: "36.5%",
   },
 ];
 

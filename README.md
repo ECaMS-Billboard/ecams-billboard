@@ -8,14 +8,14 @@ Presently, the project maintains one kiosk in the AS building (S hallway), but w
 <br/>
 
 ## Active Deployments
-As of 1/21/26, the below Microsoft Azure instances are available:
+As of 8/30/26, the below Microsoft Azure instances are available:
 
-| Service                | URL                                                 | Maintainer                                           |
-| ---------------------- | --------------------------------------------------- | ---------------------------------------------------- |
-| Production environment | https://blue-wave-096251910.4.azurestaticapps.net | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
-| Testing environment    | https://nice-forest-03447d410.2.azurestaticapps.net | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
-| API endpoint           | https://ecams-bb-main-api-b5eebnawg4efapek.centralus-01.azurewebsites.net/ | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu)  |
-| Production environment(with metrics tracker) | [https://blue-wave-096251910.4.azurestaticapps.net/?utm_source=qr&utm_medium=offline&utm_campaign=ecamsbb] | [Alexander Tardecilla](mailto:alexandervtardecil@lewisu.edu) |
+| Service                | URL                                                 |
+| ---------------------- | --------------------------------------------------- |
+| Production environment | https://mango-water-0e83db20f.7.azurestaticapps.net |
+| Testing environment    | https://salmon-water-0dea2e20f.3.azurestaticapps.net |
+| API endpoint           | https://ecams-bb-api-main-ekatcbewg4dfhpa7.centralus-01.azurewebsites.net |
+
 
 <br/>
 

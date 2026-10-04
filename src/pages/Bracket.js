@@ -9,7 +9,7 @@ const Bracket = () => {
   const [showWinners, setShowWinners] = useState(false);
 
   const API_BASE =
-    'https://ecams-bb-main-api-b5eebnawg4efapek.centralus-01.azurewebsites.net';
+    'https://ecams-bb-api-main-ekatcbewg4dfhpa7.centralus-01.azurewebsites.net';
 
   // Fetch bracket on load
   useEffect(() => {

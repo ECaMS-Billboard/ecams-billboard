@@ -9,6 +9,7 @@ function Upload() {
   const [email, setEmail] = useState('');
   const [uploadMessage, setUploadMessage] = useState('');
   const [showFireworks, setShowFireworks] = useState(false);
+  const [expiryDate, setExpiryDate] = useState('');
 
   // Handle file input change
   const handleFileChange = (e) => {
@@ -38,7 +39,10 @@ function Upload() {
     formData.append('file', file);
     formData.append('email', email);
     formData.append('description', "UPLOAD TEST");
-    formData.append('notes', "UPLOAD TEST");
+    formData.append('notes', "UPLOAD TEST") ;
+    if (expiryDate) {
+      formData.append('expiresAt', expiryDate);
+    }
 
     try {
       const response = await fetch(`${API_BASE_URL}/upload`, {
@@ -91,6 +95,17 @@ function Upload() {
             className="w-full text-white bg-neutral-700 placeholder-gray-300 py-3 px-4 rounded-lg shadow"
             required
           />
+
+          {/* Expiry date input */}
+          <div>
+            <label className="text-white text-sm mb-1 block">Expiration date (optional)</label>
+            <input
+              type="date"
+              value={expiryDate}
+              onChange={(e) => setExpiryDate(e.target.value)}
+              className="w-full text-white bg-neutral-700 py-3 px-4 rounded-lg shadow"
+            />
+          </div>
 
           {/* Choose image button */}
           <button

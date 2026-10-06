@@ -1,7 +1,56 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Calendar() {
+  const [events, setEvents] = useState({});
+
+  const sheetUrl =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vR2_gd5CM0S7ANLOkS-8LOFkzK2Mv42op2-GSM5H3pzG9MYDY0cHkHMQ5bqYD521gzr5lHI1T-S6Iig/pub?output=csv";
+
+  // Get events from Google Sheets
+  useEffect(() => {
+  fetch(sheetUrl)
+    .then((response) => response.text())
+    .then((text) => {
+      const lines = text.trim().split(/\r?\n/);
+      const eventData = {};
+
+      lines.slice(1).forEach((line) => {
+        const parts = line.split(",");
+
+        if (parts.length < 2) {
+          return;
+        }
+
+        const date = parts[0].trim();
+        const event = parts.slice(1).join(",").trim();
+
+        const [month, day, year] = date.split("/").map(Number);
+
+        if (!month || !day || !year || !event) {
+          return;
+        }
+
+        if (!eventData[year]) {
+          eventData[year] = {};
+        }
+
+        if (!eventData[year][month]) {
+          eventData[year][month] = {};
+        }
+
+        if (!eventData[year][month][day]) {
+          eventData[year][month][day] = [];
+        }
+
+        eventData[year][month][day].push(event);
+      });
+
+      setEvents(eventData);
+    })
+    .catch((error) => {
+      console.error("Error loading calendar events:", error);
+    });
+}, []);
   // Get the current date in Central Time
   const now = new Date();
 
@@ -30,11 +79,7 @@ function Calendar() {
   }).format(now);
 
   // Get number of days in the month
-  const daysInMonth = new Date(
-    year,
-    month,
-    0
-  ).getDate();
+  const daysInMonth = new Date(year, month, 0).getDate();
 
   // Get the weekday the month starts on
   const firstDayOffset = new Date(
@@ -44,10 +89,6 @@ function Calendar() {
   ).getDay();
 
   const totalBoxes = firstDayOffset + daysInMonth;
-
-  const events = {
-    // Add events here
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-black text-gray-200 flex flex-col items-center px-6 py-12">
@@ -82,6 +123,9 @@ function Calendar() {
           {Array.from({ length: totalBoxes }).map((_, index) => {
             const dayNumber = index - firstDayOffset + 1;
 
+            const dayEvents =
+              events[year]?.[month]?.[dayNumber] || [];
+
             return (
               <div
                 key={index}
@@ -94,9 +138,13 @@ function Calendar() {
                       {dayNumber}
                     </div>
 
-                    {/* Event */}
+                    {/* Events */}
                     <div className="mt-2 text-sm text-center text-red-400 font-medium">
-                      {events[dayNumber]}
+                      {dayEvents.map((event, eventIndex) => (
+                        <div key={eventIndex}>
+                          {event}
+                        </div>
+                      ))}
                     </div>
                   </>
                 )}
@@ -121,4 +169,3 @@ function Calendar() {
 }
 
 export default Calendar;
-

@@ -7,8 +7,10 @@ function Upload() {
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
   const [email, setEmail] = useState('');
+  const [eventDate, setEventDate] = useState('');
   const [uploadMessage, setUploadMessage] = useState('');
   const [showFireworks, setShowFireworks] = useState(false);
+  const [expiryDate, setExpiryDate] = useState('');
 
   // Handle file input change
   const handleFileChange = (e) => {
@@ -29,6 +31,11 @@ function Upload() {
       return;
     }
 
+    if (!eventDate) {
+  alert("Please select the event date!");
+  return;
+ }
+
     if (!file) {
       alert("Please select an image first!");
       return;
@@ -37,8 +44,12 @@ function Upload() {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('email', email);
+    formData.append('eventDate', eventDate);
     formData.append('description', "UPLOAD TEST");
-    formData.append('notes', "UPLOAD TEST");
+    formData.append('notes', "UPLOAD TEST") ;
+    if (expiryDate) {
+      formData.append('expiresAt', expiryDate);
+    }
 
     try {
       const response = await fetch(`${API_BASE_URL}/upload`, {
@@ -62,6 +73,7 @@ function Upload() {
       setImage(null);
       setFile(null);
       setEmail('');
+      setEventDate('');
 
       setTimeout(() => {
         setShowFireworks(false);
@@ -91,6 +103,24 @@ function Upload() {
             className="w-full text-white bg-neutral-700 placeholder-gray-300 py-3 px-4 rounded-lg shadow"
             required
           />
+          {/* Event date */}
+          <input
+          type="date"
+          value={eventDate}
+          onChange={(e) => setEventDate(e.target.value)}
+          className="w-full text-white bg-neutral-700 py-3 px-4 rounded-lg shadow"
+          required
+          />
+          {/* Expiry date input */}
+          <div>
+            <label className="text-white text-sm mb-1 block">Expiration date (optional)</label>
+            <input
+              type="date"
+              value={expiryDate}
+              onChange={(e) => setExpiryDate(e.target.value)}
+              className="w-full text-white bg-neutral-700 py-3 px-4 rounded-lg shadow"
+            />
+          </div>
 
           {/* Choose image button */}
           <button

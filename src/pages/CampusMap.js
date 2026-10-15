@@ -475,6 +475,8 @@ const CampusMap = () => {
             <div className="hotspot-marker"></div>
           </div>
         ))}
+
+        {/*DORMITORY HOTSPOT*/}
         {dormitories.map((dorm) => (
           <div
             key={dorm.id}

@@ -163,6 +163,278 @@ const buildings = [
   },
 ];
 
+const dormitories = [
+  {
+    id: "St.Charles_North",
+    name: "St. Charles Borromeo Hall North - 2",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper-class",
+      "Sectional Style Living",,
+      "Co-ed by Section",
+      "Connected to the College of Business, Convocation Hall",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 54 Students",
+    ],
+
+    top: "12%",
+    left: "66.5%",
+  },
+
+  {
+    id: "St.Charles_South",
+    name: "St. Charles Borromeo Hall North - 3",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Male Graduate and Veteran Hall",
+      "Traditional Style Setting",
+      "Single rooms with Couch/Coffee Table/Micro-Fridge",
+      "Connected to the College of Business, Convocation Hall",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 52 Students",
+    ],
+
+    top: "17%",
+    left: "70.5%",
+  },
+
+  {
+    id: "Sheil",
+    name: "Sheil Hall - 26",
+
+    shortDescription:
+      "First Year Residence and Oldest Building on Campus",
+
+    details: [
+      "First Year Hall",
+      "Traditional Style Setting",
+      "Double Rooms",
+      "Co-ed by Floor",
+      "Alcohol Free",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 123 Students",
+    ],
+
+    top: "50%",
+    left: "41%",
+  },
+
+  {
+    id: "Founders",
+    name: "Founders Hall - 36",
+
+    shortDescription:
+      "One First Year Residence Hall",
+
+    details: [
+      "First Year Hall",
+      "Traditional Style Setting",
+      "Double Rooms",
+      "Co-ed by Floor",
+      "Alcohol Free",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 160 Students"
+    ],
+
+    top: "52%",
+    left: "60%",
+  },
+
+  {
+    id: "North_Hall",
+    name: "North Hall - 39",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Kitchenette and common living space within each section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 125 Students"
+    ],
+
+    top: "55%",
+    left: "58%",
+  },
+
+  {
+    id: "De_La_Salle_North",
+    name: "De La Salle Hall North - 44",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper Class Hall",
+      "Traditional Style Setting",
+      "Single Rooms",
+      "Co-ed by Floor",
+      "Intensive Study Hall",
+      "Each room has a sink",
+      "Connected to the Courtyard Cafeteria, Bookstore, and Mailroom",
+      "Building Amenities: common lounge, pool table, ping-pong table, vending machines, TV, kitchen and laundry",
+      "Total Occupancy: 58 Students",
+    ],
+
+    top: "66%",
+    left: "50%",
+  },
+
+  {
+    id: "De_La_Salle_South",
+    name: "De La Salle Hall South - 46",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper Class Hall",
+      "Traditional Style Setting",
+      "Double Rooms",
+      "Co-ed by Floor",
+      "Intensive Study Hall",
+      "Each room has a sink",
+      "Connected to the Courtyard Cafeteria, Bookstore, and Mailroom",
+      "Building Amenities: common lounge, pool table, ping-pong table, vending machines, TV, kitchen and laundry",
+      "Total Occupancy: 61 Students",
+    ],
+
+    top: "71.5%",
+    left: "50%",
+  },
+
+  {
+    id: "South_Hall",
+    name: "South Hall - 48 and 49",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "First Year Hall",
+      "Traditional Style Setting",
+      "Single Rooms",
+      "Co-ed by Floor",
+      "Each Room has a sink",
+      "Alcohol Free",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 40 Students"
+    ],
+
+    top: "69%",
+    left: "29%",
+  },
+
+  {
+    id: "Dorothy Day Hall",
+    name: "Dorothy Day Hall - 55",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 125 Students"
+    ],
+
+    top: "81.5%",
+    left: "28.5%",
+  },
+
+  {
+    id: "Mother_T",
+    name: "Mother Teresa Hall - 56",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 95 Students",
+    ],
+
+    top: "78%",
+    left: "34%",
+  },
+
+  {
+    id: "Pope_John_Paull",
+    name: "Pope John Paul II Hall - 58",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 95 Students",
+    ],
+
+    top: "78%",
+    left: "42.75%",
+  },
+
+  {
+    id: "Ryan",
+    name: "Ryan Hall - 59",
+
+    shortDescription:
+      "Fill in Blanks",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 58 Students",
+    ],
+
+    top: "77%",
+    left: "59.5%",
+  },
+
+  {
+    id: "Cody_hall",
+    name: "Cody Hall - 61",
+
+    shortDescription:
+      "Suite-style living, Single and double rooms, Co-ed by section Building amenities include common lounge, Total occupancy: 95 students",
+
+    details: [
+      "Cody Hall is located on the far southeast corner of campus next to Ryan Hall and is near the softball diamond.", 
+      "Cody Hall has recently been renovated, giving it a new fresh look for its 58 residents.",
+      "It accommodates single occupancy living. This three floor building is co-ed by floor.",
+      "Average room dimensions starting at 13' x 10'.",
+    ],
+
+    top: "81%",
+    left: "69%",
+  },
+
+];
+
 const CampusMap = () => {
   const [activeBuilding, setActiveBuilding] = useState(null);
 
@@ -199,6 +471,19 @@ const CampusMap = () => {
               left: building.left,
             }}
             onClick={() => setActiveBuilding(building)}
+          >
+            <div className="hotspot-marker"></div>
+          </div>
+        ))}
+        {dormitories.map((dorm) => (
+          <div
+            key={dorm.id}
+            className="hotspot dorm-hotspot"
+            style={{
+              top: dorm.top,
+              left: dorm.left,
+            }}
+            onClick={() => setActiveBuilding(dorm)}
           >
             <div className="hotspot-marker"></div>
           </div>
@@ -257,6 +542,30 @@ const CampusMap = () => {
           </div>
         ))}
 
+      {/* DORMITORY INFO */}
+      <div className="map-info">
+
+        <h2>Dormitories</h2>
+
+        {dormitories.map((dorm) => (
+          <div
+            key={dorm.id}
+            id={dorm.id}
+            className="dorm"
+          >
+
+            <h3>{dorm.name}</h3>
+
+            <ul>
+              {dorm.details.map((detail, index) => (
+                <li key={index}>{detail}</li>
+              ))}
+            </ul>
+
+          </div>
+        ))}
+
+      </div>
       </div>
     </div>
   );

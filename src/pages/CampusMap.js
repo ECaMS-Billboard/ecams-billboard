@@ -173,7 +173,7 @@ const dormitories = [
 
     details: [
       "Upper-class",
-      "Sectional Style Living",,
+      "Sectional Style Living",
       "Co-ed by Section",
       "Connected to the College of Business, Convocation Hall",
       "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",

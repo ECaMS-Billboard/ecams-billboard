@@ -169,7 +169,7 @@ const dormitories = [
     name: "St. Charles Borromeo Hall North - 2",
 
     shortDescription:
-      "Fill in Blanks",
+      "Accessed Via 101 Airport Road. Has 18' x 11' double rooms and 18' x 8' single room",
 
     details: [
       "Upper-class",
@@ -189,7 +189,7 @@ const dormitories = [
     name: "St. Charles Borromeo Hall North - 3",
 
     shortDescription:
-      "Fill in Blanks",
+      "Accessed Via 101 Airport Road. Has 15' x 10' regular rooms and 21' x 16' large rooms",
 
     details: [
       "Male Graduate and Veteran Hall",
@@ -251,7 +251,7 @@ const dormitories = [
     name: "North Hall - 39",
 
     shortDescription:
-      "Fill in Blanks",
+      "The Hall that is the best for any and all majors due to the simple location",
 
     details: [
       "Upper Class Hall",
@@ -272,7 +272,7 @@ const dormitories = [
     name: "De La Salle Hall North - 44",
 
     shortDescription:
-      "Fill in Blanks",
+      "Commonly referred to as “D-North” by the students. Connected to De La Salle Central",
 
     details: [
       "Upper Class Hall",
@@ -295,7 +295,7 @@ const dormitories = [
     name: "De La Salle Hall South - 46",
 
     shortDescription:
-      "Fill in Blanks",
+      "Commanly referred to as “D-South” by students. Connected to De La Salle Central",
 
     details: [
       "Upper Class Hall",
@@ -318,7 +318,7 @@ const dormitories = [
     name: "South Hall - 48 and 49",
 
     shortDescription:
-      "Fill in Blanks",
+      "Adjacent to the College of Nursing and Health Sciences, convenient for nursing majors",
 
     details: [
       "First Year Hall",
@@ -340,7 +340,7 @@ const dormitories = [
     name: "Dorothy Day Hall - 55",
 
     shortDescription:
-      "Fill in Blanks",
+      "The newest addition to the Lewis University campus, and is located on the far south end of campus",
 
     details: [
       "Upper Class Hall",
@@ -360,7 +360,7 @@ const dormitories = [
     name: "Mother Teresa Hall - 56",
 
     shortDescription:
-      "Fill in Blanks",
+      "The lower level houses the Student Wellness Center as well as several classroom",
 
     details: [
       "Upper Class Hall",
@@ -380,7 +380,7 @@ const dormitories = [
     name: "Pope John Paul II Hall - 58",
 
     shortDescription:
-      "Fill in Blanks",
+      "Offices for student media organizations as well as classrooms for the communications department",
 
     details: [
       "Upper Class Hall",
@@ -400,7 +400,7 @@ const dormitories = [
     name: "Ryan Hall - 59",
 
     shortDescription:
-      "Fill in Blanks",
+      "Located next to Cody Hall and directly in front of the softball field",
 
     details: [
       "Upper Class Hall",
@@ -420,13 +420,15 @@ const dormitories = [
     name: "Cody Hall - 61",
 
     shortDescription:
-      "Suite-style living, Single and double rooms, Co-ed by section Building amenities include common lounge, Total occupancy: 95 students",
-
+      "Accommodates single occupancy living and is close to the baseball field",
+    
     details: [
-      "Cody Hall is located on the far southeast corner of campus next to Ryan Hall and is near the softball diamond.", 
-      "Cody Hall has recently been renovated, giving it a new fresh look for its 58 residents.",
-      "It accommodates single occupancy living. This three floor building is co-ed by floor.",
-      "Average room dimensions starting at 13' x 10'.",
+      "Upper-class hall",
+      "Traditional Style Setting",
+      "Single rooms",
+      "Co-ed by Floor", 
+      "Building amenities include common lounge, pool table, foosball table, vending machines, TV and laundry",
+      "Total occupancy: 95 students",
     ],
 
     top: "81%",

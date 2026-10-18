@@ -166,7 +166,7 @@ const buildings = [
 const dormitories = [
   {
     id: "St.Charles_North",
-    name: "St. Charles Borromeo Hall North - 2",
+    name: "St. Charles Borromeo North Hall - 2",
 
     shortDescription:
       "Accessed Via 101 Airport Road. Has 18' x 11' double rooms and 18' x 8' single room",

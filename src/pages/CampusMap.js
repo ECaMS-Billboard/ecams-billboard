@@ -163,6 +163,280 @@ const buildings = [
   },
 ];
 
+const dormitories = [
+  {
+    id: "St.Charles_North",
+    name: "St. Charles Borromeo North Hall - 2",
+
+    shortDescription:
+      "Accessed Via 101 Airport Road. Has 18' x 11' double rooms and 18' x 8' single room",
+
+    details: [
+      "Upper-class",
+      "Sectional Style Living",
+      "Co-ed by Section",
+      "Connected to the College of Business, Convocation Hall",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 54 Students",
+    ],
+
+    top: "12%",
+    left: "66.5%",
+  },
+
+  {
+    id: "St.Charles_South",
+    name: "St. Charles Borromeo Hall North - 3",
+
+    shortDescription:
+      "Accessed Via 101 Airport Road. Has 15' x 10' regular rooms and 21' x 16' large rooms",
+
+    details: [
+      "Male Graduate and Veteran Hall",
+      "Traditional Style Setting",
+      "Single rooms with Couch/Coffee Table/Micro-Fridge",
+      "Connected to the College of Business, Convocation Hall",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 52 Students",
+    ],
+
+    top: "17%",
+    left: "70.5%",
+  },
+
+  {
+    id: "Sheil",
+    name: "Sheil Hall - 26",
+
+    shortDescription:
+      "First Year Residence and Oldest Building on Campus",
+
+    details: [
+      "First Year Hall",
+      "Traditional Style Setting",
+      "Double Rooms",
+      "Co-ed by Floor",
+      "Alcohol Free",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 123 Students",
+    ],
+
+    top: "50%",
+    left: "41%",
+  },
+
+  {
+    id: "Founders",
+    name: "Founders Hall - 36",
+
+    shortDescription:
+      "One First Year Residence Hall",
+
+    details: [
+      "First Year Hall",
+      "Traditional Style Setting",
+      "Double Rooms",
+      "Co-ed by Floor",
+      "Alcohol Free",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 160 Students"
+    ],
+
+    top: "52%",
+    left: "60%",
+  },
+
+  {
+    id: "North_Hall",
+    name: "North Hall - 39",
+
+    shortDescription:
+      "The Hall that is the best for any and all majors due to the simple location",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Kitchenette and common living space within each section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 125 Students"
+    ],
+
+    top: "55%",
+    left: "58%",
+  },
+
+  {
+    id: "De_La_Salle_North",
+    name: "De La Salle Hall North - 44",
+
+    shortDescription:
+      "Commonly referred to as “D-North” by the students. Connected to De La Salle Central",
+
+    details: [
+      "Upper Class Hall",
+      "Traditional Style Setting",
+      "Single Rooms",
+      "Co-ed by Floor",
+      "Intensive Study Hall",
+      "Each room has a sink",
+      "Connected to the Courtyard Cafeteria, Bookstore, and Mailroom",
+      "Building Amenities: common lounge, pool table, ping-pong table, vending machines, TV, kitchen and laundry",
+      "Total Occupancy: 58 Students",
+    ],
+
+    top: "66%",
+    left: "50%",
+  },
+
+  {
+    id: "De_La_Salle_South",
+    name: "De La Salle Hall South - 46",
+
+    shortDescription:
+      "Commanly referred to as “D-South” by students. Connected to De La Salle Central",
+
+    details: [
+      "Upper Class Hall",
+      "Traditional Style Setting",
+      "Double Rooms",
+      "Co-ed by Floor",
+      "Intensive Study Hall",
+      "Each room has a sink",
+      "Connected to the Courtyard Cafeteria, Bookstore, and Mailroom",
+      "Building Amenities: common lounge, pool table, ping-pong table, vending machines, TV, kitchen and laundry",
+      "Total Occupancy: 61 Students",
+    ],
+
+    top: "71.5%",
+    left: "50%",
+  },
+
+  {
+    id: "South_Hall",
+    name: "South Hall - 48 and 49",
+
+    shortDescription:
+      "Adjacent to the College of Nursing and Health Sciences, convenient for nursing majors",
+
+    details: [
+      "First Year Hall",
+      "Traditional Style Setting",
+      "Single Rooms",
+      "Co-ed by Floor",
+      "Each Room has a sink",
+      "Alcohol Free",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 40 Students"
+    ],
+
+    top: "69%",
+    left: "29%",
+  },
+
+  {
+    id: "Dorothy Day Hall",
+    name: "Dorothy Day Hall - 55",
+
+    shortDescription:
+      "The newest addition to the Lewis University campus, and is located on the far south end of campus",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 125 Students"
+    ],
+
+    top: "81.5%",
+    left: "28.5%",
+  },
+
+  {
+    id: "Mother_T",
+    name: "Mother Teresa Hall - 56",
+
+    shortDescription:
+      "The lower level houses the Student Wellness Center as well as several classroom",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 95 Students",
+    ],
+
+    top: "78%",
+    left: "34%",
+  },
+
+  {
+    id: "Pope_John_Paull",
+    name: "Pope John Paul II Hall - 58",
+
+    shortDescription:
+      "Offices for student media organizations as well as classrooms for the communications department",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 95 Students",
+    ],
+
+    top: "78%",
+    left: "42.75%",
+  },
+
+  {
+    id: "Ryan",
+    name: "Ryan Hall - 59",
+
+    shortDescription:
+      "Located next to Cody Hall and directly in front of the softball field",
+
+    details: [
+      "Upper Class Hall",
+      "Suite-Style Living",
+      "Single/Double Rooms",
+      "Co-ed by Section",
+      "Building Amentities: common lounge, pool table, ping pong table, vending machines, TV, kitchen and laundry,",
+      "Total Occupancy: 58 Students",
+    ],
+
+    top: "77%",
+    left: "59.5%",
+  },
+
+  {
+    id: "Cody_hall",
+    name: "Cody Hall - 61",
+
+    shortDescription:
+      "Accommodates single occupancy living and is close to the baseball field",
+    
+    details: [
+      "Upper-class hall",
+      "Traditional Style Setting",
+      "Single rooms",
+      "Co-ed by Floor", 
+      "Building amenities include common lounge, pool table, foosball table, vending machines, TV and laundry",
+      "Total occupancy: 95 students",
+    ],
+
+    top: "81%",
+    left: "69%",
+  },
+
+];
+
 const CampusMap = () => {
   const [activeBuilding, setActiveBuilding] = useState(null);
 
@@ -199,6 +473,21 @@ const CampusMap = () => {
               left: building.left,
             }}
             onClick={() => setActiveBuilding(building)}
+          >
+            <div className="hotspot-marker"></div>
+          </div>
+        ))}
+
+        {/*DORMITORY HOTSPOT*/}
+        {dormitories.map((dorm) => (
+          <div
+            key={dorm.id}
+            className="hotspot dorm-hotspot"
+            style={{
+              top: dorm.top,
+              left: dorm.left,
+            }}
+            onClick={() => setActiveBuilding(dorm)}
           >
             <div className="hotspot-marker"></div>
           </div>
@@ -257,9 +546,34 @@ const CampusMap = () => {
           </div>
         ))}
 
+      {/* DORMITORY INFO */}
+      <div className="map-info">
+
+        <h2>Dormitories</h2>
+
+        {dormitories.map((dorm) => (
+          <div
+            key={dorm.id}
+            id={dorm.id}
+            className="dorm"
+          >
+
+            <h3>{dorm.name}</h3>
+
+            <ul>
+              {dorm.details.map((detail, index) => (
+                <li key={index}>{detail}</li>
+              ))}
+            </ul>
+
+          </div>
+        ))}
+
+      </div>
       </div>
     </div>
   );
 };
 
 export default CampusMap;
+

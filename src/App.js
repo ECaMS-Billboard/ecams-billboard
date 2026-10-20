@@ -1,121 +1,62 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-
 import Footer from './components/Footer';
-
-
-
+import Navigationbar from './components/Navigationbar';
+import NavigationButtons from './components/NavigationButtons';
 import {
   AdminPanel, About, Credits, Home, Kiosk, ProfessorList, ProfessorProfile,
   Resources, Slides, Upload, EverydayApp, CarouselApi,
   CapstoneProducts, Carousel, Tutorial, Events, Bracket, Calendar, CampusMap
 } from './pages';
 
-import Navigationbar from './components/Navigationbar';
-import NavigationButtons from './components/NavigationButtons';
 
 function App() {
+  return (
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <AppShell />
+    </BrowserRouter>
+  );
+}
 
-  
+function AppShell() {
+  const location = useLocation();
+  const hideNav = location.pathname === '/kiosk';
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const links = [
-    {
-      title: 'View Poster Slideshow',
-      path: '/slides',
-      description: 'The slideshow that is currently present on the Kiosk.',
-      icon: "icons/slideshow.png"
-    },
-    {
-      title: 'Upload a Poster',
-      path: '/upload',
-      description: 'Share your academic or event poster with the campus.',
-      icon: "icons/upload.png"
-    },
-    
-    {
-      title: 'Professor Information',
-      path: '/professor-list',
-      description: 'Find contact details and office hours for ECaMS faculty.',
-      icon: "icons/prof-info.png"
-    },
-    {
-      title: 'Everyday App',
-      path: '/everydayapp',
-      description: 'Quick and easy link to the Everyday App.',
-      icon: "icons/everyday-app.png"
-    },
-    {
-      title: 'Capstone Products',
-      path: '/capstoneproducts',
-      description: 'Visit other student projects from capstone courses.',
-      icon: "icons/capstone.png"
-    },
-    {
-      title: 'Student Events',
-      path: '/events',
-      description: 'Stay in the loop with upcoming campus events and activities.',
-      icon: "icons/events.png"
-    },
-
-    {
-      title: 'Vote Monthly Bracket',
-      path: '/Bracket',
-      description: "Vote for your favorite flower",
-      icon: "icons/bracket.png"
-    },
-
-    {
-      title: 'Credits',
-      path: '/credits',
-      description: 'See who contributed to the creation and success of this platform.',
-      icon: "icons/credits.png"
-    },
-    {
-      title: 'Resources',
-      path: '/resources',
-      description: 'Access academic support services and essential campus resources.',
-      icon: "icons/resources.png"
-    },
-    {
-      title: 'About & Contact',
-      path: '/about',
-      description: 'Learn about the ECaMS Billboard project and how to get in touch.',
-      icon: "icons/about.png"
-    },
-    {
-      title: 'Calendar',
-      path: '/calendar',
-      description: 'View Lewis Events on the Calendar',
-      icon: "icons/calendar.png"
-    },
-    {
-      title: 'Campus Map',
-      path: '/campusmap',
-      description: 'View the Campus Map',
-      icon: "icons/map.png"
-    },
+    { title: 'View Poster Slideshow', path: '/slides', description: 'The slideshow that is currently present on the Kiosk.', icon: "icons/slideshow.png" },
+    { title: 'Upload a Poster', path: '/upload', description: 'Share your academic or event poster with the campus.', icon: "icons/upload.png" },
+    { title: 'Professor Information', path: '/professor-list', description: 'Find contact details and office hours for ECaMS faculty.', icon: "icons/prof-info.png" },
+    { title: 'Everyday App', path: '/everydayapp', description: 'Quick and easy link to the Everyday App.', icon: "icons/everyday-app.png" },
+    { title: 'Capstone Products', path: '/capstoneproducts', description: 'Visit other student projects from capstone courses.', icon: "icons/capstone.png" },
+    { title: 'Student Events', path: '/events', description: 'Stay in the loop with upcoming campus events and activities.', icon: "icons/events.png" },
+    { title: 'Vote Monthly Bracket', path: '/Bracket', description: "Vote for your favorite flower", icon: "icons/bracket.png" },
+    { title: 'Credits', path: '/credits', description: 'See who contributed to the creation and success of this platform.', icon: "icons/credits.png" },
+    { title: 'Resources', path: '/resources', description: 'Access academic support services and essential campus resources.', icon: "icons/resources.png" },
+    { title: 'About & Contact', path: '/about', description: 'Learn about the ECaMS Billboard project and how to get in touch.', icon: "icons/about.png" },
+    { title: 'Calendar', path: '/calendar', description: 'View Lewis Events on the Calendar', icon: "icons/calendar.png" },
+    { title: 'Campus Map', path: '/campusmap', description: 'View the Campus Map', icon: "icons/map.png" },
   ];
 
- 
   const filteredLinks = links.filter(link =>
     link.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     link.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-
-      {}
-      <Navigationbar
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-      />
-      <NavigationButtons />
+    <>
+      {!hideNav && (
+        <>
+          <Navigationbar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
+          <NavigationButtons />
+        </>
+      )}
 
       <Routes>
-
-        {}
         <Route path="/" element={<Home links={filteredLinks} />} />
 
         <Route path="/about" element={<About />} />
@@ -139,8 +80,8 @@ function App() {
         <Route path="/campusmap" element={<CampusMap />} />
       </Routes>
 
-      <Footer />
-    </BrowserRouter>
+      {!hideNav && <Footer />}
+    </>
   );
 }
 

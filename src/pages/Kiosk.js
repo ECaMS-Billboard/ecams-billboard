@@ -7,6 +7,17 @@ function Slides() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [items, setItems] = useState([]);
 
+    // I'm well aware this looks like it does nothing, but this is VERY IMPORTANT for keeping the API in a non-asleep state. 
+  useEffect(() => {
+    const ping = () =>
+      fetch(`${API_BASE_URL}/ping`, { method: 'HEAD', mode: 'no-cors' }).catch(() => {});
+
+    ping();
+    const id = setInterval(ping, 15 * 60 * 1000);
+    return () => clearInterval(id);
+  }, []);
+
+
   // Fetch banner data
   useEffect(() => {
     async function fetchBannerData() {

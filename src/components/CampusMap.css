@@ -42,6 +42,18 @@
   padding-left: 20px;
 }
 
+.dorm {
+  margin-bottom: 20px;
+}
+
+.dorm h3 {
+  margin-bottom: 5px;
+}
+
+.dorm ul {
+  padding-left: 20px;
+}
+
 /* MAP CONTAINER */
 .map-container {
   position: relative;
@@ -147,6 +159,37 @@
 
 /* BUILDING CARDS */
 .building {
+  background: white;
+
+  padding: 18px;
+
+  margin-bottom: 18px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+
+/* DORMITORY MARKERS */
+.dorm-hotspot .hotspot-marker {
+  background: linear-gradient(135deg, #3399ff, #004c99);
+
+  box-shadow:
+    0 0 12px rgba(51, 153, 255, 0.7),
+    0 0 20px rgba(0, 76, 153, 0.4);
+}
+
+/* DORMITORY MARKER HOVER */
+.dorm-hotspot .hotspot-marker:hover {
+  box-shadow:
+    0 0 18px rgba(51, 153, 255, 1),
+    0 0 30px rgba(0, 76, 153, 0.8);
+}
+
+
+/* DORMITORY CARDS */
+.dorm {
   background: white;
 
   padding: 18px;

@@ -31,10 +31,7 @@ function Upload() {
       return;
     }
 
-    if (!eventDate) {
-  alert("Please select the event date!");
-  return;
- }
+    
 
     if (!file) {
       alert("Please select an image first!");
@@ -44,7 +41,9 @@ function Upload() {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('email', email);
-    formData.append('eventDate', eventDate);
+    if (eventDate) {
+  formData.append('eventDate', eventDate);
+  }
     formData.append('description', "UPLOAD TEST");
     formData.append('notes', "UPLOAD TEST") ;
     if (expiryDate) {
@@ -104,13 +103,17 @@ function Upload() {
             required
           />
           {/* Event date */}
+          <div>
+          <label className="text-white text-sm mb-1 block">
+          Event date (optional)
+          </label>
           <input
           type="date"
           value={eventDate}
           onChange={(e) => setEventDate(e.target.value)}
           className="w-full text-white bg-neutral-700 py-3 px-4 rounded-lg shadow"
-          required
           />
+          </div>
           {/* Expiry date input */}
           <div>
             <label className="text-white text-sm mb-1 block">Expiration date (optional)</label>

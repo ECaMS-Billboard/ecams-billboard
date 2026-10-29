@@ -15,6 +15,8 @@ function About() {
             Team Stone Ocean consists of Ryan Wandke, Juno Tyre, Fawz Mansoor, and Nicholas Jones. 
             If you wish to contact us our emails are: ryanowandke@lewisu.edu, samuelntyne@lewisu.edu,  fawzmmanzoor@lewisu.edu and  NicholasJones@lewisu.edu
             <br/><br/>
+            [Add introduction] SpiderScrum consists of Matt Ondracek, [insert name]... If you wish to contact us our emails are: matthewjondracek@lewisu.edu, [insert emails]
+            <br/><br/>
             While "ECaMS" is in the project name and our only kiosk is located in the AS
             building, poster submissions are not necessarily restricted to this department. 
             Anything is acceptable as long as it is related to university events or organizations

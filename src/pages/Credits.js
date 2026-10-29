@@ -20,9 +20,9 @@ function Credits() {
 </div>
 
         <div className="bg-gray-800 p-6 rounded-lg shadow-md text-gray-300 mt-6">
-          <h2 className="text-xl font-bold text-white mb-2">Upcoming Team</h2>
+          <h2 className="text-xl font-bold text-white mb-2">SpiderScrum</h2>
           <ul className="list-disc list-inside">
-            <li>TBD</li>
+            <li>Matt Ondracek</li>
           </ul>
         </div>
 

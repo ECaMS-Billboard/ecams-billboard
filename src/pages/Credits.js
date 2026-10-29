@@ -23,6 +23,7 @@ function Credits() {
           <h2 className="text-xl font-bold text-white mb-2">SpiderScrum</h2>
           <ul className="list-disc list-inside">
             <li>Matt Ondracek</li>
+            <li>Alanna San Luis</li>
           </ul>
         </div>
 

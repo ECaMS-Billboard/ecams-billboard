@@ -25,6 +25,7 @@ function Credits() {
             <li>Matt Ondracek</li>
             <li>Alanna San Luis</li>
             <li>Vincent Medina</li>
+            <li>Jesse Lopez</li>
           </ul>
         </div>
 

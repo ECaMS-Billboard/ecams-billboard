@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 export default function NavigationButtons() {
   return (
     <nav className="bg-black flex flex-wrap justify-center gap-3 py-3 px-4">
+      
+      <Link to="/" className="text-white px-3 py-1 rounded hover:bg-gray-800">
+        Home
+      </Link>
+      
       <Link to="/slides" className="text-white px-3 py-1 rounded hover:bg-gray-800">
         Slides
       </Link>

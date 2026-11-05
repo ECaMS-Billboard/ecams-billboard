@@ -21,6 +21,7 @@ function App() {
 function AppShell() {
   const location = useLocation();
   const hideNav = location.pathname === '/kiosk';
+  const showSearch = location.pathname === '/';
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -46,12 +47,15 @@ function AppShell() {
 
   return (
     <>
+      {showSearch && (
+        <Navigationbar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          />
+      )}
+
       {!hideNav && (
         <>
-          <Navigationbar
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-          />
           <NavigationButtons />
         </>
       )}

@@ -54,6 +54,10 @@ function AppShell() {
           />
       )}
 
+      <Routes>
+        <Route path="/calendar" element={<Calendar />} />
+      </Routes>
+
       {!hideNav && (
         <>
           <NavigationButtons />
@@ -66,7 +70,6 @@ function AppShell() {
         <Route path="/about" element={<About />} />
         <Route path="/acp/" element={<AdminPanel />} />
         <Route path="/credits" element={<Credits />} />
-        <Route path="/calendar" element={<Calendar />} />
         <Route path="/kiosk" element={<Kiosk />} />
         <Route path="/carousel" element={<Carousel />} />
         <Route path="/carouselApi" element={<CarouselApi />} />

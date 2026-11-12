@@ -21,7 +21,7 @@ const CapstoneProducts = () => {
         },
         {
             title: "PitHub",
-            image: "Pithub.png",
+            image: "PitHub.png",
             link: "https://backend--pithub-test-kd.us-east4.hosted.app/classes",
             buttonText: "Try PitHub",
         }

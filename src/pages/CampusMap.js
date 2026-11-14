@@ -485,7 +485,7 @@ const CampusMap = () => {
     <div className="map-page">
 
       {/* MAP */}
-      <div className="map-container">
+      <div className={`map-container ${activeBuilding ? 'dimmed' : ''}`}>
 
         <img
           src={Map}

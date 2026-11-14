@@ -75,7 +75,7 @@ function Slides() {
         </div>
 
         {/* Footer Section */}
-      <div className="flex justify-between items-center w-full p-6 bg-black">
+      <div className="flex justify-between items-center w-full p-6 bg-[#862633]">
         {/* QR Code Positioned at Bottom Left */}
         <div className="flex-shrink-0">
           <img
@@ -86,9 +86,9 @@ function Slides() {
         </div>
 
         {/* Footer Messages Positioned to the Right */}
-        <div className="text-right text-slate-100 font-bold">
+        <div className="text-right text-white font-bold">
           <p className="text-5xl">Access The ECaMS Hub!</p>
-          <p className="text-5xl text-red-500">⇐SCAN ME⇐</p>
+          <p className="text-5xl text-white">⇐SCAN ME⇐</p>
         </div>
       </div>
       </div>

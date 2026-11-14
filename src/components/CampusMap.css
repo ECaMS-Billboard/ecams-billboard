@@ -200,3 +200,23 @@
 
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
+
+/* BUILDING LOCATION LINK */
+.location-link {
+  display: inline-block;
+
+  margin-top: 12px;
+  margin-bottom: 15px;
+
+  color: #990000;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.location-link:hover {
+  color: #700000;
+  text-decoration: underline;
+}

@@ -10,6 +10,9 @@ const buildings = [
     shortDescription:
       "Accessed Via 101 Airport Road",
 
+    location: 
+      "https://www.google.com/maps/search/?api=1&query=St.+Charles+Borromeo+North+Hall+Lewis+University",
+
     details: [
       "Human Resorces, College of Buisness, Convocation Hall, Presidental Gallery, Facilities, Flight Deck, Innovation Hub, Lowell Stahl Center",
     ],
@@ -171,6 +174,9 @@ const dormitories = [
     shortDescription:
       "Accessed Via 101 Airport Road. Has 18' x 11' double rooms and 18' x 8' single room",
 
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#borro",
+
     details: [
       "Upper-class",
       "Sectional Style Living",
@@ -253,6 +259,9 @@ const dormitories = [
     shortDescription:
       "The Hall that is the best for any and all majors due to the simple location",
 
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#north",
+
     details: [
       "Upper Class Hall",
       "Suite-Style Living",
@@ -273,6 +282,9 @@ const dormitories = [
 
     shortDescription:
       "Commonly referred to as “D-North” by the students. Connected to De La Salle Central",
+
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#de_la_salle_north",
 
     details: [
       "Upper Class Hall",
@@ -296,6 +308,9 @@ const dormitories = [
 
     shortDescription:
       "Commanly referred to as “D-South” by students. Connected to De La Salle Central",
+
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#de_la_salle_south",
 
     details: [
       "Upper Class Hall",
@@ -342,6 +357,9 @@ const dormitories = [
     shortDescription:
       "The newest addition to the Lewis University campus, and is located on the far south end of campus",
 
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#dorothy",
+
     details: [
       "Upper Class Hall",
       "Suite-Style Living",
@@ -361,6 +379,9 @@ const dormitories = [
 
     shortDescription:
       "The lower level houses the Student Wellness Center as well as several classroom",
+
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#teresa",
 
     details: [
       "Upper Class Hall",
@@ -382,6 +403,9 @@ const dormitories = [
     shortDescription:
       "Offices for student media organizations as well as classrooms for the communications department",
 
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#pjp2",
+
     details: [
       "Upper Class Hall",
       "Suite-Style Living",
@@ -402,6 +426,9 @@ const dormitories = [
     shortDescription:
       "Located next to Cody Hall and directly in front of the softball field",
 
+    location:
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#ryan",
+
     details: [
       "Upper Class Hall",
       "Suite-Style Living",
@@ -421,6 +448,9 @@ const dormitories = [
 
     shortDescription:
       "Accommodates single occupancy living and is close to the baseball field",
+
+    location: 
+      "https://www.lewisu.edu/studentservices/housing/halls/residencehalls-upperclassmen.htm#cody",
     
     details: [
       "Upper-class hall",
@@ -507,6 +537,17 @@ const CampusMap = () => {
             <h3>{activeBuilding.name}</h3>
 
             <p>{activeBuilding.shortDescription}</p>
+
+            {activeBuilding.location && (
+              <a
+                href={activeBuilding.location}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="location-link"
+              >
+                View Building Location
+                </a>
+            )}
 
             <button
               className="popup-btn"

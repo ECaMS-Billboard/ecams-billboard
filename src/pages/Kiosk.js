@@ -19,28 +19,13 @@ function Slides() {
 
 
   useEffect(() => {
-    const refresh = async () => {
-      try {
-        const res = await fetch(`${API_BASE_URL}/upload/screenshot/auto`, { method: 'POST' });
-        const data = await res.json();
+    const startup = setTimeout(() => {
+      fetch(`${API_BASE_URL}/upload/screenshot/auto`, { method: 'POST' }).catch(() => {});
+    }, 30 * 1000); // wait 30 seconds after the page loads
 
-        // A new calendar slide was made, so reload to show it
-        if (res.ok && data.message?.startsWith('Calendar slide')) {
-          window.location.reload();
-        }
-      } catch (error) {
-        console.error('Calendar refresh check failed:', error);
-      }
-    };
-
-    const startup = setTimeout(refresh, 30 * 1000);       // 30 seconds after the page loads
-    const id = setInterval(refresh, 2 * 60 * 60 * 1000);  // then every 2 hours
-
-    return () => {
-      clearTimeout(startup);
-      clearInterval(id);
-    };
+    return () => clearTimeout(startup);
   }, []);
+  
 
   // Fetch banner data
   useEffect(() => {

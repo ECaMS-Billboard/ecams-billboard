@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function NavigationButtons() {
   return (
-    <nav className="bg-black flex flex-wrap justify-center gap-3 py-3 px-4">
-      <Link to="/slides" className="text-white px-3 py-1 rounded hover:bg-gray-800">
+    <nav className="bg-[#862633] flex flex-wrap justify-center gap-3 py-3 px-4">
+      <Link to="/slides" className="text-white px-3 py-1 rounded hover:bg-[#641b26] transition-colors">
         Slides
       </Link>
 
@@ -48,7 +48,7 @@ export default function NavigationButtons() {
         Calendar
       </Link>
 
-      <Link to="/campusmap" className="text-white px-3 py-1 rounded hover:bg-gray-800">
+      <Link to="/campusmap" className="text-white px-3 py-1 rounded hover:bg-[#641b26] transition-colors">
         Campus Map
       </Link>
     </nav>

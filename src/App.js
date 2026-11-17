@@ -21,6 +21,7 @@ function App() {
 function AppShell() {
   const location = useLocation();
   const hideNav = location.pathname === '/kiosk';
+  const showSearch = location.pathname === '/';
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -46,12 +47,19 @@ function AppShell() {
 
   return (
     <>
+      {showSearch && (
+        <Navigationbar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          />
+      )}
+
+      <Routes>
+        <Route path="/calendar" element={<Calendar />} />
+      </Routes>
+
       {!hideNav && (
         <>
-          <Navigationbar
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-          />
           <NavigationButtons />
         </>
       )}
@@ -62,7 +70,6 @@ function AppShell() {
         <Route path="/about" element={<About />} />
         <Route path="/acp/" element={<AdminPanel />} />
         <Route path="/credits" element={<Credits />} />
-        <Route path="/calendar" element={<Calendar />} />
         <Route path="/kiosk" element={<Kiosk />} />
         <Route path="/carousel" element={<Carousel />} />
         <Route path="/carouselApi" element={<CarouselApi />} />

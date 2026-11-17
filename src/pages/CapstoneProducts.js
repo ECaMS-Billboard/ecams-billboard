@@ -12,6 +12,25 @@ const CapstoneProducts = () => {
             image: "Lu-Bucks.png",
             link: "https://main.d201yyvy2d1qne.amplifyapp.com/About-Page/About.html",
             buttonText: "Try LU-Bucks",
+        },
+        {
+            title: "SyllaBye",
+            image: "Syllabye.png",
+            link: "https://syllabye-4a90d.web.app/",
+            buttonText: "Try SyllaBye",
+        },
+        {
+            title: "PitHub",
+            image: "PitHub.png",
+            link: "https://backend--pithub-test-kd.us-east4.hosted.app/classes",
+            buttonText: "Try PitHub",
+
+        },
+        {
+            title: "Stories",
+            image: "Stories.png",
+            link: "https://back--stories-dec4a.us-east4.hosted.app/",
+            buttonText: "Try Stories",
         }
     ]
 

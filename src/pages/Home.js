@@ -5,7 +5,7 @@ import heroBg from '../imgs/hero-bg.jpg';
 
 function Home({ links }) {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-black">
 
       {/* HERO SECTION */}
       <section
@@ -54,7 +54,7 @@ function Home({ links }) {
                   
                   {/* Icon + Title */}
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-800">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#862633]">
                       {link.icon ? (
                         <img 
                           src={link.icon} 
@@ -66,13 +66,13 @@ function Home({ links }) {
                       )}
                     </div>
 
-                    <h2 className="text-lg font-semibold text-white">
+                    <h2 className="text-lg font-semibold text-[#862633]">
                       {link.title}
                     </h2>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-400 mt-4">
+                  <p className="text-red-500 font-medium group-hover:underline">
                     {link.description || "Click to learn more about this feature."}
                   </p>
 
